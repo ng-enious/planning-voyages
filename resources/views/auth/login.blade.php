@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+
 <html>
 <head>
 <title>Planning Voyage</title>
@@ -60,35 +60,21 @@
 						<li><a href="" class="scroll"> <span class="service"> </span>Our Species</a></li>						
 						<li><a href="" class="scroll"><span class="mail"> </span>Shop </a></li>
 						<div class="clearfix"></div>
-					</ul>
+			</ul>
 					<script>
 					$("span.menu").click(function(){
 						$(".top-nav ul").slideToggle(300, function(){
 						});
 					});
 				</script>
+			
 			</div>
-
-	<div class="head-right">
-				<ul class="number">
-				 @if (Auth::check())
-                 <li><a><i class="roc"> </i>{{ Auth::user()->name }} {{ Auth::user()->lastname }}</a></li>
-				 <li>                        <a href="{{ url('/logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Se déconnecter
-                                        </a>
-
-                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form></li>
-
-				 @else
-
-					<li><a href="{{ url('/register') }}"><i class="roc"> </i>Inscription</a></li>
-					<li><a href="{{ url('/login') }}"><i class="phone"> </i>Connexion</a></li>
-
-				 @endif
+			<div class="head-right">
+			             	<ul class="number">
+					            <li><a href=""><i class="roc"> </i>Inscription</a></li>
+											</ul>
+									</div>
+			
 				   <div class="clearfix"> 
 
 					</div>						
@@ -121,6 +107,12 @@
                                 @endif
                             </div>
                         </div>
+										<div class="head-right">
+				<ul class="number">
+					<li><a href=""><i class="roc"> </i>Inscription</a></li>
+											</ul>
+									</div>
+									
 
                     
 
@@ -161,7 +153,7 @@
 		<div class="container">
        <div class="clearfix"></div>
 			<div class="footer-bottom">
-				<p>Copyrights © 2017  | Planning Voyages</p>
+				<p> Planning Voyages</p>
 			</div>
 		</div>
 	</div>
