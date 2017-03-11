@@ -71,7 +71,7 @@
 			</div>
 			<div class="head-right">
 				<ul class="number">
-					<li><a href=""><i class="phone"> </i>Connexion</a></li>
+					<li><a href="login"><i class="phone"> </i>Connexion</a></li>
 						<div class="clearfix"> </div>						
 				</ul>
 				   <div class="clearfix"> 

@@ -71,10 +71,10 @@
 			</div>
 	<div class="head-right">
 				<ul class="number">
-					<li><a href=""><i class="roc"> </i>Inscription</a></li>
-					<li><a href=""><i class="phone"> </i>Connexion</a></li>
+					<li><a href="register"><i class="roc"> </i>Inscription</a></li>
+					<li><a href="login"><i class="phone"> </i>Connexion</a></li>
 						<div class="clearfix"> </div>						
-				</ul>
+		</ul>
 			</div>
 			<div class="clearfix"> </div>	
 		</div>
