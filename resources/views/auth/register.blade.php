@@ -69,6 +69,7 @@
 					});
 				</script>
 			</div>
+			
 			<div class="head-right">
 				<ul class="number">
 					<li><a href="login"><i class="phone"> </i>Connexion</a></li>
@@ -139,9 +140,9 @@
                             <div class="col-md-6">
                                 <input id="date_naissance" type="text" class="form-control" name="date_naissance" value="{{ old('date_naissance') }}" required autofocus>
 
-                                @if ($errors->has('date_naissance'))
+                                @if ($errors->has('birthday'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('date_naissance') }}</strong>
+                                        <strong>{{ $errors->first('birthday') }}</strong>
                                     </span>
                                 @endif
                             </div>
