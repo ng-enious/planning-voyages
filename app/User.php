@@ -27,3 +27,27 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 }
+    public function aLieu()
+    {
+        return $this->hasMany('App\ALieu');
+    }
+public function lieuxInteret()
+    {
+        return $this->hasMany('App\lieuxInteret');
+    }
+public function voyage()
+    {
+        return $this->hasMany('App\voyage');
+    }
+   public function aviTrajet()
+    {
+        return $this->hasMany('App\aviTrajet');
+    }
+   public function Trajet()
+    {
+        return $this->hasMany('App\Trajet');
+    }
+  public function moyendeTransport()
+    {
+        return $this->hasMany('App\moyendeTransport');
+    }
