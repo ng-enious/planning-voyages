@@ -26,7 +26,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-}
+
     public function aLieu()
     {
         return $this->hasMany('App\ALieu');
@@ -51,3 +51,4 @@ public function voyage()
     {
         return $this->hasMany('App\moyendeTransport');
     }
+}

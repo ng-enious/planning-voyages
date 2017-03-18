@@ -30,7 +30,7 @@
 	</div>
 	<div class="header-bottom">
 		<div class="container">
-	<div class="top-nav">
+		<div class="top-nav">
 				<span class="menu"> </span>
 					<ul class="navig megamenu skyblue">
 						<li><a href="location.html" class="scroll"><span> </span>Trouver une destination</a>
@@ -69,12 +69,28 @@
 					});
 				</script>
 			</div>
-			
-			<div class="head-right">
+
+
+	<div class="head-right">
 				<ul class="number">
-					<li><a href="login"><i class="phone"> </i>Connexion</a></li>
-						<div class="clearfix"> </div>						
-				</ul>
+				 @if (Auth::check())
+                 <li><a><i class="roc"> </i>{{ Auth::user()->name }} {{ Auth::user()->lastname }}</a></li>
+				 <li>                        <a href="{{ url('/logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Se déconnecter
+                                        </a>
+
+                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form></li>
+
+				 @else
+
+					<li><a href="{{ url('/register') }}"><i class="roc"> </i>Inscription</a></li>
+					<li><a href="{{ url('/login') }}"><i class="phone"> </i>Connexion</a></li>
+
+				 @endif
 				   <div class="clearfix"> 
 
 					</div>						
@@ -109,7 +125,7 @@
                             <label for="lastname" class="col-md-4 control-label">Votre Prénom</label>
 
                             <div class="col-md-6">
-                                <input id="lastname" type="text" class="form-control" name="lastname" value="{{ old('lastname') }}" required autofocus>
+                                <input id="lastname" type="text" class="form-control" name="lastName" value="{{ old('lastName') }}" required autofocus>
 
                                 @if ($errors->has('lastname'))
                                     <span class="help-block">
@@ -132,13 +148,12 @@
                                 @endif
                             </div>
                         </div>
-									
 
                          <div class="form-group{{ $errors->has('date_naissance') ? ' has-error' : '' }}">
                             <label for="date_naissance" class="col-md-4 control-label">Date de naissance</label>
 
                             <div class="col-md-6">
-                                <input id="date_naissance" type="text" class="form-control" name="date_naissance" value="{{ old('date_naissance') }}" required autofocus>
+                                <input id="date_naissance" type="text" class="form-control" name="birthday" value="{{ old('date_naissance') }}" required autofocus>
 
                                 @if ($errors->has('birthday'))
                                     <span class="help-block">
@@ -180,16 +195,18 @@
                     </form>
 				</div>
 		   </div>
-			   </div>   
+			   </div>
+			   
 				<div class="clearfix"> </div>
 			</div>
 		</div>
 	</div>
-     <div class="footer">
+<!-- login -->
+	     <div class="footer">
 		<div class="container">
        <div class="clearfix"></div>
 			<div class="footer-bottom">
-				<p> Planning Voyages</p>
+				<p>Planning Voyages</p>
 			</div>
 		</div>
 	</div>

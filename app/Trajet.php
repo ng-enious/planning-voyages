@@ -7,22 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 class Trajet extends Model
 {
      protected $fillable = [
-         'depart','arrive','user_id','avitrajet_id'
+         'depart','arrive','user_id'
     ];   
 }
   public function user()
     {
     	return $this->belongsTo('App\User');
     }
-  public function alieu()
-    {
-    	return $this->belongsTo('App\aviTrajet');
-    }
-  public function moyendeTransport()
+
+  public function Moyen_Transport()
     {
         return $this->hasMany('App\moyendeTransport');
     }
-ublic function voyagehastrajet()
+public function voyagehastrajet()
     {
     	return $this->belongsTo('App\voyagehastrajet');
     }

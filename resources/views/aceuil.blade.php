@@ -103,131 +103,46 @@
 	<div class="login-page">
 		<div class="container">
 			<div class="account_grid">
-				<div class="col-md-11 login-left" data-wow-delay="0.4s">
+				<div class="col-md-4 login-left" data-wow-delay="0.4s">
 		<div class="register">
-	              <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Votre Nom</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-                           <div class="form-group{{ $errors->has('lastname') ? ' has-error' : '' }}">
-                            <label for="lastname" class="col-md-4 control-label">Votre Prénom</label>
-
-                            <div class="col-md-6">
-                                <input id="lastname" type="text" class="form-control" name="lastname" value="{{ old('lastname') }}" required autofocus>
-
-                                @if ($errors->has('lastname'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('lastname') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">Votre Email</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                         <div class="form-group{{ $errors->has('date_naissance') ? ' has-error' : '' }}">
-                            <label for="date_naissance" class="col-md-4 control-label">Date de naissance</label>
-
-                            <div class="col-md-6">
-                                <input id="date_naissance" type="text" class="form-control" name="date_naissance" value="{{ old('date_naissance') }}" required autofocus>
-
-                                @if ($errors->has('date_naissance'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('date_naissance') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Mot de passe</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirmer Votre mot de passe</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Inscription
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+		  	  <form> 
+				 <div class="register-top-grid">
+					<h3>Choisir votre destination</h3>
+					 <div class="wow fadeInLeft" data-wow-delay="0.4s">
+						<span>DE <label>*</label></span>
+						<input type="text"> 
+					 </div>
+					 <div class="wow fadeInRight" data-wow-delay="0.4s">
+						<span>VERS<label>*</label></span>
+						<input type="text"> 
+					 </div>
+					
+					 <div class="clearfix"> </div>
+					 </div>
+				     
+				<div class="clearfix"> </div>
+				<div class="register-but">
+					   <input type="submit" value="Planifier" class="btn btn-primary btn-md">
+					   <div class="clearfix"> </div>
+				   </form>
 				</div>
 		   </div>
 			   </div>
-			   
+			   <div class="col-md-8 login-right wow fadeInRight" data-wow-delay="0.4s">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50425.625635580545!2d145.12407634632558!3d-37.822799693691664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad646b5d2ba4df7%3A0x4045675218ccd90!2sMelbourne+VIC%2C+Australia!5e0!3m2!1sen!2sin!4v1430741934072" width="100%" height="500" frameborder="0" style="border:0"></iframe>
+			   </div>	
 				<div class="clearfix"> </div>
 			</div>
 		</div>
 	</div>
-<!-- login -->
-
-
-	<div class="head-right">
-				<ul class="number">
-				 @if (Auth::check())
-                 <li><a><i class="roc"> </i>{{ Auth::user()->name }} {{ Auth::user()->lastname }}</a></li>
-				 <li>                        <a href="{{ url('/logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Se déconnecter
-                                        </a>
-
-                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form></li>
-
-				 @else
-
-					<li><a href="{{ url('/register') }}"><i class="roc"> </i>Inscription</a></li>
-					<li><a href="{{ url('/login') }}"><i class="phone"> </i>Connexion</a></li>
-
-				 @endif
-				   <div class="clearfix"> 
-
-					</div>						
-				</ul>
+     <div class="footer">
+		<div class="container">
+       <div class="clearfix"></div>
+			<div class="footer-bottom">
+				<p>Planning Voyages</p>
 			</div>
+		</div>
+	</div>
+
 </body>
 </html>
