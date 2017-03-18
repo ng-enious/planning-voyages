@@ -21,8 +21,8 @@
 <!-- banner -->
 	<div class="header">
 		<div class="container">
-<div class="logo">
-		    <a href=""><img src="{{ url('images/logo.png') }}" class="img-responsive" alt=""></a>
+		<div class="logo">
+		    <a href="{{ url('/') }}"><img src="{{ url('images/logo.png') }}" class="img-responsive" alt=""></a>
 			</div>
 			
 				<div class="clearfix"></div>
@@ -30,7 +30,7 @@
 	</div>
 	<div class="header-bottom">
 		<div class="container">
-		<div class="top-nav">
+			<div class="top-nav">
 				<span class="menu"> </span>
 					<ul class="navig megamenu skyblue">
 						<li><a href="location.html" class="scroll"><span> </span>Trouver une destination</a>
@@ -69,12 +69,32 @@
 					});
 				</script>
 			</div>
+	
+
 	<div class="head-right">
 				<ul class="number">
-					<li><a href="register"><i class="roc"> </i>Inscription</a></li>
-					<li><a href="login"><i class="phone"> </i>Connexion</a></li>
-						<div class="clearfix"> </div>						
-		</ul>
+				 @if (Auth::check())
+                 <li><a><i class="roc"> </i>{{ Auth::user()->name }} {{ Auth::user()->lastname }}</a></li>
+				 <li>                        <a href="{{ url('/logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Se déconnecter
+                                        </a>
+
+                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form></li>
+
+				 @else
+
+					<li><a href="{{ url('/register') }}"><i class="roc"> </i>Inscription</a></li>
+					<li><a href="{{ url('/login') }}"><i class="phone"> </i>Connexion</a></li>
+
+				 @endif
+				   <div class="clearfix"> 
+
+					</div>						
+				</ul>
 			</div>
 			<div class="clearfix"> </div>	
 		</div>
@@ -115,7 +135,6 @@
 			</div>
 		</div>
 	</div>
-<!-- login -->
      <div class="footer">
 		<div class="container">
        <div class="clearfix"></div>
@@ -124,5 +143,6 @@
 			</div>
 		</div>
 	</div>
+
 </body>
 </html>

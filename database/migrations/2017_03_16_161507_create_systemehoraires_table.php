@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class LieuInteret extends Migration
+class CreateSystemehorairesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,13 @@ class LieuInteret extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('systemehoraires', function (Blueprint $table) {
+            $table->increments('id');
+          $table->string('heureDepart');
+          $table->string('heureArrive');
+          
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +29,6 @@ class LieuInteret extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('systemehoraires');
     }
 }
