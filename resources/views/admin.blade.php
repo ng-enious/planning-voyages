@@ -1,7 +1,13 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Location a Travel Flat Bootstarp Responsive Website Template | shop :: w3layouts</title>
+<title>aaaaaa</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,16 +30,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="header">
 		<div class="container">
 			<div class="logo">
-				<a href="index.html"><img src="images/logo.png" class="img-responsive" alt=""></a>
+				<a href="{{ url('/') }}"><img src="images/logo.png" class="img-responsive" alt=""></a>
 			</div>
 			<div class="header-left">
 				<li a="" href="#"><div class="drop-down">
-							<select class="d-arrow">
-								<option value="Eng">Our Network</option>
-								<option value="Fren">versions</option>
-								<option value="Russ">variations</option>
-								<option value="Chin">Internet</option>
-							</select>
 								</div></li>
 			</div>
 				<div class="clearfix"></div>
@@ -48,31 +48,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="megapanel">
 								<div class="na-left">
 									<ul class="grid-img-list">
-										<li><a href="location.html">Find a Location  </a></li> |
-										<li><a href="addlocation.html">Add a location </a></li> |
-										<li><a href="location.html"> Review a location  </a></li> |
-										<li><a href="location.html">Review a location</a></li>
+									<li><a href="ajouterlieu">ajouter lieu  </a></li> |
+										<li><a href="ajoutermoyendetransport">ajouter moyen </a></li>
 										<div class="clearfix"> </div>	
 									</ul>
 								</div>
 								<div class="na-right">
-									<ul class="grid-img-list">
-										<li><a href="login.html">Login Here or</a></li>
 										<li class="reg">
-											<form action="register.html">
-												<input type="submit" value="Register">
-											</form>
 										</li>
 										<div class="clearfix"> </div>	
 									</ul>
 								</div>
 								<div class="clearfix"> </div>	
 		    				</div>
-						</li>
-						<li><a href="404.html" class="scroll"> <span class="service"> </span>Our Species</a></li>						
-						<li><a href="shop.html" class="scroll"><span class="mail"> </span>Shop </a></li>
+					
 						<div class="clearfix"></div>
-					</ul>
 					<script>
 					$("span.menu").click(function(){
 						$(".top-nav ul").slideToggle(300, function(){
@@ -81,27 +71,62 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</script>
 			</div>
 			<div class="head-right">
+				<ul class="number">
+		
+						<div class="clearfix"> </div>						
+				</ul>
 			</div>
 			<div class="clearfix"> </div>	
 		</div>
 	</div>
 <!-- shop -->
-	<div class="shop">
+<div class="login-page">
 		<div class="container">
+			<div class="account_grid">
+				<div class="col-md-4 login-left" data-wow-delay="0.4s">
+		<div class="register">
+		  	  <form> 
+				 <div class="register-top-grid">
+					<h3>Choisir votre destination</h3>
+					 <div class="wow fadeInLeft" data-wow-delay="0.4s">
+						<span>DE <label>*</label></span>
+						<input type="text"> 
+					 </div>
+					 <div class="wow fadeInRight" data-wow-delay="0.4s">
+						<span>VERS<label>*</label></span>
+						<input type="text"> 
+					 </div>
+					
+					 <div class="clearfix"> </div>
+					 </div>
+				     
+				<div class="clearfix"> </div>
+				<div class="register-but">
+					   <input type="submit" value="Planifier" class="btn btn-primary btn-md">
+					   <div class="clearfix"> </div>
+				   </form>
+						<div class="shop-top">
 				<h3>Categories</h3>
 			<div class="col-md-3 shop-left">
 				<ul>
-					<li><a href="#">new arrivals</a></li>
-					<li><a href="#">men</a></li>
-					<li><a href="#">women</a></li>
-					<li><a href="#">accessories</a></li>
-					<li><a href="#">kids</a></li>
-					<li><a href="#">brands</a></li>
+				<li><a href="listeutilisateur">liste utilisateur</a></li>
+					<li><a href="listesuggestion">liste suggestion</a></li>
 				</ul>
 			</div>
+				</div>
+		   </div>
+			   </div>
+				</div>
+					   <div class="col-md-8 login-right wow fadeInRight" data-wow-delay="0.4s">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50425.625635580545!2d145.12407634632558!3d-37.822799693691664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad646b5d2ba4df7%3A0x4045675218ccd90!2sMelbourne+VIC%2C+Australia!5e0!3m2!1sen!2sin!4v1430741934072" width="100%" height="500" frameborder="0" style="border:0"></iframe>
+			   </div>	
+				
+		
 			<div class="col-md-3 shop-left">
+	
 			</div>
 			<div class="col-md-3 shop-left">
+		
 			</div>
 			<div class="col-md-3 shop-left">
 			</div>
@@ -110,59 +135,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 	<!-- shop -->
-	<div class="footer">
+	    <div class="footer">
 		<div class="container">
-			<div class="col-md-2 abo-foo1">
-				<h5>About Us</h5>
-					<ul>
-						<li><a href="about.html">About us</a></li>
-						<li><a href="#">Who started it</a></li>
-						<li><a href="#">how to help</a></li>
-					</ul>
-			</div>
-			<div class="col-md-3 abo-foo">
-				<h5>Account Information</h5>
-					<ul>
-						<li><a href="login.html">How to login</a></li>
-						<li><a href="register.html">Create an account</a></li>
-						<li><a href="login.html">Logout</a></li>
-						<li><a href="register.html">Join us</a></li>
-					</ul>
-			</div>
-			<div class="col-md-2 abo-foo1">
-				<h5>Location</h5>
-				<p>123, street name</p>
-				<p>	landmark,</p>
-				<p>	California 123</p>
-				<p>	Tel: 123-456-7890</p>
-				<p>	Fax. +123-456-7890</p>
-			</div>
-			<div class="col-md-2 abo-foo1">
-			<h5>Agreements</h5>
-			<ul>
-				<li><a href="#">Legal agreement</a></li>
-				<li><a href="#">Model release (adult)</a></li>
-				<li><a href="#">Model release (Minor)</a></li>
-				<li><a href="#">Property Release</a></li>
-			</ul>
-		</div>
-			<div class="col-md-3 abo-foo">
-				<li a="" href="#">
-					<div class="drop-down1">
-						<select class="d-arrow">
-							<option value="Eng">Our Network</option>
-								<option value="Fren">versions</option>
-								<option value="Russ">variations</option>
-								<option value="Chin">Internet</option>
-						</select>
-					</div>
-				</li>
-			</div>
-				<div class="clearfix"></div>
+       <div class="clearfix"></div>
 			<div class="footer-bottom">
-				<p>Copyrights © 2015 Location All rights reserved | Template by <a href="http://w3layouts.com/">&nbsp; W3layouts</a></p>
+				<p>Planning Voyages</p>
 			</div>
 		</div>
 	</div>
+
 </body>
 </html>

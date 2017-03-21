@@ -20,6 +20,16 @@ Route::get('ajoutermoyendetransport', function () {
 Route::get('ajouterlieu', function () {
     return view('ajouterlieu');
 });
+Route::get('admin', function () {
+    return view('admin');
+});
+Route::get('listeutilisateur', function () {
+    return view('listeutilisateur');
+});
+Route::get('listesuggestion', function () {
+    return view('listesuggestion');
+
+});
 
 Auth::routes();
 
