@@ -14,6 +14,12 @@
 Route::get('/', function () {
     return view('aceuil');
 });
+Route::get('ajoutermoyendetransport', function () {
+    return view('ajoutermoyendetransport');
+});
+Route::get('ajouterlieu', function () {
+    return view('ajouterlieu');
+});
 
 Auth::routes();
 
