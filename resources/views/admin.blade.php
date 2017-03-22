@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>aaaaaa</title>
+<title>Admin</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,12 +44,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="top-nav">
 				<span class="menu"> </span>
 					<ul class="navig megamenu skyblue">
-						<li><a href="location.html" class="scroll"><span> </span> Find Locations</a>
+						<li><a  class="scroll"><span> </span> Ajouter des inf</a>
 							<div class="megapanel">
 								<div class="na-left">
 									<ul class="grid-img-list">
 									<li><a href="ajouterlieu">ajouter lieu  </a></li> |
-										<li><a href="ajoutermoyendetransport">ajouter moyen </a></li>
+										<li><a href="ajoutermoyendetransport">ajouter moyen </a></li> |
+										<li><a href="ajoutertrajet">ajouter trajet </a></li>
 										<div class="clearfix"> </div>	
 									</ul>
 								</div>
@@ -106,11 +107,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					   <div class="clearfix"> </div>
 				   </form>
 						<div class="shop-top">
-				<h3>Categories</h3>
+				<h3>Générer :</h3>
 			<div class="col-md-3 shop-left">
 				<ul>
-				<li><a href="listeutilisateur">liste utilisateur</a></li>
-					<li><a href="listesuggestion">liste suggestion</a></li>
+				<li><a href="listeutilisateur">Liste utilisateurs</a></li>
+					<li><a href="listesuggestion">Liste suggestions</a></li>
 				</ul>
 			</div>
 				</div>

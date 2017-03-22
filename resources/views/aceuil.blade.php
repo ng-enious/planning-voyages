@@ -24,8 +24,7 @@
 		<div class="logo">
 		    <a href="{{ url('/') }}"><img src="{{ url('images/logo.png') }}" class="img-responsive" alt=""></a>
 			</div>
-			
-				<div class="clearfix"></div>
+							<div class="clearfix"></div>
 		</div>
 	</div>
 	<div class="header-bottom">
@@ -33,21 +32,19 @@
 			<div class="top-nav">
 				<span class="menu"> </span>
 					<ul class="navig megamenu skyblue">
-						<li><a href="location.html" class="scroll"><span> </span>Trouver une destination</a>
+						<li><a  class="scroll"><span> </span>Suggérer des données</a>
 							<div class="megapanel">
 								<div class="na-left">
 									<ul class="grid-img-list">
 										<li><a href="ajouterlieu">ajouter lieu  </a></li> |
-										<li><a href="ajoutermoyendetransport">ajouter moyen </a></li>
-										<li><a href="ajoutertrajet">ajoutertrajet </a></li>
+        					  <li><a href="ajoutermoyendetransport">ajouter moyen </a></li>|
+       					    <li><a href="ajoutertrajet">ajouter trajet </a></li>
 										<div class="clearfix"> </div>	
 									</ul>
 								</div>
 								<div class="na-right">
 									<ul class="grid-img-list">
-										<li class="reg">
-									
-										</li>
+										<li class="reg"><li>
 										<div class="clearfix"> </div>	
 									</ul>
 								</div>
