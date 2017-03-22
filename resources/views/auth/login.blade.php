@@ -31,37 +31,7 @@
 		<div class="container">
 		<div class="top-nav">
 				<span class="menu"> </span>
-					<ul class="navig megamenu skyblue">
-						<li><a href="location.html" class="scroll"><span> </span>Trouver une destination</a>
-							<div class="megapanel">
-								<div class="na-left">
-									<ul class="grid-img-list">
-										<li><a href="location.html">Find a Location  </a></li> |
-										<li><a href="addlocation.html">Add a location </a></li> |
-										<li><a href="location.html"> Review a location  </a></li> |
-										<li><a href="location.html">Review a location</a></li>
-										<div class="clearfix"> </div>	
-									</ul>
-								</div>
-								<div class="na-right">
-									<ul class="grid-img-list">
-										<li><a href="">Login Here or</a></li>
-										<li class="reg">
-											<form action="">
-												<input type="submit" value="Register">
-											</form>
-										</li>
-										<div class="clearfix"> </div>	
-									</ul>
-								</div>
-								<div class="clearfix"> </div>	
-		    				</div>
-						</li>
-						<li><a href="" class="scroll"> <span class="service"> </span>Our Species</a></li>						
-						<li><a href="" class="scroll"><span class="mail"> </span>Shop </a></li>
-						<div class="clearfix"></div>
-			</ul>
-					<script>
+									<script>
 					$("span.menu").click(function(){
 						$(".top-nav ul").slideToggle(300, function(){
 						});

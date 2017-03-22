@@ -50,7 +50,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<ul class="grid-img-list">
 								<li><a href="ajouterlieu">ajouter lieu  </a></li> |
 										<li><a href="ajoutermoyendetransport">ajouter moyen </a></li> |
-										<li><a href="ajoutertrajet">ajoutertrajet </a></li>
+										<li><a href="ajoutertrajet">ajouter trajet </a></li>
 										<div class="clearfix"> </div>	
 									</ul>
 								</div>
@@ -109,11 +109,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					   <div class="clearfix"> </div>
 				   </form>
 						<div class="shop-top">
-				<h3>Categories</h3>
+				<h3>Générer :</h3>
 			<div class="col-md-3 shop-left">
 				<ul>
-					<li><a href="listeutilisateur">liste utilisateur</a></li>
-          <li><a href="listesuggestion">liste suggestion</a></li>
+          <li><a href="listeutilisateur">Liste utilisateurs</a></li>
+					<li><a >Liste suggestions</a></li>
 				</ul>
 			</div>
 				</div>

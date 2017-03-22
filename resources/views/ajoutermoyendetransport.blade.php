@@ -49,8 +49,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="megapanel">
 								<div class="na-left">
 									<ul class="grid-img-list">
-										<li><a href="ajouterlieu">ajouter lieu  </a></li> |
-										<li><a href="ajoutertrajet">ajouter trajet </a></li>
+											<li><a href="ajouterlieu">ajouter lieu  </a></li> |
+        					  <li><a>ajouter moyen </a></li>|
+       					    <li><a href="ajoutertrajet">ajouter trajet </a></li>
 										<div class="clearfix"> </div>	
 									</ul>
 								</div>
