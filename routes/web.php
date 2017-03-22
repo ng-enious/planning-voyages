@@ -30,6 +30,10 @@ Route::get('listesuggestion', function () {
     return view('listesuggestion');
 
 });
+Route::get('ajoutertrajet', function () {
+    return view('ajoutertrajet');
+
+});
 
 Auth::routes();
 
