@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>liste utilisateur</title>
+<title>Liste utilisateurs</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,7 +44,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="top-nav">
 				<span class="menu"> </span>
 					<ul class="navig megamenu skyblue">
-						<li><a href="location.html" class="scroll"><span> </span> Find Locations</a>
+						<li><a  class="scroll"><span> </span> Ajouter des inf</a>
 							<div class="megapanel">
 								<div class="na-left">
 									<ul class="grid-img-list">

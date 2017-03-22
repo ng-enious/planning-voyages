@@ -44,12 +44,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="top-nav">
 				<span class="menu"> </span>
 					<ul class="navig megamenu skyblue">
-						<li><a href="location.html" class="scroll"><span> </span> Find Locations</a>
+						<li><a class="scroll"><span> </span> Ajouter des inf</a>
 							<div class="megapanel">
 								<div class="na-left">
 									<ul class="grid-img-list">
-									<li><a href="ajouterlieu">ajouter lieu  </a></li> |
-										<li><a href="ajoutermoyendetransport">ajouter moyen </a></li>
+								<li><a href="ajouterlieu">ajouter lieu  </a></li> |
+										<li><a href="ajoutermoyendetransport">ajouter moyen </a></li> |
+										<li><a href="ajoutertrajet">ajoutertrajet </a></li>
 										<div class="clearfix"> </div>	
 									</ul>
 								</div>

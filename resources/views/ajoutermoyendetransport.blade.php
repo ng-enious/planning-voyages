@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>ajouter moyen de transport</title>
+<title>Ajout moyen</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -45,24 +45,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="top-nav">
 				<span class="menu"> </span>
 					<ul class="navig megamenu skyblue">
-						<li><a href="location.html" class="scroll"><span> </span> Find Locations</a>
+						<li><a  class="scroll"><span> </span> Suggérer des données</a>
 							<div class="megapanel">
 								<div class="na-left">
 									<ul class="grid-img-list">
-										<li><a href="location.html">Find a Location  </a></li> |
-										<li><a href="addlocation.html">Add a location </a></li> |
-										<li><a href="location.html"> Review a location  </a></li> |
-										<li><a href="location.html">Review a location</a></li>
+										<li><a href="ajouterlieu">ajouter lieu  </a></li> |
+										<li><a href="ajoutertrajet">ajouter trajet </a></li>
 										<div class="clearfix"> </div>	
 									</ul>
 								</div>
 								<div class="na-right">
 									<ul class="grid-img-list">
-										<li><a href="login.html">Login Here or</a></li>
 										<li class="reg">
-											<form action="register.html">
-												<input type="submit" value="Register">
-											</form>
+											
 										</li>
 										<div class="clearfix"> </div>	
 									</ul>
@@ -70,8 +65,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="clearfix"> </div>	
 		    				</div>
 						</li>
-						<li><a href="404.html" class="scroll"> <span class="service"> </span>Our Species</a></li>						
-						<li><a href="shop.html" class="scroll"><span class="mail"> </span>Shop </a></li>
 						<div class="clearfix"></div>
 					</ul>
 					<script>
