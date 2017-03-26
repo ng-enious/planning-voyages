@@ -11,4 +11,9 @@ class AdminController extends Controller
       dump('ok');
       return view('admin');
     }
+   public function adminAdmin()
+    {
+      dump('ok');
+      return view('listeutilisateur');
+    }
 }

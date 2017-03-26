@@ -105,7 +105,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="register-but">
 					   <input type="submit" value="Planifier" class="btn btn-primary btn-md">
 					   <div class="clearfix"> </div>
-				   </form>
+		
+                        </ul>
 						<div class="shop-top">
 				<h3>Générer :</h3>
 			<div class="col-md-3 shop-left">
@@ -118,6 +119,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		   </div>
 			   </div>
 				</div>
+
 				
 		
 			<div class="col-md-3 shop-left">

@@ -77,6 +77,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="head-right">
 				<ul class="number">
+					 @if (Auth::check())
+                 <li><a><i class="roc"> </i>{{ Auth::user()->name }} {{ Auth::user()->lastname }}</a></li>
+				 <li>                        <a href="{{ url('/logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Se déconnecter
+                                        </a>
+
+                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form></li>
+
+				 @else
+
+					<li><a href="{{ url('/register') }}"><i class="roc"> </i>Inscription</a></li>
+					<li><a href="{{ url('/login') }}"><i class="phone"> </i>Connexion</a></li>
+
+				 @endif
 
 						<div class="clearfix"> </div>						
 				</ul>
@@ -89,19 +107,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">
       <h3>Ajouter nouveau lieu</h3>
 			<div class="col-md-6">
-				<div class="booki1"><span>Nom: </span><form><input type="text" placeholder="" required=""></form><div class="clearfix"> </div></div>
-						<div class="booki1"><span>Type: </span><select id="country" onchange="change_country(this.value)" class="frm-field required">
+				  <form class="form-horizontal" role="form" method="POST" action="{{ url('/ajouterlieu') }}">
+				<div class="booki1"><span>Nom: </span>
+					<input type="text" name="nom" placeholder="" required="">
+					<div class="clearfix"> </div></div>
+						<div class="booki1"><span>Type: </span>
+							<select id="country" name="type" onchange="change_country(this.value)" class="frm-field required">
 											<option value="null">cafe</option>
 											<option value="null">restaurant</option>         
 											<option value="AX">mosque</option>
 											<option value="AX">hotel</option>
 									  </select><div class="clearfix"> </div></div>
-				<div class="booki1"><span>Adresse: </span><form><input type="text" placeholder="" required=""></form><div class="clearfix"> </div></div>
-        <div class="booki1"><span>Latitude: </span><form><input type="text" placeholder="" required=""></form><div class="clearfix"> </div></div>
-      <div class="booki1"><span>langtitude: </span><form><input type="text" placeholder="" required=""></form><div class="clearfix"> </div></div>
+				<div class="booki1"><span>Adresse: </span>
+					<input type="text" name="adresse" placeholder="" required=""><div class="clearfix"> </div></div>
+        <div class="booki1"><span>Latitude: </span>
+					<input type="text" name="latitude" placeholder="" required=""> <div class="clearfix"> </div></div>
+      <div class="booki1"><span>langtitude: </span><input type="text"  name="langtitude"placeholder="" required="">
+				<div class="clearfix"> </div></div>
 			  <button type="submit" class="btn btn-primary">
                                    ajouter
-                                </button>
+					                      </button>
+						</form>
       </div>	
 			<div class="col-md-6">
 	 <div class="col-md-8 login-right wow fadeInRight" data-wow-delay="0.4s">
