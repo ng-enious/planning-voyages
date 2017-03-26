@@ -35,6 +35,11 @@ Route::get('ajoutertrajet', function () {
 
 });
 
+Route::get('ccc', function () {
+    return view('ccc');
+
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
