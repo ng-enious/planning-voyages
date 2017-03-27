@@ -1,27 +1,19 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Ajout trajet </title>
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<title>Planning Voyage</title>
+<link href="{{ url('css/bootstrap.css') }}" rel="stylesheet" type="text/css" media="all">
+<link href="{{ url('css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Location Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery.easydropdown.js"></script>
+<script src="{{ url('js/jquery.min.js') }}"></script>
+<script src="{{ url('js/jquery.easydropdown.js')}}"></script>
 <!-- Mega Menu -->
-<link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
-<script type="text/javascript" src="js/megamenu.js"></script>
+<link href="{{ url('css/megamenu.css') }}" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="{{ url('js/megamenu.js') }}"></script>
 <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
 <!-- Mega Menu -->
 </head>
@@ -29,15 +21,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- banner -->
 	<div class="header">
 		<div class="container">
-			<div class="logo">
-				<a href="{{ url('/') }}"><img src="images/logo.png" class="img-responsive" alt=""></a>
+		<div class="logo">
+		    <a href="{{ url('/') }}"><img src="{{ url('images/logo.png') }}" class="img-responsive" alt=""></a>
 			</div>
-			<div class="header-left">
-				<li a="" href="#"><div class="drop-down">
-				
-								</div></li>
-			</div>
-				<div class="clearfix"></div>
+							<div class="clearfix"></div>
 		</div>
 	</div>
 	<div class="header-bottom">
@@ -45,27 +32,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="top-nav">
 				<span class="menu"> </span>
 					<ul class="navig megamenu skyblue">
-						<li><a class="scroll"><span> </span> Suggérer des données</a>
+					 @if (Auth::check())
+						<li><a  class="scroll"><span> </span>Suggérer des données</a>
 							<div class="megapanel">
 								<div class="na-left">
 									<ul class="grid-img-list">
-											<li><a href="ajouterlieu">ajouter lieu  </a></li> |
+										<li><a href="ajouterlieu">ajouter lieu  </a></li> |
         					  <li><a href="ajoutermoyendetransport">ajouter moyen </a></li>|
-       					    <li><a>ajouter trajet </a></li>
+       					    <li><a href="ajoutertrajet">ajouter trajet </a></li>
 										<div class="clearfix"> </div>	
 									</ul>
 								</div>
 								<div class="na-right">
 									<ul class="grid-img-list">
-										<li class="reg">
-										
-										</li>
+										<li class="reg"><li>
 										<div class="clearfix"> </div>	
 									</ul>
 								</div>
 								<div class="clearfix"> </div>	
 		    				</div>
 						</li>
+						@endif
 						<div class="clearfix"></div>
 					</ul>
 					<script>
@@ -75,10 +62,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					});
 				</script>
 			</div>
-			<div class="head-right">
-				<ul class="number">
+	
 
-						<div class="clearfix"> </div>						
+	<div class="head-right">
+				<ul class="number">
+				 @if (Auth::check())
+                 <li><a><i class="roc"> </i>{{ Auth::user()->name }} {{ Auth::user()->lastname }}</a></li>
+				 <li>                        <a href="{{ url('/logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Se déconnecter
+                                        </a>
+
+                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+					 </form></li>
+
+				 @else
+
+					<li><a href="{{ url('/register') }}"><i class="roc"> </i>Inscription</a></li>
+					<li><a href="{{ url('/login') }}"><i class="phone"> </i>Connexion</a></li>
+
+				 @endif
+				   <div class="clearfix"> 
+
+					</div>						
 				</ul>
 			</div>
 			<div class="clearfix"> </div>	
@@ -87,13 +95,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- 404 -->
 	<div class="addlocation">
 		<div class="container">
+				  <form class="form-horizontal" role="form" method="POST" action="{{ url('/ajoutertrajet') }}">
       <h3>Ajouter nouveau trajet</h3>
 			<div class="col-md-6">
-				<div class="booki1"><span>depart: </span><form><input type="text" placeholder="" required=""></form><div class="clearfix"> </div></div>
-      <div class="booki1"><span>arrive: </span><form><input type="text" placeholder="" required=""></form><div class="clearfix"> </div></div>
+				<div class="booki1"><span>depart: </span><form><input type="text" name= "depart" placeholder="" required=""></form><div class="clearfix"> </div></div>
+      <div class="booki1"><span>arrive: </span><form><input type="text" name="arrive" placeholder="" required=""></form><div class="clearfix"> </div></div>
 			  <button type="submit" class="btn btn-primary">
                                    ajouter
                                 </button>
+				</form>
       </div>	
 			<div class="col-md-6">
 	 <div class="col-md-8 login-right wow fadeInRight" data-wow-delay="0.4s">

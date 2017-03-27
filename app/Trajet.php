@@ -9,7 +9,7 @@ class Trajet extends Model
      protected $fillable = [
          'depart','arrive','user_id'
     ];   
-}
+
   public function user()
     {
     	return $this->belongsTo('App\User');
@@ -23,3 +23,4 @@ public function voyagehastrajet()
     {
     	return $this->belongsTo('App\voyagehastrajet');
     }
+}

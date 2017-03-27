@@ -79,8 +79,7 @@
                         </div>
 										<div class="head-right">
 				<ul class="number">
-					<li><a href=""><i class="roc"> </i>Inscription</a></li>
-											</ul>
+			
 									</div>
 									
 
