@@ -27,13 +27,12 @@
 							<div class="clearfix"></div>
 		</div>
 	</div>
-	<div class="header-bottom">
+<div class="header-bottom">
 		<div class="container">
 			<div class="top-nav">
 				<span class="menu"> </span>
 					<ul class="navig megamenu skyblue">
-					 @if (Auth::check())
-						<li><a  class="scroll"><span> </span>Suggérer des données</a>
+							<li><a  class="scroll"><span> </span>Suggérer des données</a>
 							<div class="megapanel">
 								<div class="na-left">
 									<ul class="grid-img-list">
@@ -45,16 +44,19 @@
 								</div>
 								<div class="na-right">
 									<ul class="grid-img-list">
-										<li class="reg"><li>
+									
+										<li class="reg">
+										</li>
 										<div class="clearfix"> </div>	
 									</ul>
 								</div>
 								<div class="clearfix"> </div>	
 		    				</div>
 						</li>
-						@endif
+						<li><a href="404.html" class="scroll"> <img src="{{ url('images/aatt.png') }}" class="img-responsive" alt="">liste utilisateur</a></li>						
+						<li><a href="shop.html" class="scroll"><span class="mail"> </span>liste sugges</a></li>
 						<div class="clearfix"></div>
-					</ul>
+						</ul>
 					<script>
 					$("span.menu").click(function(){
 						$(".top-nav ul").slideToggle(300, function(){
@@ -90,6 +92,7 @@
 				</ul>
 			</div>
 			<div class="clearfix"> </div>	
+			
 		</div>
 	</div>
 <!-- shop -->
@@ -119,11 +122,9 @@
 					   <div class="clearfix"> </div>
 				   </form>
 						<div class="shop-top">
-				<h3>Générer :</h3>
+		
 			<div class="col-md-3 shop-left">
 				<ul>
-				<li><a href="listeutilisateur">Liste utilisateurs</a></li>
-					<li><a href="listesuggestion">Liste suggestions</a></li>
 				</ul>
 			</div>
 				</div>
