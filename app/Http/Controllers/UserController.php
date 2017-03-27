@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Lieu;
+use App\Trajet;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 class UserController extends Controller
@@ -12,7 +13,7 @@ class UserController extends Controller
    
       $message='';
       $user=Auth::user();
-   
+  
      
               $lieu= Lieu::create([
             'nom' => $request->get('nom'),
@@ -28,6 +29,29 @@ class UserController extends Controller
         $message='lieu ajouté avec succes ';
       else 
         $message='lieu non cree';
+      
+      return Redirect::to('/home')->with('message');
+
+     return view('aceuil', compact('message'));
+      
+                                                     }
+
+ public function ajoutertrajet(Request $request){
+     $message='';
+      $user=Auth::user();
+  
+     
+              $Trajet= Trajet::create([
+            'depart' => $request->get('depart'),
+            'arrive' => $request->get('arrive'),
+                'user_id'=>$user->id
+                
+        ]);
+      $Trajet->user()->save($user);
+      if ($lieu)
+        $message='trajet ajouté avec succes ';
+      else 
+        $message='trajet non cree';
       
       return Redirect::to('/home')->with('message');
 
