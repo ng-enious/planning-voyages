@@ -11,11 +11,13 @@
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
 <script src="{{ url('js/jquery.min.js') }}"></script>
 <script src="{{ url('js/jquery.easydropdown.js')}}"></script>
+	
 <!-- Mega Menu -->
 <link href="{{ url('css/megamenu.css') }}" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="{{ url('js/megamenu.js') }}"></script>
 <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
 <!-- Mega Menu -->
+	
 </head>
 <body>
 <!-- banner -->
@@ -23,7 +25,9 @@
 		<div class="container">
 		<div class="logo">
 		    <a href="{{ url('/') }}"><img src="{{ url('images/logo.png') }}" class="img-responsive" alt=""></a>
+			
 			</div>
+			
 							<div class="clearfix"></div>
 		</div>
 	</div>
@@ -51,7 +55,8 @@
 								</div>
 								<div class="clearfix"> </div>	
 		    				</div>
-						</li>
+												</li>
+						
 						@endif
 						<div class="clearfix"></div>
 					</ul>
@@ -98,8 +103,12 @@
 			<div class="account_grid">
 				<div class="col-md-4 login-left" data-wow-delay="0.4s">
 		<div class="register">
+@if(! empty($message))
+{{$message}}
+
+	@endif
 		  	  <form> 
-				 <div class="register-top-grid">
+									 <div class="register-top-grid">
 					<h3>Choisir votre destination</h3>
 					 <div class="wow fadeInLeft" data-wow-delay="0.4s">
 						<span>DE <label>*</label></span>
@@ -119,9 +128,7 @@
 					   <div class="clearfix"> </div>
 				   </form>
 				</div>
-		@if(! empty($message))
-			{{$message}}
-@endif
+		
 					</div>
 				</div>
 			   <div class="col-md-8 login-right wow fadeInRight" data-wow-delay="0.4s">
