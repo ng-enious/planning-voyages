@@ -53,8 +53,9 @@
 								<div class="clearfix"> </div>	
 		    				</div>
 						</li>
-						<li><a href="404.html" class="scroll"> <img src="{{ url('images/aatt.png') }}" class="img-responsive" alt="">liste utilisateur</a></li>						
+						<li><a href="pagination" class="scroll"> <img src="{{ url('images/aatt.png') }}" class="img-responsive" alt="">liste utilisateur</a></li>						
 						<li><a href="shop.html" class="scroll"><span class="mail"> </span>liste sugges</a></li>
+						<li><a href="shop.html" class="scroll"><span class="mail"> </span>avis utilisateur</a></li>
 						<div class="clearfix"></div>
 						</ul>
 					<script>
