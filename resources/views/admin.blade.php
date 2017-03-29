@@ -32,7 +32,7 @@
 			<div class="top-nav">
 				<span class="menu"> </span>
 					<ul class="navig megamenu skyblue">
-							<li><a  class="scroll"><span> </span>Suggérer des données</a>
+							<li><a  class="scroll"><img src="{{ url('images/adl.png') }}" class="img-responsive" alt="">Ajouter des données</a>
 							<div class="megapanel">
 								<div class="na-left">
 									<ul class="grid-img-list">
@@ -53,9 +53,9 @@
 								<div class="clearfix"> </div>	
 		    				</div>
 						</li>
-						<li><a href="pagination" class="scroll"> <img src="{{ url('images/aatt.png') }}" class="img-responsive" alt="">liste utilisateur</a></li>						
-						<li><a href="shop.html" class="scroll"><span class="mail"> </span>liste sugges</a></li>
-						<li><a href="shop.html" class="scroll"><span class="mail"> </span>avis utilisateur</a></li>
+						<li><a href="pagination" class="scroll"> <img src="{{ url('images/usr.png') }}" >Liste des utilisateurs</a></li>						
+						<li><a href="shop.html" class="scroll"><img src="{{ url('images/sugg.png') }}"  >Liste des suggestions</a></li>
+						<li><a href="shop.html" class="scroll"><img src="{{ url('images/av.png') }}">Avis des utilisateurs</a></li>
 						<div class="clearfix"></div>
 						</ul>
 					<script>
@@ -81,10 +81,7 @@
                                             {{ csrf_field() }}
 					 </form></li>
 
-				 @else
-
-					<li><a href="{{ url('/register') }}"><i class="roc"> </i>Inscription</a></li>
-					<li><a href="{{ url('/login') }}"><i class="phone"> </i>Connexion</a></li>
+	
 
 				 @endif
 				   <div class="clearfix"> 

@@ -33,7 +33,7 @@
 				<span class="menu"> </span>
 					<ul class="navig megamenu skyblue">
 					 @if (Auth::check())
-						<li><a  class="scroll"><span> </span>Suggérer des données</a>
+						<li><a  class="scroll"> <img src="{{ url('images/usr (1).png') }}" >Suggérer des données</a>
 							<div class="megapanel">
 								<div class="na-left">
 									<ul class="grid-img-list">
@@ -52,6 +52,8 @@
 								<div class="clearfix"> </div>	
 		    				</div>
 						</li>
+						
+						
 						@endif
 						<div class="clearfix"></div>
 					</ul>

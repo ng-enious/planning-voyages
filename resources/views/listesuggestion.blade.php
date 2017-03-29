@@ -44,7 +44,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="top-nav">
 				<span class="menu"> </span>
 					<ul class="navig megamenu skyblue">
-						<li><a class="scroll"><span> </span> Ajouter des inf</a>
+						<li><a class="scroll"><img src="{{ url('images/adl.png') }}" class="img-responsive" alt="">Ajouter des données</a>
 							<div class="megapanel">
 								<div class="na-left">
 									<ul class="grid-img-list">
@@ -57,6 +57,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="na-right">
 										<li class="reg">
 										</li>
+												<li><a href="pagination" class="scroll"> <img src="{{ url('images/usr.png') }}" >Liste des utilisateurs</a></li>						
+						<li><a href="shop.html" class="scroll"><img src="{{ url('images/sugg.png') }}"  >Liste des suggestions</a></li>
+						<li><a href="shop.html" class="scroll"><img src="{{ url('images/av.png') }}">Avis des utilisateurs</a></li>
 										<div class="clearfix"> </div>	
 									</ul>
 								</div>
@@ -73,9 +76,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="head-right">
 				<ul class="number">
-					<li><a href="login.html"><i class="roc"> </i>My Account</a></li>
-					<li><a href="register.html"><i class="phone"> </i>Sign Up</a></li>
-					<li><a href="contact.html"><i class="mail"> </i>Contact</a></li>	
+					
 						<div class="clearfix"> </div>						
 				</ul>
 			</div>
