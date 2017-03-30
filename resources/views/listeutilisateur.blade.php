@@ -103,6 +103,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					
 					 <div class="clearfix"> </div>
 					 </div>
+				
 				     
 				<div class="clearfix"> </div>
 				<div class="register-but">
