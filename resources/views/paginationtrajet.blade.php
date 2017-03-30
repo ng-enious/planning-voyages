@@ -91,7 +91,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<li class="reg">
 										</li>
 										<li><a href="pagination" class="scroll"> <img src="{{ url('images/usr.png') }}" >Liste des utilisateurs</a></li>						
-						<li><a href="shop.html" class="scroll"><img src="{{ url('images/sugg.png') }}"  >Liste des suggestions</a></li>
+						<li><a  class="scroll"><img src="{{ url('images/sugg.png') }}"  >Liste des suggestions</a>
+									<div class="megapanel">
+								<div class="na-left">
+									<ul class="grid-img-list">
+									<li><a href="paginationlieu">Lieux suggérés</a></li> |
+										<li><a href="paginationmoyen">moyens suggérés </a></li> |
+										<li><a href="paginationtrajet">trajet suggérés </a></li>
+										<div class="clearfix"> </div>	
+									</ul>
+								</div>
+								<div class="na-right">
+										<li class="reg"></li>
 						<li><a href="shop.html" class="scroll"><img src="{{ url('images/av.png') }}">Avis des utilisateurs</a></li>
 										<div class="clearfix"> </div>	
 									</ul>
