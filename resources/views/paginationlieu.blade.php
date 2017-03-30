@@ -138,7 +138,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <td>{{ $u ->user_id}}</td>
                    <td>{{ $u -> created_at}}</td>
                   <td>{{ $u -> updated_at}}</td>
-                  <td><a href="" ><img src="{{ url('images/usr.png') }}" >supprimer</a> 
+                  <td><a href="" ><img src="{{ url('images/delete.png') }}" >supprimer</a> 
                   
                   
             

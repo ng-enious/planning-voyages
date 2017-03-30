@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> pigination</title>
+    <title> Pagination</title>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -135,9 +135,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                   <td>{{ $u -> role}}</td>
                   <td>{{ $u -> created_at}}</td>
                   <td>{{ $u -> updated_at}}</td>
-                  <td><a href="" ><img src="{{ url('images/usr.png') }}" > modifier</a> 
-                  <a href="" > <img src="{{ url('images/usr.png') }}" > supprimer </a> 
-                  </td>
+                  <td><a href="" ><img src="{{ url('images/edit.png') }}" > modifier</a> 
+                  <a href="" > <img src="{{ url('images/delete.png') }}" > supprimer </a> 
+										@if ($u->role=='utilisateur')
+									 <a href="" > <img src="{{ url('images/addadmin.png') }}" > ajouter comme administrateur </a> 
+										@else
+										
+										<a href="" > <img src="{{ url('images/removeadmin.png') }}" >supprimer droit d'administration </a> 
+										@endif
+
+									</td>
         </tr>
                     @endforeach
     </table>
