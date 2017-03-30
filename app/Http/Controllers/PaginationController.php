@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\User;
+use App\Lieu;
 
 class PaginationController extends Controller
 {
@@ -20,4 +21,10 @@ class PaginationController extends Controller
     $role=rolle::alll();
     return view ('pagination',compact('role'));
   }
+      public function paginationlieu()
+    {
+      $lieus= Lieu::paginate(5);
+   
+      return view ('paginationlieu',compact('lieus'));
+    }
 }

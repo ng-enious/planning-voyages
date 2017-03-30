@@ -48,3 +48,4 @@ Route::group(['middleware' => 'web'], function () {
 Route::get('/home', 'HomeController@index');
 Route::post('/ajoutertrajet', 'UserController@ajoutertrajet');
 Route::get('/pagination', 'PaginationController@pagination');
+Route::get('/paginationlieu', 'PaginationController@paginationlieu');
