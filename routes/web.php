@@ -40,10 +40,16 @@ Route::get('ccc', function () {
     return view('ccc');
 
 });
+
 Route::group(['middleware' => 'web'], function () {
     Route::post('/ajouterlieu', 'UserController@ajouterlieu');
+  });
+Route::group(['middleware' => 'web'], function () {
+    Route::post('/ajoutertrajet', 'UserController@trajet');
   });
 
 Route::get('/home', 'HomeController@index');
 Route::post('/ajoutertrajet', 'UserController@ajoutertrajet');
 Route::get('/pagination', 'PaginationController@pagination');
+Route::get('/paginationlieu', 'PaginationController@paginationlieu');
+Route::get('/paginationtrajet', 'PaginationController@paginationtrajet');
