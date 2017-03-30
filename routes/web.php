@@ -40,6 +40,7 @@ Route::get('ccc', function () {
     return view('ccc');
 
 });
+
 Route::group(['middleware' => 'web'], function () {
     Route::post('/ajouterlieu', 'UserController@ajouterlieu');
   });
