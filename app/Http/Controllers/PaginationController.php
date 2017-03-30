@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\User;
 use App\Lieu;
+use App\Trajet;
 
 class PaginationController extends Controller
 {
@@ -26,5 +27,11 @@ class PaginationController extends Controller
       $lieus= Lieu::paginate(5);
    
       return view ('paginationlieu',compact('lieus'));
+    }
+       public function paginationtrajet()
+    {
+      $trajets= Trajet::paginate(5);
+   
+      return view ('paginationtrajet',compact('trajets'));
     }
 }
