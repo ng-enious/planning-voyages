@@ -53,3 +53,5 @@ Route::get('/pagination', 'PaginationController@pagination');
 Route::get('/paginationlieu', 'PaginationController@paginationlieu');
 Route::get('/paginationmoyen', 'PaginationController@paginationmoyen');
 Route::get('/paginationtrajet', 'PaginationController@paginationtrajet');
+Route::get('/postdelete/{id}', 'PaginationController@postdelete');
+Route::get('/postdeletelieu/{id}', 'PaginationController@postdeletelieu');

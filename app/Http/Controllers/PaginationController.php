@@ -41,4 +41,17 @@ class PaginationController extends Controller
    
       return view ('paginationmoyen',compact('moyens'));
     }
+  public function postdelete($id)
+  {
+ 
+    user::where('id',$id)->delete();
+    return back();
+  }
+    public function postdeletelieu($id)
+  {
+ 
+    lieu::where('id',$id)->delete();
+    return back();
+  }
+ 
 }
