@@ -92,6 +92,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</li>
 										<li><a href="pagination" class="scroll"> <img src="{{ url('images/usr.png') }}" >Liste des utilisateurs</a></li>						
 						<li><a href="shop.html" class="scroll"><img src="{{ url('images/sugg.png') }}"  >Liste des suggestions</a></li>
+											<div class="megapanel">
+								<div class="na-left">
+									<ul class="grid-img-list">
+									<li><a href="paginationlieu">Lieux suggérés</a></li> |
+										<li><a href="paginationmoyen">moyens suggérés </a></li> |
+										<li><a href="paginationtrajet">trajet suggérés </a></li>
+										<div class="clearfix"> </div>	
+									</ul>
+								</div>
+								<div class="na-right">
+										<li class="reg"></li>
 						<li><a href="shop.html" class="scroll"><img src="{{ url('images/av.png') }}">Avis des utilisateurs</a></li>
 										<div class="clearfix"> </div>	
 									</ul>
@@ -134,7 +145,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <td>{{ $u ->user_id}}</td>
                    <td>{{ $u -> created_at}}</td>
                   <td>{{ $u -> updated_at}}</td>
-                  <td><a href="{{url ('postdeletelieu',[$u->id])}}" ><img src="{{ url('images/delete.png') }}" >supprimer</a> 
+                  <td><a href="{{url ('postdeletemoyen',[$u->id])}}" ><img src="{{ url('images/delete.png') }}" >supprimer</a> 
                   
                   
             

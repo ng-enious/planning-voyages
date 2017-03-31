@@ -53,5 +53,19 @@ class PaginationController extends Controller
     lieu::where('id',$id)->delete();
     return back();
   }
+    public function postdeletemoyen($id)
+  {
+ 
+    Moyen_transport::where('id',$id)->delete();
+    return back();
+  }
+  
+  public function postdeletetrajet($id)
+  {
+ 
+    trajet::where('id',$id)->delete();
+    return back();
+  }
+ 
  
 }
