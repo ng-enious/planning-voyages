@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Lieu;
 use App\Trajet;
 use App\User;
+use App\Moyen_transport;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 class UserController extends Controller
@@ -54,6 +55,29 @@ class UserController extends Controller
         $message='trajet ajouté avec succes ';
       else 
         $message='trajet non cree';
+      
+      return Redirect::to('/home')->with('message');
+
+     return view('aceuil', compact('message'));
+      
+    }
+   public function ajoutermoyen(Request $r){
+     $message='';
+      $user=Auth::user();
+  
+     
+              $Moyen_transport= Moyen_transport::create([
+                  'type' => $r->get('type'),
+            'de' => $r->get('de'),
+            'vers' => $r->get('vers')
+                
+               
+        ]);
+
+      if ($Moyen_transport)
+        $message='moyen de transport ajouté avec succes ';
+      else 
+        $message='moyen de transport non cree';
       
       return Redirect::to('/home')->with('message');
 

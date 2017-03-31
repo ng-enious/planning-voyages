@@ -13,9 +13,9 @@ class AddVotesToMoyenTable extends Migration
      */
     public function up()
     {
-        Schema::table('moyen_transport', function (Blueprint $table) {
-            $table->string('de');
-          $table->string('vers');
+        Schema::table('moyen_transports', function (Blueprint $table) {
+            $table->string('de')->after('type');
+          $table->string('vers')->after('de');
         });
     }
 
@@ -26,8 +26,6 @@ class AddVotesToMoyenTable extends Migration
      */
     public function down()
     {
-        Schema::table('moyen_transport', function (Blueprint $table) {
-            //
-        });
+       
     }
 }

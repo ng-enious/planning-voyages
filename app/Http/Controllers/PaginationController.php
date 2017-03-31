@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\User;
 use App\Lieu;
+use App\Moyen_transport;
 use App\Trajet;
 
 class PaginationController extends Controller
@@ -33,5 +34,11 @@ class PaginationController extends Controller
       $trajets= Trajet::paginate(5);
    
       return view ('paginationtrajet',compact('trajets'));
+    }
+     public function paginationmoyen()
+    {
+      $moyens= Moyen_transport::paginate(5);
+   
+      return view ('paginationmoyen',compact('moyens'));
     }
 }

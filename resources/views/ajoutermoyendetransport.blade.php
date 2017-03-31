@@ -97,21 +97,27 @@
 <!-- 404 -->
 	<div class="addlocation">
 		<div class="container">
+					  <form class="form-horizontal" role="form" method="POST" action="{{ url('/ajoutermoyendetransport') }}">
 			<h3>Ajouter nouveau moyen de transport</h3>
 			<div class="col-md-6">
-						<div class="booki1"><span>Type: </span><select id="country" onchange="change_country(this.value)" class="frm-field required">
-											<option value="null">train</option>
-											<option value="null">metro</option>         
-											<option value="null">car</option>
-											<option value="null">louage</option>
-											<option value="null">taxi</option>
+						<div class="booki1"><span>Type: </span>
+							<select id="country" name="type" class="">
+											<option value="train">train</option>
+											<option value="metro">metro</option>         
+											<option value="car">car</option>
+											<option value="louage">louage</option>
+											<option value="taxi">taxi</option>
 									  </select><div class="clearfix"> </div></div>
                 	<h3>trajet</h3>
-				<div class="booki1"><span>de: </span><form><input type="text" placeholder="" required=""></form><div class="clearfix"> </div></div>
-        <div class="booki1"><span>vers: </span><form><input type="text" placeholder="" required=""></form><div class="clearfix"> </div></div>
+	<div class="booki1"><span>DE: </span>
+		<input type="text" name="de" placeholder="" required=""><div class="clearfix"> </div></div>
+			<div class="booki1"><span>VERS: </span>
+					<input type="text" name="vers" placeholder="" required="">
+					<div class="clearfix"> </div></div>
           <button type="submit" class="btn btn-primary">
                                   ajouter
                                 </button>
+				</form>
 			</div>	
 			<div class="col-md-6">
 	 <div class="col-md-8 login-right wow fadeInRight" data-wow-delay="0.4s">

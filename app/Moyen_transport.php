@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Moyen_transport extends Model
 {
         protected $fillable = [
-         'type','user_id','trajet_id'
+         'type','de' ,'vers','user_id','trajet_id'
     ];
-}
+
    public function user()
     {
     	return $this->belongsTo('App\User');
@@ -26,3 +26,4 @@ class Moyen_transport extends Model
     {
     	return $this->belongsTo('App\aviMoyen');
     }
+}

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> Pagination</title>
+    <title> moyen  de transport ajouter</title>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -108,49 +108,43 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</script>
       </div>
  
-      <h1>               liste utilisateur </h1>
+      <h1>moyen de transport  ajouter </h1>
       <table>
         <tr>
                     
           <th>ID</th>
-          <th>name</th>
-          <th>lastname</th>
-          <th>email</th>
-          <th>birthday</th>
-          <th>role</th>
-          <th>created_at</th>
+          <th>type</th>
+          <th>de</th>
+          <th>vers</th>
+          <th>user_id</th>
+           <th>created_at</th>
           <th>update_at</th>
           <th>Action</th>
+       
                    
                    
         </tr>
       
-                       @foreach($users as $key =>$u)    
+                       @foreach($moyens as $key =>$u)    
                 <tr> 
                   <td>{{ $u -> id}}</td>
-                  <td>{{ $u -> name}}</td>
-                  <td>{{ $u -> lastname}}</td>
-                  <td>{{ $u -> email}}</td>
-                  <td>{{ $u -> birthday}}</td>
-                  <td>{{ $u -> role}}</td>
-                  <td>{{ $u -> created_at}}</td>
+                  <td>{{ $u -> type}}</td>
+                    <td>{{ $u ->de}}</td>
+                    <td>{{ $u ->vers}}</td>
+                    <td>{{ $u ->user_id}}</td>
+                   <td>{{ $u -> created_at}}</td>
                   <td>{{ $u -> updated_at}}</td>
-                  <td><a href="" ><img src="{{ url('images/edit.png') }}" > modifier</a> 
-                  <a href="" > <img src="{{ url('images/delete.png') }}" > supprimer </a> 
-										@if ($u->role=='utilisateur')
-									 <a href="" > <img src="{{ url('images/addadmin.png') }}" > ajouter comme administrateur </a> 
-										@else
-										
-										<a href="" > <img src="{{ url('images/removeadmin.png') }}" >supprimer droit d'administration </a> 
-										@endif
-
-									</td>
+                  <td><a href="" ><img src="{{ url('images/delete.png') }}" >supprimer</a> 
+                  
+                  
+            
+                  </td>
         </tr>
                     @endforeach
     </table>
-    <h1>{{$users->currentPage()}} </h1>
+    <h1>{{$moyens->currentPage()}} </h1>
     <hr>
-    {{$users ->links() }}
+    {{$moyens->links() }}
           <div class="footer">
 		<div class="container">
        <div class="clearfix"></div>

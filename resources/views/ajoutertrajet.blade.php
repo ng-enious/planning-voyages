@@ -102,9 +102,9 @@
       <h3>Ajouter nouveau trajet</h3>
 			<div class="col-md-6">
 				<div class="booki1"><span>depart: </span><form><input type="text" name= "depart"></form><div class="clearfix"> </div></div>
-		<div class="booki1"><span>Nom: </span>
+		<div class="booki1"><span>Arrive: </span>
 					<input type="text" name="arrive" placeholder="" required="">
-					<div class="clearfix"> </div></div>
+			<div class="clearfix"> </div></div>
 			  <button type="submit" class="btn btn-primary">
                                    ajouter
                                 </button>
