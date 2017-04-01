@@ -8,21 +8,44 @@ use App\User;
 use App\Lieu;
 use App\Moyen_transport;
 use App\Trajet;
+use Illuminate\Support\Facades\Redirect;
+
 
 class PaginationController extends Controller
 {
+  public function rendreAdmin ($id)
+  {
+    $user=User::find($id);
+    $user->role='admin';
+    $msg='';
+    if($user->save())
+    {
+      $msg='succes';
+      return Redirect::to('/pagination')->with('msg'); 
+    }
+    $msg='error';
+    return Redirect::to('/pagination')->with('msg');
+  }
+    public function supprimerAdmin ($id)
+  {
+    $user=User::find($id);
+    $user->role='utilisateur';
+    $msg='';
+    if($user->save())
+    {
+      $msg='succes';
+      return Redirect::to('/pagination')->with('msg'); 
+    }
+    $msg='error';
+    return Redirect::to('/pagination')->with('msg');
+  }
     public function pagination()
     {
       $users= user::paginate(5);
    
       return view ('pagination',compact('users'));
     }
-  public function gitedit($id)
-  {
-    $users=user::find($id);
-    $role=rolle::alll();
-    return view ('pagination',compact('role'));
-  }
+  
       public function paginationlieu()
     {
       $lieus= Lieu::paginate(5);

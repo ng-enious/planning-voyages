@@ -58,3 +58,5 @@ Route::get('/postdeletelieu/{id}', 'PaginationController@postdeletelieu');
 Route::get('/postdeletemoyen/{id}', 'PaginationController@postdeletemoyen');
 Route::get('/postdeletetrajet/{id}', 'PaginationController@postdeletetrajet');
 Route::get('/edituser/{id}', 'PaginationController@edituser');
+Route::get('/rendreAdmin/{id}','PaginationController@rendreAdmin');
+Route::get('/supprimerAdmin/{id}','PaginationController@supprimerAdmin');

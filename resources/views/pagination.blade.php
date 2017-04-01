@@ -150,10 +150,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                   <td><a href="{{url ('edituser',[$u->id])}}" ><img src="{{ url('images/edit.png') }}" > modifier</a> 
                   <a href="{{url ('postdelete',[$u->id])}}" > <img src="{{ url('images/delete.png') }}" > supprimer </a> 
 										@if ($u->role=='utilisateur')
-									 <a href="" > <img src="{{ url('images/addadmin.png') }}" > ajouter comme administrateur </a> 
+									 <a href="{{url ('rendreAdmin',[$u->id])}}" > <img src="{{ url('images/addadmin.png') }}" > ajouter comme administrateur </a> 
 										@else
 										
-										<a href="" > <img src="{{ url('images/removeadmin.png') }}" >supprimer droit d'administration </a> 
+										<a href="{{url ('supprimerAdmin',[$u->id])}}" > <img src="{{ url('images/removeadmin.png') }}" >supprimer droit d'administration </a> 
 										@endif
 
 									</td>
