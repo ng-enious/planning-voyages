@@ -111,7 +111,7 @@
 											<option value="hotel">hotel</option>
 									  </select><div class="clearfix"> </div></div>
 				<div class="booki1"><span>Adresse: </span>
-					<input type="text" name="adresse" placeholder="" required=""><div class="clearfix"> </div></div>
+					<input type="text" name="addresse" placeholder="" required=""><div class="clearfix"> </div></div>
         <div class="booki1"><span>Latitude: </span>
 					<input type="text" name="latitude" placeholder="" required=""> <div class="clearfix"> </div></div>
       <div class="booki1"><span>langtitude: </span><input type="text"  name="langtitude"placeholder="" required="">

@@ -65,7 +65,7 @@
 									</ul>
 								</div>
 								<div class="na-right">
-										<li class="reg"></li>
+									<li class="reg"></li>
 						<li><a href="shop.html" class="scroll"><img src="{{ url('images/av.png') }}">Avis des utilisateurs</a></li>
 						<div class="clearfix"></div>
 						</ul>

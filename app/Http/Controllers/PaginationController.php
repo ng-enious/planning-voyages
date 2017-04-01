@@ -66,6 +66,12 @@ class PaginationController extends Controller
     trajet::where('id',$id)->delete();
     return back();
   }
+  public function edituser($id)
+  {
+    
+    $users=user::where('role',$role)->first();
+    return view('pagination',compact('users'));
+  }
  
  
 }

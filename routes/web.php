@@ -57,3 +57,4 @@ Route::get('/postdelete/{id}', 'PaginationController@postdelete');
 Route::get('/postdeletelieu/{id}', 'PaginationController@postdeletelieu');
 Route::get('/postdeletemoyen/{id}', 'PaginationController@postdeletemoyen');
 Route::get('/postdeletetrajet/{id}', 'PaginationController@postdeletetrajet');
+Route::get('/edituser/{id}', 'PaginationController@edituser');

@@ -7,16 +7,20 @@ use App\Lieu;
 use App\Trajet;
 use App\User;
 use App\Moyen_transport;
-use Illuminate\Support\Facades\Auth;
+//use Illuminate\Support\Facades\Auth;
+use Auth;
 use Illuminate\Support\Facades\Redirect;
 class UserController extends Controller
 {
     public function ajouterlieu(Request $request){
-   
-      $message='';
+       $message='';
+    if (Auth::check())
+    {
+          
       $user=Auth::user();
+      //dd($user->id);
   
-     
+    
               $lieu= Lieu::create([
             'nom' => $request->get('nom'),
             'type' => $request->get('type'),
@@ -26,62 +30,64 @@ class UserController extends Controller
                 'user_id'=>$user->id
                 
         ]);
-      $lieu->user()->save($user);
       if ($lieu)
         $message='lieu ajouté avec succes ';
       else 
         $message='lieu non cree';
       
-      return Redirect::to('/home')->with('message');
+    }
 
-     return view('aceuil', compact('message'));
       
-                                                     }
-
- public function ajoutertrajet(Request $r){
-     $message='';
-      $user=Auth::user();
+      return Redirect::to('/home')->with('message');
   
-     
-              $Trajet= Trajet::create([
+    }
+ public function ajoutertrajet(Request $r){
+   
+      $message='';
+    if (Auth::check())
+    {
+      
+              $user=Auth::user();
+      //dd($user);
+              $trajet= Trajet::create([
             'depart' => $r->get('depart'),
             'arrive' => $r->get('arrive'),
-                
-                'user_id'=>$user->id
-                
+            'user_id'=>$user->id
         ]);
-      $Trajet->user()->save($user);
-      if ($Trajet)
+             if ($trajet)
+        //dd($trajet);
         $message='trajet ajouté avec succes ';
-      else 
-        $message='trajet non cree';
+      else
+        $message='error';
+   
+    }
+
       
       return Redirect::to('/home')->with('message');
-
-     return view('aceuil', compact('message'));
       
     }
-   public function ajoutermoyen(Request $r){
+ public function ajoutermoyen(Request $r){
      $message='';
-      $user=Auth::user();
-  
-     
-              $Moyen_transport= Moyen_transport::create([
+        if (Auth::check())
+     {
+              $user=Auth::user();
+              $moyen_transport= Moyen_transport::create([
                   'type' => $r->get('type'),
-            'de' => $r->get('de'),
-            'vers' => $r->get('vers')
-                
-               
+                  'de' => $r->get('de'),
+                  'vers' => $r->get('vers'),
+                  'user_id'=>$user->id  
         ]);
-
-      if ($Moyen_transport)
+        if ($moyen_transport)
+        //dd($moyen_transport);
         $message='moyen de transport ajouté avec succes ';
-      else 
+        else
+        //dd('error');
         $message='moyen de transport non cree';
       
-      return Redirect::to('/home')->with('message');
-
-     return view('aceuil', compact('message'));
+      
+     }
+     
+    return Redirect::to('/home')->with('message');
       
     }
 }
