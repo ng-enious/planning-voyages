@@ -92,9 +92,45 @@ class PaginationController extends Controller
   public function edituser($id)
   {
     
-    $users=user::where('role',$role)->first();
-    return view('pagination',compact('users'));
+  $lieu=Lieu::find($id);
+    $lieu->confirm='1';
+       if($lieu->save())
+    {
+      $msg='succes';
+      return Redirect::to('/paginationlieu')->with('msg'); 
+    }
+    $msg='error';
+    return Redirect::to('/paginationlieu')->with('msg');
   }
+    public function editmoyen($id)
+  {
+    
+  $moyen=Moyen_transport::find($id);
+    $moyen->confirm='1';
+       if($moyen->save())
+    {
+      $msg='succes';
+      return Redirect::to('/paginationmoyen')->with('msg'); 
+    }
+    $msg='error';
+    return Redirect::to('/paginationmoyen')->with('msg');
+  }
+    public function edittrajet($id)
+  {
+    
+  $trajet=Trajet::find($id);
+    $trajet->confirm='1';
+       if($trajet->save())
+    {
+      $msg='succes';
+      return Redirect::to('/paginationtrajet')->with('msg'); 
+    }
+    $msg='error';
+    return Redirect::to('/paginationtrajet')->with('msg');
+  }
+  
  
  
+
+
 }

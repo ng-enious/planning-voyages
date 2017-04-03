@@ -41,9 +41,9 @@
 							<div class="megapanel">
 								<div class="na-left">
 									<ul class="grid-img-list">
-										<li><a href="ajouterlieu">ajouter lieu  </a></li> |
-        					  <li><a href="ajoutermoyendetransport">ajouter moyen </a></li>|
-       					    <li><a href="ajoutertrajet">ajouter trajet </a></li>
+										<li><a href="suggererlieu">ajouter lieu  </a></li> |
+        					  <li><a href="suggerermoyendetransport">ajouter moyen </a></li>|
+       					    <li><a href="suggerertrajet">ajouter trajet </a></li>
 										<div class="clearfix"> </div>	
 									</ul>
 								</div>
@@ -103,14 +103,13 @@
 			<div class="account_grid">
 				<div class="col-md-4 login-left" data-wow-delay="0.4s">
 		<div class="register">
+@if(!empty($message))
+{{message}}
 
+	@endif
 		  	  <form> 
 									 <div class="register-top-grid">
-										 
-
-										
-										
-										 <h3>Choisir votre destination </h3>
+					<h3>Choisir votre destination</h3>
 					 <div class="wow fadeInLeft" data-wow-delay="0.4s">
 						<span>DE <label>*</label></span>
 						<input type="text"> 

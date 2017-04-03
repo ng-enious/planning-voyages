@@ -22,18 +22,17 @@
 	<div class="header">
 		<div class="container">
 		<div class="logo">
-		    <a href="{{ url('/') }}"><img src="{{ url('images/logo.png') }}" class="img-responsive" alt=""></a>
+		    <a href="{{ url('/admin') }}"><img src="{{ url('images/logo.png') }}" class="img-responsive" alt=""></a>
 			</div>
 							<div class="clearfix"></div>
 		</div>
 	</div>
-	<div class="header-bottom">
+<div class="header-bottom">
 		<div class="container">
 			<div class="top-nav">
 				<span class="menu"> </span>
 					<ul class="navig megamenu skyblue">
-					 @if (Auth::check())
-						<li><a  class="scroll"><img src="{{ url('images/usr (1).png') }}" >Suggérer des données</a>
+							<li><a  class="scroll"><img src="{{ url('images/adl.png') }}" class="img-responsive" alt="">Ajouter des données</a>
 							<div class="megapanel">
 								<div class="na-left">
 									<ul class="grid-img-list">
@@ -45,18 +44,29 @@
 								</div>
 								<div class="na-right">
 									<ul class="grid-img-list">
-										<li class="reg"><li>
+									<li class="reg"></li>
 										<div class="clearfix"> </div>	
 									</ul>
 								</div>
 								<div class="clearfix"> </div>	
 		    				</div>
 						</li>
-						
-						
-						@endif
+						<li><a href="pagination" class="scroll"> <img src="{{ url('images/usr.png') }}" >Liste des utilisateurs</a></li>						
+						<li><a  class="scroll"><img src="{{ url('images/sugg.png') }}"  >Liste des suggestions</a>
+									<div class="megapanel">
+								<div class="na-left">
+									<ul class="grid-img-list">
+									<li><a href="paginationlieu">Lieux suggérés</a></li> |
+										<li><a href="paginationmoyen">moyens suggérés </a></li> |
+										<li><a href="paginationtrajet">trajet suggérés </a></li>
+										<div class="clearfix"> </div>	
+									</ul>
+								</div>
+								<div class="na-right">
+									<li class="reg"></li>
+						<li><a href="shop.html" class="scroll"><img src="{{ url('images/av.png') }}">Avis des utilisateurs</a></li>
 						<div class="clearfix"></div>
-					</ul>
+						</ul>
 					<script>
 					$("span.menu").click(function(){
 						$(".top-nav ul").slideToggle(300, function(){
@@ -80,10 +90,7 @@
                                             {{ csrf_field() }}
 					 </form></li>
 
-				 @else
-
-					<li><a href="{{ url('/register') }}"><i class="roc"> </i>Inscription</a></li>
-					<li><a href="{{ url('/login') }}"><i class="phone"> </i>Connexion</a></li>
+	
 
 				 @endif
 				   <div class="clearfix"> 
@@ -98,7 +105,7 @@
 	<div class="addlocation">
 		<div class="container">
 					  <form class="form-horizontal" role="form" method="POST" action="{{ url('/ajoutermoyendetransport') }}">
-			<h3>Ajouter nouveau moyen de transport</h3>
+			<h3>Ajouter un nouveau moyen de transport</h3>
 			<div class="col-md-6">
 						<div class="booki1"><span>Type: </span>
 							<select id="country" name="type" class="">

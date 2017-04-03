@@ -30,7 +30,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="header">
 		<div class="container">
 			<div class="logo">
-				<a href="{{ url('/') }}"><img src="images/logo.png" class="img-responsive" alt=""></a>
+				<a href="{{ url('/admin') }}"><img src="images/logo.png" class="img-responsive" alt=""></a>
 			</div>
 			<div class="header-left">
 				<li a="" href="#"><div class="drop-down">
