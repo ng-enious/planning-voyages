@@ -40,6 +40,10 @@ Route::get('ccc', function () {
     return view('ccc');
 
 });
+Route::get('test', function () {
+    return view('test');
+
+});
 
 Route::group(['middleware' => 'web'], function () {
     Route::post('/ajouterlieu', 'UserController@ajouterlieu');
@@ -60,3 +64,5 @@ Route::get('/postdeletetrajet/{id}', 'PaginationController@postdeletetrajet');
 Route::get('/edituser/{id}', 'PaginationController@edituser');
 Route::get('/rendreAdmin/{id}','PaginationController@rendreAdmin');
 Route::get('/supprimerAdmin/{id}','PaginationController@supprimerAdmin');
+Route::get('/edittrajet/{id}', 'PaginationController@edittrajet');
+Route::get('/editmoyen/{id}', 'PaginationController@editmoyen');

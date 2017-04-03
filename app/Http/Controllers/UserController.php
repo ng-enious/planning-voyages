@@ -58,7 +58,7 @@ class UserController extends Controller
         //dd($trajet);
         $message='trajet ajouté avec succes ';
       else
-        $message='error';
+        $message='trajet non cree';
    
     }
 

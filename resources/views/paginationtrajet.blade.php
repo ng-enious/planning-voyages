@@ -127,6 +127,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <th>depart</th>
           <th>Arrive</th>
           <th>user_id</th>
+					<th>confirm</th>
            <th>created_at</th>
           <th>update_at</th>
           
@@ -141,8 +142,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                   <td>{{ $u -> depart}}</td>
                   <td>{{ $u -> arrive}}</td>
                     <td>{{ $u ->user_id}}</td>
+									 <td>{{ $u ->confirm}}</td>
                    <td>{{ $u -> created_at}}</td>
                   <td>{{ $u -> updated_at}}</td>
+									<td>
+									<a href="{{url ('edittrajet',[$u->id])}}" ><img src="{{ url('images/confirm.png') }}" > confirmer</a> 
                   <td><a href="{{url ('postdeletetrajet',[$u->id])}}" ><img src="{{ url('images/delete.png') }}" >supprimer</a> 
                   
                   

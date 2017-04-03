@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Moyen_transport extends Model
 {
         protected $fillable = [
-         'type','de' ,'vers','user_id','trajet_id'
+         'type','de' ,'vers','user_id','confirm','trajet_id'
     ];
 
    public function user()

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Trajet extends Model
 {
      protected $fillable = [
-         'depart','arrive','user_id'
+         'depart','arrive','user_id','confirm'
     ];   
 
   public function user()

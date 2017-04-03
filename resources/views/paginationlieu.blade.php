@@ -119,7 +119,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</script>
       </div>
  
-      <h1>liste de lieu ajouter </h1>
+      <h1>lieux suggérés </h1>
       <table>
         <tr>
                     
@@ -130,6 +130,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <th>latitude</th>
           <th>langitude</th>
           <th>user_id</th>
+			
            <th>created_at</th>
           <th>update_at</th>
           <th>Action</th>
@@ -139,6 +140,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </tr>
       
                        @foreach($lieus as $key =>$u)    
+				@if ($u->confirm=='0')
                 <tr> 
                   <td>{{ $u -> id}}</td>
                   <td>{{ $u -> nom}}</td>
@@ -147,14 +149,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <td>{{ $u ->latitude}}</td>
                     <td>{{ $u ->langitude}}</td>
                     <td>{{ $u ->user_id}}</td>
+						
                    <td>{{ $u -> created_at}}</td>
                   <td>{{ $u -> updated_at}}</td>
-                  <td><a href="{{url ('postdeletelieu',[$u->id])}}" ><img src="{{ url('images/delete.png') }}" >supprimer</a> 
+                  <td>
+										 <a href="{{url ('edituser',[$u->id])}}" ><img src="{{ url('images/confirm.png') }}" > confirmer</a> 
+										<a href="{{url ('postdeletelieu',[$u->id])}}" ><img src="{{ url('images/delete.png') }}" >supprimer</a> 
                   
                   
             
                   </td>
         </tr>
+				@endif
                     @endforeach
     </table>
     <h1>{{$lieus->currentPage()}} </h1>

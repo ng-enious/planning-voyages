@@ -119,7 +119,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</script>
       </div>
  
-      <h1>moyen de transport  ajouter </h1>
+      <h1>moyen de transport  suggérés </h1>
       <table>
         <tr>
                     
@@ -128,6 +128,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <th>de</th>
           <th>vers</th>
           <th>user_id</th>
+					<th>confirm</th>
            <th>created_at</th>
           <th>update_at</th>
           <th>Action</th>
@@ -143,9 +144,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <td>{{ $u ->de}}</td>
                     <td>{{ $u ->vers}}</td>
                     <td>{{ $u ->user_id}}</td>
+									<td>{{ $u ->confirm}}</td>
                    <td>{{ $u -> created_at}}</td>
                   <td>{{ $u -> updated_at}}</td>
-                  <td><a href="{{url ('postdeletemoyen',[$u->id])}}" ><img src="{{ url('images/delete.png') }}" >supprimer</a> 
+                  <td>
+										<a href="{{url ('editmoyen',[$u->id])}}" ><img src="{{ url('images/confirm.png') }}" > confirmer</a> 
+										<a href="{{url ('postdeletemoyen',[$u->id])}}" ><img src="{{ url('images/delete.png') }}" >supprimer</a> 
                   
                   
             

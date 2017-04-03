@@ -103,8 +103,8 @@
 			<div class="account_grid">
 				<div class="col-md-4 login-left" data-wow-delay="0.4s">
 		<div class="register">
-@if(! empty($message))
-{{$message}}
+@if(!empty($message))
+{{message}}
 
 	@endif
 		  	  <form> 
