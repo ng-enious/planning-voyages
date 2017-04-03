@@ -64,7 +64,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<ul class="grid-img-list">
 									<li><a href="paginationlieu">Lieux suggérés</a></li> |
 										<li><a href="paginationmoyen">moyens suggérés </a></li> |
-										<li><a href="paginationtrajet">trajet suggérés </a></li>
+										<li><a href="paginationtrajet">trajets suggérés </a></li>
 										<div class="clearfix"> </div>	
 									</ul>
 								</div>

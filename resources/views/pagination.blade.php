@@ -96,8 +96,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="na-left">
 									<ul class="grid-img-list">
 									<li><a href="paginationlieu">Lieux suggérés</a></li> |
-										<li><a href="paginationmoyen">moyens suggérés </a></li> |
-										<li><a href="paginationtrajet">trajet suggérés </a></li>
+										<li><a href="paginationmoyen">Moyens suggérés </a></li> |
+										<li><a href="paginationtrajet">Trajets suggérés </a></li>
 										<div class="clearfix"> </div>	
 									</ul>
 								</div>
@@ -120,7 +120,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</script>
       </div>
  
-      <h1>               liste utilisateur </h1>
+      <h1>               Liste des utilisateurs </h1>
       <table>
         <tr>
                     
@@ -147,7 +147,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                   <td>{{ $u -> role}}</td>
                   <td>{{ $u -> created_at}}</td>
                   <td>{{ $u -> updated_at}}</td>
-                  <td><a href="{{url ('edituser',[$u->id])}}" ><img src="{{ url('images/edit.png') }}" > modifier</a> 
+                  <td>
                   <a href="{{url ('postdelete',[$u->id])}}" > <img src="{{ url('images/delete.png') }}" > supprimer </a> 
 										@if ($u->role=='utilisateur')
 									 <a href="{{url ('rendreAdmin',[$u->id])}}" > <img src="{{ url('images/addadmin.png') }}" > ajouter comme administrateur </a> 

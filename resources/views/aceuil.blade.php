@@ -103,13 +103,14 @@
 			<div class="account_grid">
 				<div class="col-md-4 login-left" data-wow-delay="0.4s">
 		<div class="register">
-@if(! empty($message))
-{{$message}}
 
-	@endif
 		  	  <form> 
 									 <div class="register-top-grid">
-					<h3>Choisir votre destination</h3>
+										 
+
+										
+										
+										 <h3>Choisir votre destination </h3>
 					 <div class="wow fadeInLeft" data-wow-delay="0.4s">
 						<span>DE <label>*</label></span>
 						<input type="text"> 

@@ -44,9 +44,7 @@
 								</div>
 								<div class="na-right">
 									<ul class="grid-img-list">
-									
-										<li class="reg">
-										</li>
+									<li class="reg"></li>
 										<div class="clearfix"> </div>	
 									</ul>
 								</div>

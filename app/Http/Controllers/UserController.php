@@ -37,9 +37,11 @@ class UserController extends Controller
       
     }
 
-      
-      return Redirect::to('/home')->with('message');
-  
+      if ($user->role=='admin')
+      return Redirect::to('/admin')->with('message');
+      else
+        return Redirect::to('/home')->with('message');
+
     }
  public function ajoutertrajet(Request $r){
    
