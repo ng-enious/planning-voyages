@@ -22,7 +22,7 @@
 	<div class="header">
 		<div class="container">
 		<div class="logo">
-		    <a href="{{ url('/') }}"><img src="{{ url('images/logo.png') }}" class="img-responsive" alt=""></a>
+		    <a href="{{ url('/admin') }}"><img src="{{ url('images/logo.png') }}" class="img-responsive" alt=""></a>
 			</div>
 							<div class="clearfix"></div>
 		</div>
@@ -44,9 +44,7 @@
 								</div>
 								<div class="na-right">
 									<ul class="grid-img-list">
-									
-										<li class="reg">
-										</li>
+									<li class="reg"></li>
 										<div class="clearfix"> </div>	
 									</ul>
 								</div>

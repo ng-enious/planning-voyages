@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Ajouter trajet</title>
+<title>Ajouter lieu</title>
 <link href="{{ url('css/bootstrap.css') }}" rel="stylesheet" type="text/css" media="all">
 <link href="{{ url('css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,51 +22,41 @@
 	<div class="header">
 		<div class="container">
 		<div class="logo">
-		    <a href="{{ url('/admin') }}"><img src="{{ url('images/logo.png') }}" class="img-responsive" alt=""></a>
+		    <a href="{{ url('/') }}"><img src="{{ url('images/logo.png') }}" class="img-responsive" alt=""></a>
 			</div>
 							<div class="clearfix"></div>
 		</div>
 	</div>
-<div class="header-bottom">
+	<div class="header-bottom">
 		<div class="container">
 			<div class="top-nav">
 				<span class="menu"> </span>
 					<ul class="navig megamenu skyblue">
-							<li><a  class="scroll"><img src="{{ url('images/adl.png') }}" class="img-responsive" alt="">Ajouter des données</a>
+					 @if (Auth::check())
+						<li><a  class="scroll"> <img src="{{ url('images/usr (1).png') }}" >Suggérer des données</a>
 							<div class="megapanel">
 								<div class="na-left">
 									<ul class="grid-img-list">
-										<li><a href="ajouterlieu">ajouter lieu  </a></li> |
-        					  <li><a href="ajoutermoyendetransport">ajouter moyen </a></li>|
-       					    <li><a >ajouter trajet </a></li>
+										<li><a >ajouter lieu  </a></li> |
+        					  <li><a href="suggerermoyendetransport">ajouter moyen </a></li>|
+       					    <li><a href="suggerertrajet">ajouter trajet </a></li>
 										<div class="clearfix"> </div>	
 									</ul>
 								</div>
 								<div class="na-right">
 									<ul class="grid-img-list">
-									<li class="reg"></li>
+										<li class="reg"><li>
 										<div class="clearfix"> </div>	
 									</ul>
 								</div>
 								<div class="clearfix"> </div>	
 		    				</div>
 						</li>
-						<li><a href="pagination" class="scroll"> <img src="{{ url('images/usr.png') }}" >Liste des utilisateurs</a></li>						
-						<li><a  class="scroll"><img src="{{ url('images/sugg.png') }}"  >Liste des suggestions</a>
-									<div class="megapanel">
-								<div class="na-left">
-									<ul class="grid-img-list">
-									<li><a href="paginationlieu">Lieux suggérés</a></li> |
-										<li><a href="paginationmoyen">moyens suggérés </a></li> |
-										<li><a href="paginationtrajet">trajet suggérés </a></li>
-										<div class="clearfix"> </div>	
-									</ul>
-								</div>
-								<div class="na-right">
-									<li class="reg"></li>
-						<li><a href="shop.html" class="scroll"><img src="{{ url('images/av.png') }}">Avis des utilisateurs</a></li>
+						
+						
+						@endif
 						<div class="clearfix"></div>
-						</ul>
+					</ul>
 					<script>
 					$("span.menu").click(function(){
 						$(".top-nav ul").slideToggle(300, function(){
@@ -84,7 +74,6 @@
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Se déconnecter
-                                       
                                         </a>
 
                                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
@@ -108,17 +97,29 @@
 <!-- 404 -->
 	<div class="addlocation">
 		<div class="container">
-				  <form class="form-horizontal" role="form" method="POST" action="{{ url('/ajoutertrajet') }}">
-      <h3>Ajouter un nouveau trajet</h3>
+      <h3>Ajouter nouveau lieu</h3>
 			<div class="col-md-6">
-				<div class="booki1"><span>depart: </span><form><input type="text" name= "depart"></form><div class="clearfix"> </div></div>
-		<div class="booki1"><span>Arrive: </span>
-					<input type="text" name="arrive" placeholder="" required="">
-			<div class="clearfix"> </div></div>
+				  <form class="form-horizontal" role="form" method="POST" action="{{ url('/suggererlieu') }}">
+				<div class="booki1"><span>Nom: </span>
+					<input type="text" name="nom" placeholder="" required="">
+					<div class="clearfix"> </div></div>
+						<div class="booki1"><span>Type: </span>
+							<select id="country" name="type" class="">
+											<option value="cafe">cafe</option>
+											<option value="restaurant">restaurant</option>         
+											<option value="mosque">mosque</option>
+											<option value="hotel">hotel</option>
+									  </select><div class="clearfix"> </div></div>
+				<div class="booki1"><span>Adresse: </span>
+					<input type="text" name="addresse" placeholder="" required=""><div class="clearfix"> </div></div>
+        <div class="booki1"><span>Latitude: </span>
+					<input type="text" name="latitude" placeholder="" required=""> <div class="clearfix"> </div></div>
+      <div class="booki1"><span>langtitude: </span><input type="text"  name="langtitude"placeholder="" required="">
+				<div class="clearfix"> </div></div>
 			  <button type="submit" class="btn btn-primary">
                                    ajouter
-                                </button>
-				</form>
+					                      </button>
+						</form>
       </div>	
 			<div class="col-md-6">
 	 <div class="col-md-8 login-right wow fadeInRight" data-wow-delay="0.4s">

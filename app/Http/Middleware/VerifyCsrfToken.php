@@ -12,6 +12,6 @@ class VerifyCsrfToken extends BaseVerifier
      * @var array
      */
     protected $except = [
-        '/register','/login','logout','/ajoutertrajet','/ajoutermoyendetransport','/ajouterlieu'
+        '/register','/login','logout','/ajoutertrajet','/ajoutermoyendetransport','/ajouterlieu','/suggerertrajet','/suggerermoyendetransport','/suggererlieu'
     ];
 }

@@ -41,9 +41,9 @@
 							<div class="megapanel">
 								<div class="na-left">
 									<ul class="grid-img-list">
-										<li><a href="ajouterlieu">ajouter lieu  </a></li> |
-        					  <li><a href="ajoutermoyendetransport">ajouter moyen </a></li>|
-       					    <li><a href="ajoutertrajet">ajouter trajet </a></li>
+										<li><a href="suggererlieu">ajouter lieu  </a></li> |
+        					  <li><a href="suggerermoyendetransport">ajouter moyen </a></li>|
+       					    <li><a href="suggerertrajet">ajouter trajet </a></li>
 										<div class="clearfix"> </div>	
 									</ul>
 								</div>

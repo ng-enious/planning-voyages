@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> moyen  de transport ajouter</title>
+    <title> moyens suggérés</title>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -58,12 +58,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
        
     </style>
      
-  </head>
+    </head>
   <body>
    	<div class="header">
 		<div class="container">
 			<div class="logo">
-				<a href="{{ url('/') }}"><img src="images/logo.png" class="img-responsive" alt=""></a>
+				<a href="{{ url('/admin') }}"><img src="images/logo.png" class="img-responsive" alt=""></a>
 			</div>
 			<div class="header-left">
 				<li a="" href="#"><div class="drop-down">
@@ -72,27 +72,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="clearfix"></div>
 		</div>
 	</div>
-	<div class="header-bottom">
+<div class="header-bottom">
 		<div class="container">
 			<div class="top-nav">
 				<span class="menu"> </span>
 					<ul class="navig megamenu skyblue">
-						<li><a  class="scroll"><img src="{{ url('images/adl.png') }}" class="img-responsive" alt="">Ajouter des données</a>
+							<li><a  class="scroll"><img src="{{ url('images/adl.png') }}" class="img-responsive" alt="">Ajouter des données</a>
 							<div class="megapanel">
 								<div class="na-left">
 									<ul class="grid-img-list">
-									<li><a href="ajouterlieu">ajouter lieu  </a></li> |
-										<li><a href="ajoutermoyendetransport">ajouter moyen </a></li> |
-										<li><a href="ajoutertrajet">ajouter trajet </a></li>
+										<li><a href="ajouterlieu">ajouter lieu  </a></li> |
+        					  <li><a href="ajoutermoyendetransport">ajouter moyen </a></li>|
+       					    <li><a href="ajoutertrajet">ajouter trajet </a></li>
 										<div class="clearfix"> </div>	
 									</ul>
 								</div>
 								<div class="na-right">
-										<li class="reg">
-										</li>
-										<li><a href="pagination" class="scroll"> <img src="{{ url('images/usr.png') }}" >Liste des utilisateurs</a></li>						
-						<li><a href="shop.html" class="scroll"><img src="{{ url('images/sugg.png') }}"  >Liste des suggestions</a></li>
-											<div class="megapanel">
+									<ul class="grid-img-list">
+									<li class="reg"></li>
+										<div class="clearfix"> </div>	
+									</ul>
+								</div>
+								<div class="clearfix"> </div>	
+		    				</div>
+						</li>
+						<li><a href="pagination" class="scroll"> <img src="{{ url('images/usr.png') }}" >Liste des utilisateurs</a></li>						
+						<li><a  class="scroll"><img src="{{ url('images/sugg.png') }}"  >Liste des suggestions</a>
+									<div class="megapanel">
 								<div class="na-left">
 									<ul class="grid-img-list">
 									<li><a href="paginationlieu">Lieux suggérés</a></li> |
@@ -102,50 +108,71 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</ul>
 								</div>
 								<div class="na-right">
-										<li class="reg"></li>
+									<li class="reg"></li>
 						<li><a href="shop.html" class="scroll"><img src="{{ url('images/av.png') }}">Avis des utilisateurs</a></li>
-										<div class="clearfix"> </div>	
-									</ul>
-								</div>
-								<div class="clearfix"> </div>	
-		    				</div>
-					
 						<div class="clearfix"></div>
+						</ul>
 					<script>
 					$("span.menu").click(function(){
 						$(".top-nav ul").slideToggle(300, function(){
 						});
 					});
 				</script>
-      </div>
+			</div>
+	
+
+	<div class="head-right">
+				<ul class="number">
+				 @if (Auth::check())
+                 <li><a><i class="roc"> </i>{{ Auth::user()->name }} {{ Auth::user()->lastname }}</a></li>
+				 <li>                        <a href="{{ url('/logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Se déconnecter
+                                        </a>
+
+                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+					 </form></li>
+
+	
+
+				 @endif
+				   <div class="clearfix"> 
+
+					</div>						
+				</ul>
+			</div>
+			<div class="clearfix"> </div>	
+			
+		</div>
+	</div>
  
       <h1>moyen de transport  suggérés </h1>
       <table>
         <tr>
                     
           <th>ID</th>
-          <th>type</th>
+					 <th>user_id</th>
+          <th>moyen</th>
           <th>de</th>
           <th>vers</th>
-          <th>user_id</th>
-					<th>confirm</th>
            <th>created_at</th>
           <th>update_at</th>
-          <th>Action</th>
-       
-                   
+          <th>Actions</th>
+                         
                    
         </tr>
       
-                       @foreach($moyens as $key =>$u)    
+        @foreach($moyens as $key =>$u)
+				@if ($u->confirm=='0')
                 <tr> 
                   <td>{{ $u -> id}}</td>
+									<td>{{ $u ->user_id}}</td>
                   <td>{{ $u -> type}}</td>
                     <td>{{ $u ->de}}</td>
                     <td>{{ $u ->vers}}</td>
-                    <td>{{ $u ->user_id}}</td>
-									<td>{{ $u ->confirm}}</td>
-                   <td>{{ $u -> created_at}}</td>
+                    <td>{{ $u -> created_at}}</td>
                   <td>{{ $u -> updated_at}}</td>
                   <td>
 										<a href="{{url ('editmoyen',[$u->id])}}" ><img src="{{ url('images/confirm.png') }}" > confirmer</a> 
@@ -155,7 +182,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             
                   </td>
         </tr>
+				@endif
                     @endforeach
+				
     </table>
     <h1>{{$moyens->currentPage()}} </h1>
     <hr>

@@ -30,7 +30,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="header">
 		<div class="container">
 			<div class="logo">
-				<a href="{{ url('/') }}"><img src="images/logo.png" class="img-responsive" alt=""></a>
+				<a href="{{ url('/admin') }}"><img src="images/logo.png" class="img-responsive" alt=""></a>
 			</div>
 			<div class="header-left">
 				<li a="" href="#"><div class="drop-down">
@@ -64,7 +64,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<ul class="grid-img-list">
 									<li><a href="paginationlieu">Lieux suggérés</a></li> |
 										<li><a href="paginationmoyen">moyens suggérés </a></li> |
-										<li><a href="paginationtrajet">trajet suggérés </a></li>
+										<li><a href="paginationtrajet">trajets suggérés </a></li>
 										<div class="clearfix"> </div>	
 									</ul>
 								</div>

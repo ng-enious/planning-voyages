@@ -77,21 +77,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="top-nav">
 				<span class="menu"> </span>
 					<ul class="navig megamenu skyblue">
-						<li><a  class="scroll"><img src="{{ url('images/adl.png') }}" class="img-responsive" alt="">Ajouter des données</a>
+							<li><a  class="scroll"><img src="{{ url('images/adl.png') }}" class="img-responsive" alt="">Ajouter des données</a>
 							<div class="megapanel">
 								<div class="na-left">
 									<ul class="grid-img-list">
-									<li><a href="ajouterlieu">ajouter lieu  </a></li> |
-										<li><a href="ajoutermoyendetransport">ajouter moyen </a></li> |
-										<li><a href="ajoutertrajet">ajouter trajet </a></li>
+										<li><a href="ajouterlieu">ajouter lieu  </a></li> |
+        					  <li><a href="ajoutermoyendetransport">ajouter moyen </a></li>|
+       					    <li><a href="ajoutertrajet">ajouter trajet </a></li>
 										<div class="clearfix"> </div>	
 									</ul>
 								</div>
 								<div class="na-right">
-										<li class="reg">
-										</li>
-										<li><a href="pagination" class="scroll"> <img src="{{ url('images/usr.png') }}" >Liste des utilisateurs</a></li>						
-						<li><a class="scroll"><img src="{{ url('images/sugg.png') }}"  >Liste des suggestions</a>
+									<ul class="grid-img-list">
+									<li class="reg"></li>
+										<div class="clearfix"> </div>	
+									</ul>
+								</div>
+								<div class="clearfix"> </div>	
+		    				</div>
+						</li>
+						<li><a href="pagination" class="scroll"> <img src="{{ url('images/usr.png') }}" >Liste des utilisateurs</a></li>						
+						<li><a  class="scroll"><img src="{{ url('images/sugg.png') }}"  >Liste des suggestions</a>
 									<div class="megapanel">
 								<div class="na-left">
 									<ul class="grid-img-list">
@@ -102,23 +108,45 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</ul>
 								</div>
 								<div class="na-right">
-										<li class="reg">
-						         </li>
+									<li class="reg"></li>
 						<li><a href="shop.html" class="scroll"><img src="{{ url('images/av.png') }}">Avis des utilisateurs</a></li>
-										<div class="clearfix"> </div>	
-									</ul>
-								</div>
-								<div class="clearfix"> </div>	
-		    				</div>
-					
 						<div class="clearfix"></div>
+						</ul>
 					<script>
 					$("span.menu").click(function(){
 						$(".top-nav ul").slideToggle(300, function(){
 						});
 					});
 				</script>
-      </div>
+			</div>
+	
+
+	<div class="head-right">
+				<ul class="number">
+				 @if (Auth::check())
+                 <li><a><i class="roc"> </i>{{ Auth::user()->name }} {{ Auth::user()->lastname }}</a></li>
+				 <li>                        <a href="{{ url('/logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Se déconnecter
+                                        </a>
+
+                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+					 </form></li>
+
+	
+
+				 @endif
+				   <div class="clearfix"> 
+
+					</div>						
+				</ul>
+			</div>
+			<div class="clearfix"> </div>	
+			
+		</div>
+	</div>
  
       <h1>               liste utilisateur </h1>
       <table>

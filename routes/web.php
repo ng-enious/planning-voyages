@@ -20,7 +20,15 @@ Route::get('ajoutermoyendetransport', function () {
 });
 Route::get('ajouterlieu', function () {
     return view('ajouterlieu');
+  
+  });
+Route::get('suggerermoyendetransport', function () {
+    return view('suggerermoyendetransport');
 });
+Route::get('suggererlieu', function () {
+    return view('suggererlieu');
+});
+
 Route::get('admin', function () {
     return view('admin');
 });
@@ -33,26 +41,26 @@ Route::get('listesuggestion', function () {
 });
 Route::get('ajoutertrajet', function () {
     return view('ajoutertrajet');
-
-});
-
-Route::get('ccc', function () {
-    return view('ccc');
-
-});
-Route::get('test', function () {
-    return view('test');
-
-});
-
-Route::group(['middleware' => 'web'], function () {
-    Route::post('/ajouterlieu', 'UserController@ajouterlieu');
+  
   });
+Route::get('suggerertrajet', function () {
+    return view('suggerertrajet');
+
+});
+
+
+
 
 
 Route::get('/home', 'HomeController@index');
+Route::post('/suggerertrajet', 'UserController@suggertrajet');
+Route::post('/suggererlieu', 'UserController@suggerlieu');
+Route::post('/suggerermoyendetransport', 'UserController@suggermoyen');
+
 Route::post('/ajoutertrajet', 'UserController@ajoutertrajet');
+Route::post('/ajouterlieu', 'UserController@ajouterlieu');
 Route::post('/ajoutermoyendetransport', 'UserController@ajoutermoyen');
+
 Route::get('/pagination', 'PaginationController@pagination');
 Route::get('/paginationlieu', 'PaginationController@paginationlieu');
 Route::get('/paginationmoyen', 'PaginationController@paginationmoyen');
