@@ -47,6 +47,10 @@ Route::get('suggerertrajet', function () {
     return view('suggerertrajet');
 
 });
+Route::get('test', function () {
+    return view('test');
+
+});
 
 
 

@@ -36,9 +36,21 @@
 	</div>
   <script>
 		 var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 27.27, lng: 150.644},
+          center: {lat: 27.27,
+									 lng: 85.63},
           
-          zoom: 8
+          zoom: 15
 			 
-		 });</script>
+		 });
+		   var marker = new google.maps.Marker({
+       position :  {
+				 lat: 27.27,
+									 lng: 85.63},
+        map:map,
+				 draggable:true
+				     });
+   
+		var searchBox =new google.maps.places.SearchBox(document.getElementById('searchamp'));
+				    
+</script>
 
