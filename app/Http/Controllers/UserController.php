@@ -38,7 +38,8 @@ class UserController extends Controller
       
     }
 
-      return Redirect::to('/admin')->with('message');
+      return redirect('/')->with('message', $message);
+      
     }
      public function test(Request $request){
        $message='';
