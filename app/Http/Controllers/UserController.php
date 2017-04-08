@@ -40,6 +40,34 @@ class UserController extends Controller
 
       return Redirect::to('/admin')->with('message');
     }
+     public function test(Request $request){
+       $message='';
+    if (Auth::check())
+    {
+          
+      $user=Auth::user();
+      //dd($user->id);
+  
+    
+              $lieu= Lieu::create([
+            'nom' => $request->get('nom'),
+            'type' => $request->get('type'),
+            'addresse' =>$request->get('addresse'),
+            'latitude'=>$request->get('latitude'),
+             'langitude'=>$request->get('langtitude'),
+                'user_id'=>$user->id,
+                'confirm'=>1
+                
+        ]);
+      if ($lieu)
+        $message='lieu ajouté avec succes ';
+      else 
+        $message='lieu non ajouté';
+      
+    }
+
+      return Redirect::to('/admin')->with('message');
+    }
   
   
   

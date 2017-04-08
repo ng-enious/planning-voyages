@@ -1,7 +1,14 @@
 <!DOCTYPE HTML>
 <html>
+	<head>
+		<style>
+	#map {
+		width:250px;
+		height :350px;
+	}
+</style>
 <head>
-<title>Planning Voyage</title>
+	<title>Planning Voyage</title>
 <link href="{{ url('css/bootstrap.css') }}" rel="stylesheet" type="text/css" media="all">
 <link href="{{ url('css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,8 +16,8 @@
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
-<script src="{{ url('js/jquery.min.js') }}"></script>
-<script src="{{ url('js/jquery.easydropdown.js')}}"></script>
+	<script src="{{ url('js/jquery.min.js') }}"></script>
+	<script src="{{ url('js/jquery.easydropdown.js')}}"></script>
 	   <link rel="stylesheet" href="/maps/documentation/javascript/demos/demos.css">
 <script type="text/javascript"
          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqSTkzPn8PpJBY3Pclu-TTjmGDLzqKMD4&libraries=places&callback=initMap"></script>

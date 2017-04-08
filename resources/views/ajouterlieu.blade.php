@@ -11,6 +11,12 @@
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
 <script src="{{ url('js/jquery.min.js') }}"></script>
 <script src="{{ url('js/jquery.easydropdown.js')}}"></script>
+<script src="{{ url('js/jquery.min.js') }}"></script>
+   <link rel="stylesheet" href="/maps/documentation/javascript/demos/demos.css">
+<script type="text/javascript"
+         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqSTkzPn8PpJBY3Pclu-TTjmGDLzqKMD4&libraries=places">
+    </script>
+<script src="js/locationpicker.jquery.js"></script>
 <!-- Mega Menu -->
 <link href="{{ url('css/megamenu.css') }}" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="{{ url('js/megamenu.js') }}"></script>
@@ -107,7 +113,11 @@
       <h3>Ajouter un nouveau lieu</h3>
 			<div class="col-md-6">
 				  <form class="form-horizontal" role="form" method="POST" action="{{ url('/ajouterlieu') }}">
-				<div class="booki1"><span>Nom: </span>
+			<div class="row">
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-8">
+														<div class="booki1"><span>Nom: </span>
 					<input type="text" name="nom" placeholder="" required="">
 					<div class="clearfix"> </div></div>
 						<div class="booki1"><span>Type: </span>
@@ -117,21 +127,43 @@
 											<option value="mosque">mosque</option>
 											<option value="hotel">hotel</option>
 									  </select><div class="clearfix"> </div></div>
-				<div class="booki1"><span>Adresse: </span>
+														<div class="booki1"><span>Adresse: </span>
 					<input type="text" name="addresse" placeholder="" required=""><div class="clearfix"> </div></div>
-        <div class="booki1"><span>Latitude: </span>
-					<input type="text" name="latitude" placeholder="" required=""> <div class="clearfix"> </div></div>
-      <div class="booki1"><span>langtitude: </span><input type="text"  name="langtitude"placeholder="" required="">
-				<div class="clearfix"> </div></div>
+                                    <div class="form-horizontal" style="width: 550px">
+                                       <div class="form-group">
+                                           <label class="col-sm-2 control-label">loaction</label>
+
+                                           <div class="col-sm-10">
+                                               <input type="text" class="form-control" id="us3-address" />
+                                           </div>
+                                       </div>
+                                       <div class="form-group">
+                                        
+
+                                        
+                                       </div>
+                                       <div id="us3" style="width: 800px; height: 500px;"></div>
+                                       <div class="clearfix">&nbsp;</div>
+                                       <div class="m-t-small">
+                                           <label class="p-r-small col-sm-1 control-label">Latitude: </label>
+
+                                           <div class="col-sm-3">
+                                               <input type="text" class="form-control" style="width: 110px" id="us3-lat" name="latitude" />
+                                           </div>
+                                           <label class="p-r-small col-sm-2 control-label">Longitude: </label>
+
+                                           <div class="col-sm-3">
+                                               <input type="text" class="form-control" style="width: 110px" id="us3-lon" name="langtitude"/>
+                                           </div>
+                                       </div>
+                                      <div class="clearfix"></div>
+                                    </div>
 			  <button type="submit" class="btn btn-primary">
                                    ajouter
 					                      </button>
 						</form>
-      </div>	
-			<div class="col-md-6">
-	 <div class="col-md-8 login-right wow fadeInRight" data-wow-delay="0.4s">
-				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50425.625635580545!2d145.12407634632558!3d-37.822799693691664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad646b5d2ba4df7%3A0x4045675218ccd90!2sMelbourne+VIC%2C+Australia!5e0!3m2!1sen!2sin!4v1430741934072" width="100%" height="500" frameborder="0" style="border:0"></iframe>
-			   </div>	
+     
+
 				<div class="clearfix"></div>
 		</div>	
 	</div>
@@ -143,7 +175,26 @@
 				<p>Planning Voyages</p>
 			</div>
 		</div>
-	</div>
+				</div>
 
+	<script>
+    $('#us3').locationpicker({
+        location: {
+            latitude: 46.15242437752303,
+            longitude: 2.7470703125
+        },
+        radius: 300,
+        inputBinding: {
+            latitudeInput: $('#us3-lat'),
+            longitudeInput: $('#us3-lon'),
+            radiusInput: $('#us3-radius'),
+            locationNameInput: $('#us3-address')
+        },
+        enableAutocomplete: true,
+        onchanged: function (currentLocation, radius, isMarkerDropped) {
+        }
+    });
+
+</script>
 </body>
 </html>

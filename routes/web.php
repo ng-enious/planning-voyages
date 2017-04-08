@@ -67,6 +67,7 @@ Route::post('/suggerermoyendetransport', 'UserController@suggermoyen');
 
 Route::post('/ajoutertrajet', 'UserController@ajoutertrajet');
 Route::post('/ajouterlieu', 'UserController@ajouterlieu');
+Route::post('/test', 'UserController@test');
 Route::post('/ajoutermoyendetransport', 'UserController@ajoutermoyen');
 
 Route::get('/pagination', 'PaginationController@pagination');
