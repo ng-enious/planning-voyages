@@ -12,6 +12,13 @@ use Auth;
 use Illuminate\Support\Facades\Redirect;
 class UserController extends Controller
 {
+  
+  
+  
+  ///ajouter admin
+  
+  
+  
     public function ajouterlieu(Request $request){
        $message='';
     if (Auth::check())
@@ -38,7 +45,7 @@ class UserController extends Controller
       
     }
 
-      return redirect('/')->with('message', $message);
+      return redirect('/admin')->with('message', $message);
       
     }
      public function test(Request $request){
@@ -64,8 +71,7 @@ class UserController extends Controller
         $message='lieu ajouté avec succes ';
       else 
         $message='lieu non ajouté';
-      
-    }
+          }
 
       return Redirect::to('/admin')->with('message');
     }
@@ -94,11 +100,14 @@ class UserController extends Controller
         $message='trajet non ajouté';
    
     }
-     return Redirect::to('/home')->with('message');   
+     return Redirect::to('/admin')->with('message');   
  }
   
   
   
+  
+  
+  //admiinnnnnn
    
     public function ajoutermoyen(Request $r){
      $message='';

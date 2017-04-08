@@ -42,7 +42,7 @@
 							<div class="megapanel">
 								<div class="na-left">
 									<ul class="grid-img-list">
-										<li><a href="ajouterlieu">ajouter lieu  </a></li> |
+										<li><a>ajouter lieu  </a></li> |
         					  <li><a href="ajoutermoyendetransport">ajouter moyen </a></li>|
        					    <li><a href="ajoutertrajet">ajouter trajet </a></li>
 										<div class="clearfix"> </div>	
