@@ -12,7 +12,7 @@
 <script type="text/javascript"
          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqSTkzPn8PpJBY3Pclu-TTjmGDLzqKMD4&libraries=places">
     </script>
-<script src="js/locationpicker.jquery.js"></script>
+		<script src="js/locationpicker.jquery.js"></script>
 	</head>
 	<body>
 		<div class="row">

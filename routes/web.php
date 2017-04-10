@@ -70,6 +70,7 @@ Route::post('/ajouterlieu', 'UserController@ajouterlieu');
 Route::post('/test', 'UserController@test');
 Route::post('/ajoutermoyendetransport', 'UserController@ajoutermoyen');
 
+
 Route::get('/pagination', 'PaginationController@pagination');
 Route::get('/paginationlieu', 'PaginationController@paginationlieu');
 Route::get('/paginationmoyen', 'PaginationController@paginationmoyen');

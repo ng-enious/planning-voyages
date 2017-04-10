@@ -127,14 +127,13 @@
 											<option value="mosque">mosque</option>
 											<option value="hotel">hotel</option>
 									  </select><div class="clearfix"> </div></div>
-														<div class="booki1"><span>Adresse: </span>
-					<input type="text" name="addresse" placeholder="" required=""><div class="clearfix"> </div></div>
+
                                     <div class="form-horizontal" style="width: 550px">
                                        <div class="form-group">
-                                           <label class="col-sm-2 control-label">loaction</label>
+                                           <label class="col-sm-2 control-label">Adresse</label>
 
                                            <div class="col-sm-10">
-                                               <input type="text" class="form-control" id="us3-address" />
+                                               <input type="text" name="addresse" class="form-control" id="us3-address" />
                                            </div>
                                        </div>
                                        <div class="form-group">

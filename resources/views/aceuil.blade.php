@@ -20,7 +20,9 @@
 	<script src="{{ url('js/jquery.easydropdown.js')}}"></script>
 	   <link rel="stylesheet" href="/maps/documentation/javascript/demos/demos.css">
 <script type="text/javascript"
-         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqSTkzPn8PpJBY3Pclu-TTjmGDLzqKMD4&libraries=places&callback=initMap"></script>
+         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqSTkzPn8PpJBY3Pclu-TTjmGDLzqKMD4&libraries=places">
+    </script>
+<script src="js/locationpicker.jquery.js"></script>
 	
 <!-- Mega Menu -->
 <link href="{{ url('css/megamenu.css') }}" rel="stylesheet" type="text/css" media="all" />
@@ -137,13 +139,22 @@
 					   <input type="submit" value="Planifier" class="btn btn-primary btn-md">
 					   <div class="clearfix"> </div>
 				   </form>
+						         <label class="col-sm-2 control-label">Location:</label>
+
+                                           <div class="col-sm-10">
+                                               <input type="text" class="form-control" id="us3-address" />
+                                           </div>
 				</div>
 		
 					</div>
 				</div>
 			   <div class="col-md-8 login-right wow fadeInRight" data-wow-delay="0.4s">
 				<div class="form-group">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50425.625635580545!2d145.12407634632558!3d-37.822799693691664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad646b5d2ba4df7%3A0x4045675218ccd90!2sMelbourne+VIC%2C+Australia!5e0!3m2!1sen!2sin!4v1430741934072" width="100%" height="500" frameborder="0" style="border:0"></iframe>
+
+                                       
+                                       </div>
+                                       <div id="us3" style="width: 800px; height: 500px;"></div>
+                                       <div class="clearfix"></div>
 					 </div>
 				<div class="clearfix"> </div>
 			</div>
@@ -157,6 +168,25 @@
 			</div>
 		</div>
 	</div>
+				<script>
+    $('#us3').locationpicker({
+     location: {
+            latitude: 35.76612799228189,
+            longitude: 10.839695968017622
+        },
+        radius: 10,
+        inputBinding: {
+            latitudeInput: $('#us3-lat'),
+            longitudeInput: $('#us3-lon'),
+            radiusInput: $('#us3-radius'),
+            locationNameInput: $('#us3-address')
+        },
+        enableAutocomplete: true,
+        onchanged: function (currentLocation, radius, isMarkerDropped) {
+        }
+    });
+
+</script>
 
 </body>
 </html>

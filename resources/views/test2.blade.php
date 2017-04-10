@@ -1,198 +1,103 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-<head>
-<title>Ajouter lieu</title>
-<link href="{{ url('css/bootstrap.css') }}" rel="stylesheet" type="text/css" media="all">
-<link href="{{ url('css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
-<script src="{{ url('js/jquery.min.js') }}"></script>
-<script src="{{ url('js/jquery.easydropdown.js')}}"></script>
-<script src="{{ url('js/jquery.min.js') }}"></script>
-   <link rel="stylesheet" href="/maps/documentation/javascript/demos/demos.css">
-<script type="text/javascript"
-         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqSTkzPn8PpJBY3Pclu-TTjmGDLzqKMD4&libraries=places">
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Directions service</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="floating-panel">
+    <b>Start: </b>
+    <select id="start">
+      <option value="chicago, il">Chicago</option>
+      <option value="st louis, mo">St Louis</option>
+      <option value="joplin, mo">Joplin, MO</option>
+      <option value="oklahoma city, ok">Oklahoma City</option>
+      <option value="amarillo, tx">Amarillo</option>
+      <option value="gallup, nm">Gallup, NM</option>
+      <option value="flagstaff, az">Flagstaff, AZ</option>
+      <option value="winona, az">Winona</option>
+      <option value="kingman, az">Kingman</option>
+      <option value="barstow, ca">Barstow</option>
+      <option value="san bernardino, ca">San Bernardino</option>
+      <option value="los angeles, ca">Los Angeles</option>
+    </select>
+    <b>End: </b>
+    <select id="end">
+      <option value="chicago, il">Chicago</option>
+      <option value="st louis, mo">St Louis</option>
+      <option value="joplin, mo">Joplin, MO</option>
+      <option value="oklahoma city, ok">Oklahoma City</option>
+      <option value="amarillo, tx">Amarillo</option>
+      <option value="gallup, nm">Gallup, NM</option>
+      <option value="flagstaff, az">Flagstaff, AZ</option>
+      <option value="winona, az">Winona</option>
+      <option value="kingman, az">Kingman</option>
+      <option value="barstow, ca">Barstow</option>
+      <option value="san bernardino, ca">San Bernardino</option>
+      <option value="los angeles, ca">Los Angeles</option>
+    </select>
+    </div>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var directionsService = new google.maps.DirectionsService;
+        var directionsDisplay = new google.maps.DirectionsRenderer;
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 7,
+          center: {lat: 41.85, lng: -87.65}
+        });
+        directionsDisplay.setMap(map);
+
+        var onChangeHandler = function() {
+          calculateAndDisplayRoute(directionsService, directionsDisplay);
+        };
+        document.getElementById('start').addEventListener('change', onChangeHandler);
+        document.getElementById('end').addEventListener('change', onChangeHandler);
+      }
+
+      function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+        directionsService.route({
+          origin: document.getElementById('start').value,
+          destination: document.getElementById('end').value,
+          travelMode: 'DRIVING'
+        }, function(response, status) {
+          if (status === 'OK') {
+            directionsDisplay.setDirections(response);
+          } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        });
+      }
     </script>
-<script src="js/locationpicker.jquery.js"></script>
-<!-- Mega Menu -->
-<link href="{{ url('css/megamenu.css') }}" rel="stylesheet" type="text/css" media="all" />
-<script type="text/javascript" src="{{ url('js/megamenu.js') }}"></script>
-<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
-<!-- Mega Menu -->
-</head>
-<body>
-<!-- banner -->
-	<div class="header">
-		<div class="container">
-		<div class="logo">
-		    <a href="{{ url('/admin') }}"><img src="{{ url('images/logo.png') }}" class="img-responsive" alt=""></a>
-			</div>
-							<div class="clearfix"></div>
-		</div>
-	</div>
-<div class="header-bottom">
-		<div class="container">
-			<div class="top-nav">
-				<span class="menu"> </span>
-					<ul class="navig megamenu skyblue">
-							<li><a  class="scroll"><img src="{{ url('images/adl.png') }}" class="img-responsive" alt="">Ajouter des données</a>
-							<div class="megapanel">
-								<div class="na-left">
-									<ul class="grid-img-list">
-										<li><a href="ajouterlieu">ajouter lieu  </a></li> |
-        					  <li><a href="ajoutermoyendetransport">ajouter moyen </a></li>|
-       					    <li><a href="ajoutertrajet">ajouter trajet </a></li>
-										<div class="clearfix"> </div>	
-									</ul>
-								</div>
-								<div class="na-right">
-									<ul class="grid-img-list">
-									<li class="reg"></li>
-										<div class="clearfix"> </div>	
-									</ul>
-								</div>
-								<div class="clearfix"> </div>	
-		    				</div>
-						</li>
-						<li><a href="pagination" class="scroll"> <img src="{{ url('images/usr.png') }}" >Liste des utilisateurs</a></li>						
-						<li><a  class="scroll"><img src="{{ url('images/sugg.png') }}"  >Liste des suggestions</a>
-									<div class="megapanel">
-								<div class="na-left">
-									<ul class="grid-img-list">
-									<li><a href="paginationlieu">Lieux suggérés</a></li> |
-										<li><a href="paginationmoyen">moyens suggérés </a></li> |
-										<li><a href="paginationtrajet">trajet suggérés </a></li>
-										<div class="clearfix"> </div>	
-									</ul>
-								</div>
-								<div class="na-right">
-									<li class="reg"></li>
-						<li><a href="shop.html" class="scroll"><img src="{{ url('images/av.png') }}">Avis des utilisateurs</a></li>
-						<div class="clearfix"></div>
-						</ul>
-					<script>
-					$("span.menu").click(function(){
-						$(".top-nav ul").slideToggle(300, function(){
-						});
-					});
-				</script>
-			</div>
-	
-
-	<div class="head-right">
-				<ul class="number">
-				 @if (Auth::check())
-                 <li><a><i class="roc"> </i>{{ Auth::user()->name }} {{ Auth::user()->lastname }}</a></li>
-				 <li>                        <a href="{{ url('/logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Se déconnecter
-                                        </a>
-
-                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-					 </form></li>
-
-	
-
-				 @endif
-				   <div class="clearfix"> 
-
-					</div>						
-				</ul>
-			</div>
-			<div class="clearfix"> </div>	
-		</div>
-	</div>
-<!-- 404 -->
-	<div class="addlocation">
-		<div class="container">
-      <h3>Ajouter un nouveau lieu</h3>
-			<div class="col-md-6">
-				  <form class="form-horizontal" role="form" method="POST" action="{{ url('/ajouterlieu') }}">
-			<div class="row">
-                        <div class="col-md-2">
-                        </div>
-                        <div class="col-md-8">
-														<div class="booki1"><span>Nom: </span>
-					<input type="text" name="nom" placeholder="" required="">
-					<div class="clearfix"> </div></div>
-						<div class="booki1"><span>Type: </span>
-							<select id="country" name="type" class="">
-											<option value="cafe">cafe</option>
-											<option value="restaurant">restaurant</option>         
-											<option value="mosque">mosque</option>
-											<option value="hotel">hotel</option>
-									  </select><div class="clearfix"> </div></div>
-                                    <div class="form-horizontal" style="width: 550px">
-                                       <div class="form-group">
-                                           <label class="col-sm-2 control-label">loaction</label>
-
-                                           <div class="col-sm-10">
-                                               <input type="text" class="form-control" id="us3-address" />
-                                           </div>
-                                       </div>
-                                       <div class="form-group">
-                                        
-
-                                        
-                                       </div>
-                                       <div id="us3" style="width: 800px; height: 500px;"></div>
-                                       <div class="clearfix">&nbsp;</div>
-                                       <div class="m-t-small">
-                                           <label class="p-r-small col-sm-1 control-label">Latitude: </label>
-
-                                           <div class="col-sm-3">
-                                               <input type="text" class="form-control" style="width: 110px" id="us3-lat" name="latitude" />
-                                           </div>
-                                           <label class="p-r-small col-sm-2 control-label">Longitude: </label>
-
-                                           <div class="col-sm-3">
-                                               <input type="text" class="form-control" style="width: 110px" id="us3-lon" name="langtitude"/>
-                                           </div>
-                                       </div>
-                                      <div class="clearfix"></div>
-                                    </div>
-			  <button type="submit" class="btn btn-primary">
-                                   ajouter
-					                      </button>
-						</form>
-     
-
-				<div class="clearfix"></div>
-		</div>	
-	</div>
-<!-- 404 -->
-	   <div class="footer">
-		<div class="container">
-       <div class="clearfix"></div>
-			<div class="footer-bottom">
-				<p>Planning Voyages</p>
-			</div>
-		</div>
-				</div>
-
-	<script>
-    $('#us3').locationpicker({
-        location: {
-            latitude: 46.15242437752303,
-            longitude: 2.7470703125
-        },
-        radius: 300,
-        inputBinding: {
-            latitudeInput: $('#us3-lat'),
-            longitudeInput: $('#us3-lon'),
-            radiusInput: $('#us3-radius'),
-            locationNameInput: $('#us3-address')
-        },
-        enableAutocomplete: true,
-        onchanged: function (currentLocation, radius, isMarkerDropped) {
-        }
-    });
-
-</script>
-</body>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqSTkzPn8PpJBY3Pclu-TTjmGDLzqKMD4&callback=initMap">
+    </script>
+  </body>
 </html>
