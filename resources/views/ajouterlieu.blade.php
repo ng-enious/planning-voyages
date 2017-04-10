@@ -179,10 +179,10 @@
 	<script>
     $('#us3').locationpicker({
         location: {
-            latitude: 46.15242437752303,
-            longitude: 2.7470703125
+            latitude: 35.7642515,
+            longitude: 10.811288500000046
         },
-        radius: 300,
+        radius: 50,
         inputBinding: {
             latitudeInput: $('#us3-lat'),
             longitudeInput: $('#us3-lon'),
