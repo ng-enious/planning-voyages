@@ -55,10 +55,15 @@ Route::get('test2', function () {
     return view('test2');
 
 });
+Route::get('mail', function () {
+    return view('mmail');
+
+});
 
 
 
-
+Route::get('/send','MailController@send');
+Route::get('/testmail', 'MailController@testmail');
 
 Route::get('/home', 'HomeController@index');
 Route::post('/suggerertrajet', 'UserController@suggertrajet');
