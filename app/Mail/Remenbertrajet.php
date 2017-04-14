@@ -8,7 +8,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\http\request;
 
-class Remenber extends Mailable
+class Remenbertrajet extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -29,6 +29,6 @@ class Remenber extends Mailable
      */
     public function build(request $request)
     {
-        return $this->view('mail');
+        return $this->view('mailtrajet');
     }
 }

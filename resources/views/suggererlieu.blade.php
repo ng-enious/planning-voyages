@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Ajouter lieu</title>
+<title>suggererlieu</title>
 <link href="{{ url('css/bootstrap.css') }}" rel="stylesheet" type="text/css" media="all">
 <link href="{{ url('css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,6 +11,12 @@
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
 <script src="{{ url('js/jquery.min.js') }}"></script>
 <script src="{{ url('js/jquery.easydropdown.js')}}"></script>
+<script src="{{ url('js/jquery.min.js') }}"></script>
+   <link rel="stylesheet" href="/maps/documentation/javascript/demos/demos.css">
+<script type="text/javascript"
+         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqSTkzPn8PpJBY3Pclu-TTjmGDLzqKMD4&libraries=places">
+    </script>
+<script src="js/locationpicker.jquery.js"></script>
 <!-- Mega Menu -->
 <link href="{{ url('css/megamenu.css') }}" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="{{ url('js/megamenu.js') }}"></script>
@@ -22,41 +28,47 @@
 	<div class="header">
 		<div class="container">
 		<div class="logo">
-		    <a href="{{ url('/') }}"><img src="{{ url('images/logo.png') }}" class="img-responsive" alt=""></a>
+		    <a href="{{ url('/admin') }}"><img src="{{ url('images/logo.png') }}" class="img-responsive" alt=""></a>
 			</div>
 							<div class="clearfix"></div>
 		</div>
 	</div>
-	<div class="header-bottom">
+<div class="header-bottom">
 		<div class="container">
 			<div class="top-nav">
 				<span class="menu"> </span>
 					<ul class="navig megamenu skyblue">
-					 @if (Auth::check())
-						<li><a  class="scroll"> <img src="{{ url('images/usr (1).png') }}" >Suggérer des données</a>
+							<li><a  class="scroll"><img src="{{ url('images/adl.png') }}" class="img-responsive" alt="">Ajouter des données</a>
 							<div class="megapanel">
 								<div class="na-left">
 									<ul class="grid-img-list">
-										<li><a >ajouter lieu  </a></li> |
-        					  <li><a href="suggerermoyendetransport">ajouter moyen </a></li>|
-       					    <li><a href="suggerertrajet">ajouter trajet </a></li>
+										<li><a>ajouter lieu  </a></li> |
+        					  <li><a href="ajoutermoyendetransport">ajouter moyen </a></li>|
+       					    <li><a href="ajoutertrajet">ajouter trajet </a></li>
 										<div class="clearfix"> </div>	
 									</ul>
 								</div>
 								<div class="na-right">
 									<ul class="grid-img-list">
-										<li class="reg"><li>
+									<li class="reg"></li>
 										<div class="clearfix"> </div>	
 									</ul>
 								</div>
 								<div class="clearfix"> </div>	
 		    				</div>
 						</li>
-						
-						
-						@endif
+									<div class="megapanel">
+								<div class="na-left">
+									<ul class="grid-img-list">
+								
+										<div class="clearfix"> </div>	
+									</ul>
+								</div>
+								<div class="na-right">
+									<li class="reg"></li>
+			
 						<div class="clearfix"></div>
-					</ul>
+						</ul>
 					<script>
 					$("span.menu").click(function(){
 						$(".top-nav ul").slideToggle(300, function(){
@@ -80,10 +92,7 @@
                                             {{ csrf_field() }}
 					 </form></li>
 
-				 @else
-
-					<li><a href="{{ url('/register') }}"><i class="roc"> </i>Inscription</a></li>
-					<li><a href="{{ url('/login') }}"><i class="phone"> </i>Connexion</a></li>
+	
 
 				 @endif
 				   <div class="clearfix"> 
@@ -97,10 +106,14 @@
 <!-- 404 -->
 	<div class="addlocation">
 		<div class="container">
-      <h3>Ajouter nouveau lieu</h3>
+      <h3>Ajouter un nouveau lieu</h3>
 			<div class="col-md-6">
 				  <form class="form-horizontal" role="form" method="POST" action="{{ url('/suggererlieu') }}">
-				<div class="booki1"><span>Nom: </span>
+			<div class="row">
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-8">
+														<div class="booki1"><span>Nom: </span>
 					<input type="text" name="nom" placeholder="" required="">
 					<div class="clearfix"> </div></div>
 						<div class="booki1"><span>Type: </span>
@@ -110,21 +123,44 @@
 											<option value="mosque">mosque</option>
 											<option value="hotel">hotel</option>
 									  </select><div class="clearfix"> </div></div>
-				<div class="booki1"><span>Adresse: </span>
-					<input type="text" name="addresse" placeholder="" required=""><div class="clearfix"> </div></div>
-        <div class="booki1"><span>Latitude: </span>
-					<input type="text" name="latitude" placeholder="" required=""> <div class="clearfix"> </div></div>
-      <div class="booki1"><span>langtitude: </span><input type="text"  name="langtitude"placeholder="" required="">
-				<div class="clearfix"> </div></div>
+
+                                    <div class="form-horizontal" style="width: 550px">
+                                       <div class="form-group">
+                                           <label class="col-sm-2 control-label">Adresse</label>
+
+                                           <div class="col-sm-10">
+                                               <input type="text" name="addresse" class="form-control" id="us3-address" />
+                                           </div>
+                                       </div>
+                                       <div class="form-group">
+                                        
+
+                                        
+                                       </div>
+                                       <div id="us3" style="width: 800px; height: 500px;"></div>
+                                       <div class="clearfix">&nbsp;</div>
+                                       <div class="m-t-small">
+                                           <label class="p-r-small col-sm-1 control-label">Latitude: </label>
+
+                                           <div class="col-sm-3">
+                                               <input type="text" class="form-control" style="width: 110px" id="us3-lat" name="latitude" />
+                                           </div>
+                                           <label class="p-r-small col-sm-2 control-label">Longitude: </label>
+
+                                           <div class="col-sm-3">
+                                               <input type="text" class="form-control" style="width: 110px" id="us3-lon" name="langtitude"/>
+                                           </div>
+                                       </div>
+                                      <div class="clearfix"></div>
+                                    </div>
 			  <button type="submit" class="btn btn-primary">
                                    ajouter
 					                      </button>
 						</form>
-      </div>	
-			<div class="col-md-6">
-	 <div class="col-md-8 login-right wow fadeInRight" data-wow-delay="0.4s">
-				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50425.625635580545!2d145.12407634632558!3d-37.822799693691664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad646b5d2ba4df7%3A0x4045675218ccd90!2sMelbourne+VIC%2C+Australia!5e0!3m2!1sen!2sin!4v1430741934072" width="100%" height="500" frameborder="0" style="border:0"></iframe>
-			   </div>	
+     </div>
+						</div>
+			</div>
+
 				<div class="clearfix"></div>
 		</div>	
 	</div>
@@ -136,7 +172,26 @@
 				<p>Planning Voyages</p>
 			</div>
 		</div>
-	</div>
+				</div>
 
+	<script>
+    $('#us3').locationpicker({
+        location: {
+            latitude: 35.7642515,
+            longitude: 10.811288500000046
+        },
+        radius: 50,
+        inputBinding: {
+            latitudeInput: $('#us3-lat'),
+            longitudeInput: $('#us3-lon'),
+            radiusInput: $('#us3-radius'),
+            locationNameInput: $('#us3-address')
+        },
+        enableAutocomplete: true,
+        onchanged: function (currentLocation, radius, isMarkerDropped) {
+        }
+    });
+
+</script>
 </body>
 </html>

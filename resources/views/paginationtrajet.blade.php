@@ -177,7 +177,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                   <td>{{ $u -> updated_at}}</td>
 									<td>
 									<a href="{{url ('edittrajet',[$u->id])}}" ><img src="{{ url('images/confirm.png') }}" > confirmer</a> 
-                  <td><a href="{{url ('postdeletetrajet',[$u->id])}}" ><img src="{{ url('images/delete.png') }}" >supprimer</a> 
+                  <td><a href="{{url ('mailsupprimertrajet',[$u->id])}}" ><img src="{{ url('images/delete.png') }}" >supprimer</a> 
                   
                   
             

@@ -154,6 +154,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     
           <th>ID</th>
 					<th>user_id</th>
+					<th>email</th>
           <th>Nom</th>
           <th>addresse</th>
           <th>latitude</th>
@@ -169,6 +170,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <tr> 
                   <td>{{ $u -> id}}</td>
 								 <td>{{ $u ->user_id}}</td>
+									
                   <td>{{ $u -> nom}}</td>
                   <td>{{ $u ->addresse}}</td>
                   <td>{{ $u ->latitude}}</td>
@@ -177,7 +179,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                   <td>{{ $u -> updated_at}}</td>
                   <td>
 										 <a href="{{url ('edituser',[$u->id])}}" ><img src="{{ url('images/confirm.png') }}" > confirmer</a> 
-										<a href="{{url ('postdeletelieu',[$u->id])}}" ><img src="{{ url('images/delete.png') }}" >supprimer</a> 
+										<a href="{{url ('testmail',[$u->id])}}" ><img src="{{ url('images/delete.png') }}" >supprimer</a> 
                   
                   
             
@@ -189,6 +191,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <h1>{{$lieus->currentPage()}} </h1>
     <hr>
     {{$lieus->links() }}
+			<div class="container">
+				 <div class="clearfix">
+			 <h1>send</h1>
+    <form action="testmail" methode="get">
+      {{csrf_field()}}
+      to : <input type="text" name="to">
+       message :<textarea name="message" cols="30" rows="1"></textarea>         
+    <input type="submit" value="testmail"> 
+    </form>
+				</div>
+			</div>
+			       <div class="clearfix"></div>
+					</div>
           <div class="footer">
 		<div class="container">
        <div class="clearfix"></div>

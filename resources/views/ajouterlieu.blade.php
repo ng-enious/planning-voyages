@@ -117,11 +117,11 @@
                         <div class="col-md-2">
                         </div>
                         <div class="col-md-8">
-														<div class="booki1"><span>Nom: </span>
+																				<div class="booki1"><span>Nom: </span>
 					<input type="text" name="nom" placeholder="" required="">
 					<div class="clearfix"> </div></div>
 						<div class="booki1"><span>Type: </span>
-							<select id="country" name="type" class="">
+							<select id="country" name="type" class="booki1">
 											<option value="cafe">cafe</option>
 											<option value="restaurant">restaurant</option>         
 											<option value="mosque">mosque</option>
@@ -130,7 +130,7 @@
 
                                     <div class="form-horizontal" style="width: 550px">
                                        <div class="form-group">
-                                           <label class="col-sm-2 control-label">Adresse</label>
+                                           <label class="col-sm-2 control-label">Adresse </label>
 
                                            <div class="col-sm-10">
                                                <input type="text" name="addresse" class="form-control" id="us3-address" />
@@ -161,11 +161,14 @@
                                    ajouter
 					                      </button>
 						</form>
-     
-
+  
+</div>
+						</div>
+			</div>
 				<div class="clearfix"></div>
 		</div>	
 	</div>
+			
 <!-- 404 -->
 	   <div class="footer">
 		<div class="container">

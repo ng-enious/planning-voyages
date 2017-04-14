@@ -62,8 +62,12 @@ Route::get('mail', function () {
 
 
 
-Route::get('/send','MailController@send');
-Route::get('/testmail', 'MailController@testmail');
+
+Route::get('/testmail/{id}', 'MailController@testmail');
+Route::get('/mailsupprimertrajet/{id}', 'MailController@mailsupprimertrajet');
+Route::get('/mailsupprimermoyen/{id}', 'MailController@mailsupprimermoyen');
+
+
 
 Route::get('/home', 'HomeController@index');
 Route::post('/suggerertrajet', 'UserController@suggertrajet');
