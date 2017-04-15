@@ -59,6 +59,10 @@ Route::get('mail', function () {
     return view('mmail');
 
 });
+Route::get('test3', function () {
+    return view('test3');
+
+});
 
 
 
