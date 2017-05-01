@@ -37,6 +37,7 @@
 		<div class="container">
 			<div class="top-nav">
 				<span class="menu"> </span>
+						 @if (Auth::check())
 					<ul class="navig megamenu skyblue">
 							<li><a  class="scroll"><img src="{{ url('images/adl.png') }}" class="img-responsive" alt="">Ajouter des données</a>
 							<div class="megapanel">
@@ -84,7 +85,7 @@
 
 	<div class="head-right">
 				<ul class="number">
-				 @if (Auth::check())
+		
                  <li><a><i class="roc"> </i>{{ Auth::user()->name }} {{ Auth::user()->lastname }}</a></li>
 				 <li>                        <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
@@ -96,9 +97,13 @@
                                             {{ csrf_field() }}
 					 </form></li>
 
-	
+	 @else
+
+					<li><a href="{{ url('/register') }}"><i class="roc"> </i>Inscription</a></li>
+					<li><a href="{{ url('/login') }}"><i class="phone"> </i>Connexion</a></li>
 
 				 @endif
+		
 				   <div class="clearfix"> 
 
 					</div>						

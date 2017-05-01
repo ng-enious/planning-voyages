@@ -4,8 +4,7 @@
 <!-- <link href="{{ url('css/bootstrap.css') }}" rel="stylesheet" type="text/css" media="all">
 <link href="{{ url('css/style.css') }}" rel="stylesheet" type="text/css" media="all" /> -->
 <link href="{{ url('css/multiroutes.css') }}" rel="stylesheet" type="text/css" media="all" />
-<link href="{{ url('css/bootstrap.css') }}" rel="stylesheet" type="text/css" media="all">
-<link href="{{ url('css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -23,93 +22,7 @@
 
 </head> 
 <body onload="initMap();"> 
-	<div class="header">
-		<div class="container">
-		<div class="logo">
-		    <a href="{{ url('/') }}"><img src="{{ url('images/logo.png') }}" class="img-responsive" alt=""></a>
-			</div>
-			
-				<div class="clearfix"></div>
-		</div>
-	</div>
-	<div class="header-bottom">
-		<div class="container">
-			<div class="top-nav">
-				<span class="menu"> </span>
-					<ul class="navig megamenu skyblue">
-							<li><a  class="scroll"><img src="{{ url('images/adl.png') }}" class="img-responsive" alt="">Ajouter des données</a>
-							<div class="megapanel">
-								<div class="na-left">
-									<ul class="grid-img-list">
-										<li><a>ajouter lieu  </a></li> |
-        					  <li><a href="ajoutermoyendetransport">ajouter moyen </a></li>|
-       					    <li><a href="ajoutertrajet">ajouter trajet </a></li>
-										<div class="clearfix"> </div>	
-									</ul>
-								</div>
-								<div class="na-right">
-									<ul class="grid-img-list">
-									<li class="reg"></li>
-										<div class="clearfix"> </div>	
-									</ul>
-								</div>
-								<div class="clearfix"> </div>	
-		    				</div>
-						</li>
-						<li><a href="pagination" class="scroll"> <img src="{{ url('images/usr.png') }}" >Liste des utilisateurs</a></li>						
-						<li><a  class="scroll"><img src="{{ url('images/sugg.png') }}"  >Liste des suggestions</a>
-									<div class="megapanel">
-								<div class="na-left">
-									<ul class="grid-img-list">
-									<li><a href="paginationlieu">Lieux suggérés</a></li> |
-										<li><a href="paginationmoyen">moyens suggérés </a></li> |
-										<li><a href="paginationtrajet">trajet suggérés </a></li>
-										<div class="clearfix"> </div>	
-									</ul>
-								</div>
-								<div class="na-right">
-									<li class="reg"></li>
-						<li><a href="shop.html" class="scroll"><img src="{{ url('images/av.png') }}">Avis des utilisateurs</a></li>
-						<div class="clearfix"></div>
-						</ul>
-					<script>
-					$("span.menu").click(function(){
-						$(".top-nav ul").slideToggle(300, function(){
-						});
-					});
-				</script>
-			</div>
-							
-	<div class="head-right">
-				<ul class="number">
-	 @if (Auth::check())
-                 <li><a><i class="roc"> </i>{{ Auth::user()->name }} {{ Auth::user()->lastname }}</a></li>
-				 <li>                        <a href="{{ url('/logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Se déconnecter
-                                        </a>
-
-                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-					 </form></li>
-
-	 @else
-
-					<li><a href="{{ url('/register') }}"><i class="roc"> </i>Inscription</a></li>
-					<li><a href="{{ url('/login') }}"><i class="phone"> </i>Connexion</a></li>
-
-				 @endif
-
-				   <div class="clearfix"> 
-
-					</div>						
-				</ul>
-			</div>
-			<div class="clearfix"> </div>	
-		</div>
-	</div>
-		</div>
+<!-- <div id="map"></div> -->
 <div id="right-panel">
 <div>
 	<form method="post" action="{{ url('/ajoutertrajet') }}" >
@@ -126,7 +39,8 @@
 		<button type="button" onclick="myFunction1()">Insert option</button>
 <input  type="text" id="option1" >option</input>
 <br>
-<b>Waypoints:</b> <br> <br>
+<b>Waypoints:</b> <br>
+<i>(Ctrl+Click or Cmd+Click for multiple selection)</i> <br>
 <select multiple id="waypoints" name='points[]'>
   <option value="sousse">Sousse</option>
   <option value="mahdia">mahdia</option>
@@ -168,6 +82,14 @@
 <br/>
 	</div>
 
+
+	 <div class="footer">
+		<div class="container">
+       <div class="clearfix"></div>
+			<div class="footer-bottom">
+			</div>
+		</div>
+	</div>
 <script type="text/javascript"> 
   var directionsService = new google.maps.DirectionsService();
   var map,geocoder, marker;

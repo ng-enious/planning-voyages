@@ -178,7 +178,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                    <td>{{ $u -> created_at}}</td>
                   <td>{{ $u -> updated_at}}</td>
                   <td>
-										 <a href="{{url ('edituser',[$u->id])}}" ><img src="{{ url('images/confirm.png') }}" > confirmer</a> 
+										 <a href="{{url ('lieuaccepter',[$u->id])}}" ><img src="{{ url('images/confirm.png') }}" > confirmer</a> 
 										<a href="{{url ('testmail',[$u->id])}}" ><img src="{{ url('images/delete.png') }}" >supprimer</a> 
                   
                   
@@ -193,13 +193,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     {{$lieus->links() }}
 			<div class="container">
 				 <div class="clearfix">
-			 <h1>send</h1>
-    <form action="testmail" methode="get">
-      {{csrf_field()}}
-      to : <input type="text" name="to">
-       message :<textarea name="message" cols="30" rows="1"></textarea>         
-    <input type="submit" value="testmail"> 
-    </form>
+			
 				</div>
 			</div>
 			       <div class="clearfix"></div>

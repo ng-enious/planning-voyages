@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+		<link rel="icon" type="image/jpg" href="https://www.google.tn/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=0ahUKEwjk6srDrr3TAhUPkRQKHb9cC_sQjBwIBA&url=http%3A%2F%2Fwww.iconarchive.com%2Fdownload%2Fi45759%2Ftatice%2Foperating-systems%2FGlobe.ico&psig=AFQjCNGqu3SHeOuj2diN1ZoYZXVT8dtpWA&ust=1493132263066479" />
     <title> Pagination</title>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -144,7 +145,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</ul>
 			</div>
 			<div class="clearfix"> </div>	
-			
+			@if(session()->has('message'))
+{{session('message')}}
+
+	@endif
 		</div>
 	</div>
  
@@ -176,6 +180,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                   <td>{{ $u -> created_at}}</td>
                   <td>{{ $u -> updated_at}}</td>
                  <td>
+									 										@if ($u->role=='superadmin')
+ <a> <img src="{{ url('images/super.jpg') }}" >_______________SUPER_ADMIN_____________ <img src="{{ url('images/super.jpg') }}" ></a> 
+									@else
                   <a href="{{url ('postdelete',[$u->id])}}" > <img src="{{ url('images/delete.png') }}" > supprimer </a> 
 										@if ($u->role=='utilisateur')
 									 <a href="{{url ('rendreAdmin',[$u->id])}}" > <img src="{{ url('images/addadmin.png') }}" > ajouter comme administrateur </a> 
@@ -186,7 +193,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 									</td>
         </tr>
+				@endif
                     @endforeach
+				
     </table>
     <h1>{{$users->currentPage()}} </h1>
     <hr>

@@ -1,7 +1,6 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-<title>Ajouter moyen</title>
+<html> 
+<head> 
+	<title>Ajouter moyen</title>
 <link href="{{ url('css/bootstrap.css') }}" rel="stylesheet" type="text/css" media="all">
 <link href="{{ url('css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,11 +14,93 @@
 <link href="{{ url('css/megamenu.css') }}" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="{{ url('js/megamenu.js') }}"></script>
 <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
-<!-- Mega Menu -->
-</head>
-<body>
-<!-- banner -->
-	<div class="header">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
+<!--importation de l'API google MAP Version 3-->
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&key=AIzaSyDqSTkzPn8PpJBY3Pclu-TTjmGDLzqKMD4"></script> 
+<script type="text/javascript"> 
+  var directionsService = new google.maps.DirectionsService();
+  var map,geocoder, marker;
+  var depart,arrivee,ptCheck;
+  
+  /*initialise google MAP V3*/
+  function init() {
+	/*gestion des routes*/
+    directionsDisplay = new google.maps.DirectionsRenderer();
+	/*emplacement par défaut de la carte (j'ai mis Paris)*/
+    var maison = new google.maps.LatLng(48.873818, 2.29498386);
+	/*option par défaut de la carte*/
+    var myOptions = {
+      zoom:6,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      center: maison
+    }
+	/*creation de la map*/
+    map = new google.maps.Map(document.getElementById("divMap"), myOptions);
+	/*connexion de la map + le panneau de l'itinéraire*/
+    directionsDisplay.setMap(map);
+    directionsDisplay.setPanel(document.getElementById("divRoute"));
+	/*intialise le geocoder pour localiser les adresses */
+	geocoder = new google.maps.Geocoder();
+	}
+  
+  
+  function trouveRoute() {
+  /*test si les variables sont bien initialisés*/
+	if (depart && arrivee)
+	{
+	/*mode de transport*/
+	var choixMode = document.getElementById("mode").value;
+	
+    var request = {
+        origin:depart, 
+        destination:arrivee,
+        travelMode: google.maps.DirectionsTravelMode[choixMode]
+    };
+	/*appel à l'API pour tracer l'itinéraire*/
+    directionsService.route(request, function(response, status) {
+      if (status == google.maps.DirectionsStatus.OK) {
+        directionsDisplay.setDirections(response);
+      }
+    });
+	}
+  }
+  
+  function rechercher(src,code)
+  {
+    ptCheck = code; /*adresse de départ ou arrivée ? */
+	if (geocoder) {
+	  geocoder.geocode( { 'address': document.getElementById(src).value}, function(results, status) {
+		if (status == google.maps.GeocoderStatus.OK) {
+		 
+		  /*ajoute un marqueur à l'adresse choisie*/
+		  map.setCenter(results[0].geometry.location);
+		  if (marker) { marker.setMap(null);}
+		  marker = new google.maps.Marker({
+			  map: map, 			  
+			  position: results[0].geometry.location
+		  });
+		  /*on remplace l'adresse par celle fournie du geocoder*/
+		  document.getElementById(src).value = results[0].formatted_address;
+		  if (ptCheck)
+		  {
+		  depart = results[0].formatted_address;
+		  } else
+		  {
+		  arrivee = results[0].formatted_address;
+		  }
+		  /*trace la route*/
+		  trouveRoute();
+		} else {
+		  alert("Geocode n'a rien trouvé !\n raison : " + status);
+		}
+	  });
+	}
+	
+  }
+  
+
+</script> 
+</head> 
 		<div class="container">
 		<div class="logo">
 		    <a href="{{ url('/admin') }}"><img src="{{ url('images/logo.png') }}" class="img-responsive" alt=""></a>
@@ -74,74 +155,37 @@
 					});
 				</script>
 			</div>
-	
-
-	<div class="head-right">
-				<ul class="number">
-				 @if (Auth::check())
-                 <li><a><i class="roc"> </i>{{ Auth::user()->name }} {{ Auth::user()->lastname }}</a></li>
-				 <li>                        <a href="{{ url('/logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Se déconnecter
-                                        </a>
-
-                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-					 </form></li>
-
-	
-
-				 @endif
-				   <div class="clearfix"> 
-
-					</div>						
-				</ul>
+						</div>
 			</div>
-			<div class="clearfix"> </div>	
-		</div>
-	</div>
-<!-- 404 -->
-	<div class="addlocation">
-		<div class="container">
-					  <form class="form-horizontal" role="form" method="POST" action="{{ url('/ajoutermoyendetransport') }}">
-			<h3>Ajouter un nouveau moyen de transport</h3>
-			<div class="col-md-6">
-						<div class="booki1"><span>Type: </span>
-							<select id="country" name="type" class="">
-											<option value="train">train</option>
-											<option value="metro">metro</option>         
-											<option value="car">car</option>
-											<option value="louage">louage</option>
-											<option value="taxi">taxi</option>
-									  </select><div class="clearfix"> </div></div>
-                	<h3>trajet</h3>
-	<div class="booki1"><span>DE: </span>
-		<input type="text" name="de" placeholder="" required=""><div class="clearfix"> </div></div>
-			<div class="booki1"><span>VERS: </span>
-					<input type="text" name="vers" placeholder="" required="">
-					<div class="clearfix"> </div></div>
-          <button type="submit" class="btn btn-primary">
+<body onload="init();"> 
+<div> 
+<table>
+	  <form class="form-horizontal" role="form" method="POST" action="{{ url('/ajoutermoyen') }}">
+						<h3>Ajouter un nouveau moyen de transport</h3>
+<tr><td><b>d&eacute;part: </b></td>
+<td><input type="text" id="adrDep" name ="de" value="" style="width:300px;"></td>
+<td><input type="button" value="recherche" onclick="rechercher('adrDep',true)"></td>
+<td rowspan="2">
+<b>Transport: </b> 
+<select id="mode" name ="type" onchange="calcRoute();"> 
+  <option value="DRIVING">voiture</option>
+  <option value="DRIVING">louage</option>
+  <option value="WALKING">marche</option>
+  <option value="BICYCLING">v&eacute;lo</option>
+  <option value="TRANSIT">transit</option>
+</select></td></tr>
+<tr><td><b>arriv&eacute;e: </b></td><td><input type="text" id="adrArr" name ="vers"value="" style="width:300px;"></td><td>
+  <input type="button" value="recherche" onclick="rechercher('adrArr',false)"></td></tr>
+</table>
+	 <button type="submit" class="btn btn-primary">
                                   ajouter
                                 </button>
-				</form>
-			</div>	
-			<div class="col-md-6">
-	 <div class="col-md-8 login-right wow fadeInRight" data-wow-delay="0.4s">
-				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50425.625635580545!2d145.12407634632558!3d-37.822799693691664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad646b5d2ba4df7%3A0x4045675218ccd90!2sMelbourne+VIC%2C+Australia!5e0!3m2!1sen!2sin!4v1430741934072" width="100%" height="500" frameborder="0" style="border:0"></iframe>
-			   </div>	
-				<div class="clearfix"></div>
-		</div>	
-	</div>
-<!-- 404 -->
-	   <div class="footer">
-		<div class="container">
-       <div class="clearfix"></div>
-			<div class="footer-bottom">
-				<p>Planning Voyages</p>
-			</div>
-		</div>
-	</div>
 
-</body>
-</html>
+</div> 
+<div id="divMap" style="float:left;width:70%; height:80%"></div>  
+<br/>
+
+		</form>
+	
+</body> 
+</html> 

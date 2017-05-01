@@ -21,10 +21,10 @@ class PaginationController extends Controller
     if($user->save())
     {
       $msg='succes';
-      return Redirect::to('/pagination')->with('msg'); 
+       return redirect('/pagination')->with('message', $msg);
     }
     $msg='error';
-    return Redirect::to('/pagination')->with('msg');
+     return redirect('/pagination')->with('message', $msg);
   }
     public function supprimerAdmin ($id)
   {
@@ -97,10 +97,10 @@ class PaginationController extends Controller
        if($lieu->save())
     {
       $msg='succes';
-      return Redirect::to('/paginationlieu')->with('msg'); 
+      return redirect('/pagination')->with('message', $message);
     }
     $msg='error';
-    return Redirect::to('/paginationlieu')->with('msg');
+    return redirect('/pagination')->with('message', $message);
   }
     public function editmoyen($id)
   {
@@ -110,10 +110,10 @@ class PaginationController extends Controller
        if($moyen->save())
     {
       $msg='succes';
-      return Redirect::to('/paginationmoyen')->with('msg'); 
+      return redirect('/paginationmoyen')->with('message', $message);
     }
     $msg='error';
-    return Redirect::to('/paginationmoyen')->with('msg');
+    return redirect('/paginationmoyen')->with('message', $message);
   }
     public function edittrajet($id)
   {
@@ -123,10 +123,10 @@ class PaginationController extends Controller
        if($trajet->save())
     {
       $msg='succes';
-      return Redirect::to('/paginationtrajet')->with('msg'); 
+      return redirect('/paginationtrajet')->with('message', $message);
     }
     $msg='error';
-    return Redirect::to('/paginationtrajet')->with('msg');
+    return redirect('/paginationtrajet')->with('message', $message);
   }
   
  

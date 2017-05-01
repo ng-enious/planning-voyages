@@ -7,19 +7,61 @@ use App\Lieu;
 use App\Trajet;
 use App\User;
 use App\Moyen_transport;
+use App\Waypoints;
 //use Illuminate\Support\Facades\Auth;
 use Auth;
 use Illuminate\Support\Facades\Redirect;
 class UserController extends Controller
 {
-  
-  
-  
   ///ajouter admin
-  
-  
-  
-    public function ajouterlieu(Request $request){
+  public function ajoutertrajet (Request $request){
+    //dd($request);
+    $depart=$request->get('start');
+    $arrive=$request->get('end');
+    $waypoints=$request->get('points');
+    $moyen_transport=$request->get('moyen');
+    $trajet=Trajet::create([
+            'depart' => $depart,
+            'arrive' => $arrive,
+            'moyentransport'=>$moyen_transport,
+            'confirm'=>1
+                
+        ]);
+    $i=1;
+    if($waypoints)
+    {
+          foreach($waypoints as $waypoint)
+    {
+      
+      Waypoints::create([
+            'name' => $waypoint,
+            'order' => $i,
+            'trajet_id' => $trajet->id,
+            'confirm'=>1
+                
+        ]);
+      $i++;
+    }
+    }
+
+    return redirect('/test4');
+  }
+  public function get_trajet(Request $request){
+   $depart=$request->get('start');
+    $arrive=$request->get('end');
+    $moyen_transport=$request->get('moyen');
+  $trajet=Trajet::where('depart',$depart)->where('arrive',$arrive)->where('moyentransport',$moyen_transport)
+    ->with('wayPoints')->first();
+    if($trajet)
+      $status='ok';
+    else
+      $status='not found';
+       //dd($trajet);
+    return redirect('/test123')->with('trajet',$trajet)->with('status',$status);
+ 
+    
+  }
+ public function ajouterlieu(Request $request){
        $message='';
     if (Auth::check())
     {
@@ -48,7 +90,7 @@ class UserController extends Controller
       return redirect('/admin')->with('message', $message);
       
     }
-     public function test(Request $request){
+ public function test(Request $request){
        $message='';
     if (Auth::check())
     {
@@ -75,41 +117,8 @@ class UserController extends Controller
 
       return Redirect::to('/admin')->with('message');
     }
-  
-  
-  
-  
-  
- public function ajoutertrajet(Request $r){
-         $message='';
-    if (Auth::check())
-    {
-      
-              $user=Auth::user();
-      //dd($user);
-              $trajet= Trajet::create([
-            'depart' => $r->get('depart'),
-            'arrive' => $r->get('arrive'),
-            'user_id'=>$user->id,
-                'confirm'=>1
-        ]);
-             if ($trajet)
-        //dd($trajet);
-        $message='trajet ajouté avec succes ';
-      else
-        $message='trajet non ajouté';
-   
-    }
-     return Redirect::to('/admin')->with('message');   
- }
-  
-  
-  
-  
-  
-  //admiinnnnnn
-   
-    public function ajoutermoyen(Request $r){
+   //admiinnnnnn
+ public function ajoutermoyen(Request $r){
      $message='';
         if (Auth::check())
      {
@@ -131,25 +140,10 @@ class UserController extends Controller
       
      }
      
-      return Redirect::to('/admin')->with('message');
+       return redirect('/admin')->with('message', $message);
     }
-   
-   
-   
-   
-   
-  
-   
-   
-   //////suggerer user simple
-   
-   
-   
-   
-   
-   
-   
-    public function suggerlieu(Request $request){
+  ////suggerer user simple  
+ public function suggerlieu(Request $request){
        $message='';
     if (Auth::check())
     {
@@ -174,12 +168,8 @@ class UserController extends Controller
       
     }
 
-      return Redirect::to('/home')->with('message');
+      return redirect('/')->with('message', $message);
     }
-  
-  
-  
-  
  public function suggertrajet(Request $r){
    
       $message='';
@@ -201,10 +191,11 @@ class UserController extends Controller
    
     }
 
-     return Redirect::to('/home')->with('message');  
- }
+     return redirect('/')->with('message', $message);
+ }  
+ public function suggermoyen(Request $r){
    
-    public function suggermoyen(Request $r){
+  //dd($r);
      $message='';
         if (Auth::check())
      {
@@ -225,8 +216,16 @@ class UserController extends Controller
       
      }
      
-      return Redirect::to('/home')->with('message');
+      return redirect('/')->with('message', $message);
     }
+  public function donnerAvis(Request $r){
+    $depart=$r->get('depart');
+    $arrive=$r->get('arrive');
+    $moyen_transport=$r->get('transport');
+    $note=$r->get('note');
+    $commentaire=$r->get('commentaire');
+    
+  }
 
   
 }

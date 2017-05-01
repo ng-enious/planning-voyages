@@ -38,13 +38,13 @@
 			<div class="top-nav">
 				<span class="menu"> </span>
 					<ul class="navig megamenu skyblue">
-							<li><a  class="scroll"><img src="{{ url('images/adl.png') }}" class="img-responsive" alt="">Ajouter des données</a>
+								<li><a  class="scroll"><img src="{{ url('images/usr (1).png') }}"class="img-responsive" alt="" >Suggérer des données</a>
 							<div class="megapanel">
 								<div class="na-left">
 									<ul class="grid-img-list">
-										<li><a>ajouter lieu  </a></li> |
-        					  <li><a href="ajoutermoyendetransport">ajouter moyen </a></li>|
-       					    <li><a href="ajoutertrajet">ajouter trajet </a></li>
+										<li><a href="suggererlieu">ajouter lieu  </a></li> |
+        					  <li><a href="suggerermoyendetransport">ajouter moyen </a></li>|
+       					    <li><a href="suggerertrajet">ajouter trajet </a></li>
 										<div class="clearfix"> </div>	
 									</ul>
 								</div>
