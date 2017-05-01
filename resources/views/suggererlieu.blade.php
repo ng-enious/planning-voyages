@@ -38,6 +38,7 @@
 			<div class="top-nav">
 				<span class="menu"> </span>
 					<ul class="navig megamenu skyblue">
+						 @if (Auth::check())
 								<li><a  class="scroll"><img src="{{ url('images/usr (1).png') }}"class="img-responsive" alt="" >Suggérer des données</a>
 							<div class="megapanel">
 								<div class="na-left">
@@ -66,7 +67,7 @@
 								</div>
 								<div class="na-right">
 									<li class="reg"></li>
-			
+			@endif
 						<div class="clearfix"></div>
 						</ul>
 					<script>
@@ -93,6 +94,10 @@
 					 </form></li>
 
 	
+ @else
+
+					<li><a href="{{ url('/register') }}"><i class="roc"> </i>Inscription</a></li>
+					<li><a href="{{ url('/login') }}"><i class="phone"> </i>Connexion</a></li>
 
 				 @endif
 				   <div class="clearfix"> 

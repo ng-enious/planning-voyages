@@ -79,6 +79,7 @@ Route::get('test5', function () {
 
 
 Route::post('/get_trajet', 'UserController@get_trajet');
+Route::post('/get_trajetadmin', 'UserController@get_trajetadmin');
 
 
 

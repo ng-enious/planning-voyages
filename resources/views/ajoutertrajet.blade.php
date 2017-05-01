@@ -37,6 +37,7 @@
 			<div class="top-nav">
 				<span class="menu"> </span>
 					<ul class="navig megamenu skyblue">
+		@if (Auth::check())
 							<li><a  class="scroll"><img src="{{ url('images/adl.png') }}" class="img-responsive" alt="">Ajouter des données</a>
 							<div class="megapanel">
 								<div class="na-left">
@@ -70,6 +71,7 @@
 								<div class="na-right">
 									<li class="reg"></li>
 						<li><a href="shop.html" class="scroll"><img src="{{ url('images/av.png') }}">Avis des utilisateurs</a></li>
+									       @endif
 						<div class="clearfix"></div>
 						</ul>
 					<script>
@@ -100,7 +102,7 @@
 					<li><a href="{{ url('/login') }}"><i class="phone"> </i>Connexion</a></li>
 
 				 @endif
-
+  
 				   <div class="clearfix"> 
 
 					</div>						
@@ -119,9 +121,9 @@
 <b>Start:</b>
 <select id="start" name='start'>
   <option value="Tunis">Tunis</option>
-  <option value="Boston, MA">Boston, MA</option>
-  <option value="New York, NY">New York, NY</option>
-  <option value="Miami, FL">Miami, FL</option>
+  <option value="gabes">gabes</option>
+  <option value="Monastir">Monastir</option>
+	<option value="soussa">soussa</option>
 </select>
 		<button type="button" onclick="myFunction1()">Insert option</button>
 <input  type="text" id="option1" >option</input>
@@ -130,11 +132,11 @@
 <select multiple id="waypoints" name='points[]'>
   <option value="sousse">Sousse</option>
   <option value="mahdia">mahdia</option>
-  <option value="gabes">Chicago</option>
-  <option value="chebba">Winnipeg</option>
-  <option value="fargo, nd">Fargo</option>
-  <option value="calgary, ab">Calgary</option>
-  <option value="spokane, wa">Spokane</option>
+  <option value="gabes">gabes</option>
+  <option value="chebba">chebba</option>
+  <option value="Jendouba">Jendouba</option>
+  <option value="Monastir">Monastir</option>
+  <option value="gafsa">gafsa</option>
 </select>
 	<button type="button" onclick="myFunction2()">Insert option</button>
 <input  type="text" id="option2" >option</input>
@@ -142,9 +144,9 @@
 <b>End:</b>
 <select id="end" name='end'>
   <option value="tataouine">tatouine</option>
-  <option value="Seattle, WA">Seattle, WA</option>
-  <option value="San Francisco, CA">San Francisco, CA</option>
-  <option value="Los Angeles, CA">Los Angeles, CA</option>
+  <option value="beja">beja</option>
+  <option value="Hammamet">Hammamet</option>
+  <option value="khniss">khniss</option>
 </select>
 		<button type="button" onclick="myFunction3()">Insert option</button>
 <input  type="text" id="option3" >option</input>

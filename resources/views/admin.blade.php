@@ -1,24 +1,30 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-<title>Admin</title>
+<html> 
+<head> 
+	<title>planifier</title>
+<!-- <link href="{{ url('css/bootstrap.css') }}" rel="stylesheet" type="text/css" media="all">
+<link href="{{ url('css/style.css') }}" rel="stylesheet" type="text/css" media="all" /> -->
+<link href="{{ url('css/multiroutes.css') }}" rel="stylesheet" type="text/css" media="all" />
 <link href="{{ url('css/bootstrap.css') }}" rel="stylesheet" type="text/css" media="all">
 <link href="{{ url('css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
+<!-- <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'> -->
 <script src="{{ url('js/jquery.min.js') }}"></script>
 <script src="{{ url('js/jquery.easydropdown.js')}}"></script>
 <!-- Mega Menu -->
-<link href="{{ url('css/megamenu.css') }}" rel="stylesheet" type="text/css" media="all" />
+<!-- <link href="{{ url('css/megamenu.css') }}" rel="stylesheet" type="text/css" media="all" /> -->
 <script type="text/javascript" src="{{ url('js/megamenu.js') }}"></script>
 <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
-<!-- Mega Menu -->
-</head>
-<body>
-<!-- banner -->
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
+<!--importation de l'API google MAP Version 3-->
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&key=AIzaSyDqSTkzPn8PpJBY3Pclu-TTjmGDLzqKMD4"></script> 
+
+</head> 
+<body onload="initMap();"> 
+	
+<!-- <div id="map"></div> -->
 	<div class="header">
 		<div class="container">
 		<div class="logo">
@@ -32,6 +38,7 @@
 			<div class="top-nav">
 				<span class="menu"> </span>
 					<ul class="navig megamenu skyblue">
+						 @if (Auth::check())
 							<li><a  class="scroll"><img src="{{ url('images/adl.png') }}" class="img-responsive" alt="">Ajouter des données</a>
 							<div class="megapanel">
 								<div class="na-left">
@@ -65,6 +72,7 @@
 								<div class="na-right">
 									<li class="reg"></li>
 						<li><a href="shop.html" class="scroll"><img src="{{ url('images/av.png') }}">Avis des utilisateurs</a></li>
+									@endif
 						<div class="clearfix"></div>
 						</ul>
 					<script>
@@ -88,9 +96,12 @@
 
                                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
-					 </form></li>
+                                        </form></li>
 
-	
+				 @else
+
+					<li><a href="{{ url('/register') }}"><i class="roc"> </i>Inscription</a></li>
+					<li><a href="{{ url('/login') }}"><i class="phone"> </i>Connexion</a></li>
 
 				 @endif
 				   <div class="clearfix"> 
@@ -102,73 +113,193 @@
 			
 		</div>
 	</div>
-<!-- shop -->
-<div class="login-page">
-		<div class="container">
-			<div class="account_grid">
-				<div class="col-md-4 login-left" data-wow-delay="0.4s">
-		<div class="register">
-			
-			@if(session()->has('message'))
-{{session('message')}}
-
-	@endif
-		  	  <form> 
-				 <div class="register-top-grid">
-					<h3>Choisir votre destination</h3>
-					 <div class="wow fadeInLeft" data-wow-delay="0.4s">
-						<span>DE <label>*</label></span>
-						<input type="text"> 
-					 </div>
-					 <div class="wow fadeInRight" data-wow-delay="0.4s">
-						<span>VERS<label>*</label></span>
-						<input type="text"> 
-					 </div>
-					
-					 <div class="clearfix"> </div>
-					 </div>
-				     
-				<div class="clearfix"> </div>
-				<div class="register-but">
-					   <input type="submit" value="Planifier" class="btn btn-primary btn-md">
-					   <div class="clearfix"> </div>
-				   </form>
-						<div class="shop-top">
-		
-			<div class="col-md-3 shop-left">
-				<ul>
-				</ul>
-			</div>
-				</div>
-		   </div>
-			   </div>
-				</div>
-					   <div class="col-md-8 login-right wow fadeInRight" data-wow-delay="0.4s">
-				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50425.625635580545!2d145.12407634632558!3d-37.822799693691664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad646b5d2ba4df7%3A0x4045675218ccd90!2sMelbourne+VIC%2C+Australia!5e0!3m2!1sen!2sin!4v1430741934072" width="100%" height="500" frameborder="0" style="border:0"></iframe>
-			   </div>	
+<div id="right-panel" >
+  <div>
+    <form method="post" action="{{ url('/get_trajetadmin') }}">
+      	 {{ csrf_field() }}
+   <b>Start:</b>
+<select id="start" name='start'>
+  <option value="Tunis">Tunis</option>
+  <option value="gabes">gabes</option>
+  <option value="Monastir">Monastir</option>
+	<option value="soussa">soussa</option>
+</select>
 				
-		
-			<div class="col-md-3 shop-left">
+<input  type="text" id="option1" ></input>
+		<button type="button" onclick="myFunction1()">Insert option</button>
+		<br>
+      <b>End:</b>
+<select id="end" name='end'>
+   <option value="tataouine">tatouine</option>
+  <option value="beja">beja</option>
+  <option value="Hammamet">Hammamet</option>
+  <option value="khniss">khniss</option>
+</select>
+<input  type="text" id="option1" ></input>
+		<button type="button" onclick="myFunction1()">Insert option</button>
+      <br>
+      <b>Moyen:</b>
+	<select  id="moyen" name='moyen'>
+  <option value="bus">bus</option>
+  <option value="train">train</option>
+  <option value="metro">metro</option>
+  <option value="louage">louage</option>
+	<option value="taxi">taxi</option>
+		<option value="voiture">voiture</option>
+
+</select>
+      <input type="submit" value="recherche">
+      
+    </form>
+    </div>
+<div hidden>
+	<form method="post" action="{{ url('/ajoutertrajet') }}" >
+
+		 {{ csrf_field() }}
 	
-			</div>
-			<div class="col-md-3 shop-left">
-		
-			</div>
-			<div class="col-md-3 shop-left">
-			</div>
-				<div class="clearfix"> </div>
-		</div>
-		</div>
-	</div>
-	<!-- shop -->
-	    <div class="footer">
-		<div class="container">
-       <div class="clearfix"></div>
-			<div class="footer-bottom">
-				<p>Planning Voyages</p>
-			</div>
-		</div>
+<b>Start:</b>
+<select id="start" name='start'>
+  <option value="Tunis">Tunis</option>
+  <option value="Boston, MA">Boston, MA</option>
+  <option value="New York, NY">New York, NY</option>
+  <option value="Miami, FL">Miami, FL</option>
+</select>
+		<button type="button" onclick="myFunction1()">Insert option</button>
+<input  type="text" id="option1" >option</input>
+<br>
+<b>Waypoints:</b> <br>
+
+<select multiple id="waypoints" name='points[]'>
+  
+  @if(session()->has('trajet'))
+  @foreach(session('trajet')->wayPoints as $w)
+  <option value="{{$w->name}}" selected>{{$w->name}}</option>
+@endforeach
+	@endif
+</select>
+	<button type="button" onclick="myFunction2()">Insert option</button>
+<input  type="text" id="option2" >option</input>
+<br>
+<b>End:</b>
+<input id="end" name='end' type="text">
+  <option value="tataouine">tatouine</option>
+  <option value="Seattle, WA">Seattle, WA</option>
+  <option value="San Francisco, CA">San Francisco, CA</option>
+  <option value="Los Angeles, CA">Los Angeles, CA</option>
+   <option value="gabes">gabes</option>
+</select>
+		<button type="button" onclick="myFunction3()">Insert option</button>
+<input  type="text" id="option3" >option</input>
+<br>
+	<select  id="moyen" name='moyen'>
+  <option value="bus">bus</option>
+  <option value="train">train</option>
+  <option value="metro">metro</option>
+  <option value="louage">louage</option>
+	<option value="taxi">taxi</option>
+		<option value="voiture">voiture</option>
+
+</select>
+
+	<input type="submit">
+	</form>
+
+</div>
+<div id="directions-panel" style=" visibility: hidden"></div>
+</div>
+
+<div id="map" style="float:left;width:70%; height:80%"></div>  
+<br/>
 	</div>
 
-</body>
-</html>
+
+
+<script type="text/javascript"> 
+  var directionsService = new google.maps.DirectionsService();
+  var map,geocoder, marker;
+  var depart,arrivee,ptCheck;
+  
+  /*initialise google MAP V3*/
+  function initMap() {
+
+  var directionsService = new google.maps.DirectionsService;
+  var directionsDisplay = new google.maps.DirectionsRenderer;
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 7,
+    center: {lat: 33.81 , lng: 10.166}
+  });
+  directionsDisplay.setMap(map);
+  //document.getElementById('view').addEventListener('click', function() 
+    @if(session()->has('status'))
+          @if(session('status') == 'ok'){
+            calculateAndDisplayRoute(directionsService, directionsDisplay);
+  }
+    @else
+      window.alert("not found");
+  @endif
+  @endif
+}
+		function myFunction1() {
+    var x = document.getElementById("start");
+    var option = document.createElement("option");
+    option.text = document.getElementById("option1").value;
+    x.add(option);
+}
+	function myFunction2() {
+    var x = document.getElementById("waypoints");
+    var option = document.createElement("option");
+    option.text = document.getElementById("option2").value;
+    x.add(option);
+}
+		function myFunction3() {
+    var x = document.getElementById("end");
+    var option = document.createElement("option");
+    option.text = document.getElementById("option3").value;
+    x.add(option);
+}
+
+function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+  var waypts =[]
+  var checkboxArray = document.getElementById('waypoints');
+  for (var i = 0; i < checkboxArray.length; i++) {
+    if (checkboxArray.options[i].selected) {
+      waypts.push({
+        location: checkboxArray[i].value,
+        stopover: true
+      });
+    }
+  }
+
+  directionsService.route({
+    origin: document.getElementById('start').value,
+    destination: document.getElementById('end').value,
+    waypoints: waypts,
+    optimizeWaypoints: true,
+    travelMode: 'DRIVING'
+  }, function(response, status) {
+    if (status === 'OK') {
+      directionsDisplay.setDirections(response);
+      var route = response.routes[0];
+      
+      var summaryPanel = document.getElementById('directions-panel');
+       
+      summaryPanel.innerHTML = '';
+      // For each route, display summary information.
+      for (var i = 0; i < route.legs.length; i++) {
+        var routeSegment = i + 1;
+        summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment +
+            '</b><br>';
+        summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
+        summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
+        summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
+      }
+      summaryPanel.style.visibility = 'visible';
+    } else {
+      window.alert('Directions request failed due to ' + status);
+    }
+  });
+}
+
+</script> 
+</body> 
+</html> 

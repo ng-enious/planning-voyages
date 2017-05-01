@@ -57,7 +57,22 @@ class UserController extends Controller
     else
       $status='not found';
        //dd($trajet);
-    return redirect('/test123')->with('trajet',$trajet)->with('status',$status);
+    return redirect('/')->with('trajet',$trajet)->with('status',$status);
+ 
+    
+  }
+    public function get_trajetadmin(Request $request){
+   $depart=$request->get('start');
+    $arrive=$request->get('end');
+    $moyen_transport=$request->get('moyen');
+  $trajet=Trajet::where('depart',$depart)->where('arrive',$arrive)->where('moyentransport',$moyen_transport)
+    ->with('wayPoints')->first();
+    if($trajet)
+      $status='ok';
+    else
+      $status='not found';
+       //dd($trajet);
+    return redirect('/admin')->with('trajet',$trajet)->with('status',$status);
  
     
   }
