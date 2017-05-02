@@ -22,6 +22,10 @@ Route::get('ajouterlieu', function () {
     return view('ajouterlieu');
   
   });
+Route::get('donneavis', function () {
+    return view('donneavis');
+  
+  });
 Route::get('suggerermoyendetransport', function () {
     return view('suggerermoyendetransport');
 });
@@ -80,6 +84,7 @@ Route::get('test5', function () {
 
 Route::post('/get_trajet', 'UserController@get_trajet');
 Route::post('/get_trajetadmin', 'UserController@get_trajetadmin');
+Route::post('/enregistreavis', 'UserController@enregistreavis');
 
 
 

@@ -8,12 +8,35 @@ use App\Trajet;
 use App\User;
 use App\Moyen_transport;
 use App\Waypoints;
+use App\avis;
 //use Illuminate\Support\Facades\Auth;
 use Auth;
 use Illuminate\Support\Facades\Redirect;
 class UserController extends Controller
 {
   ///ajouter admin
+  public function enregistreavis(Request $request)
+  {
+     $message='';
+   // if (Auth::check())
+    
+          
+    //  $user=Auth::user();
+      //dd($user->id);
+  
+    
+              $avis= Lieu::create([
+            'note' => $request->get('note'),
+            'commentaire' => $request->get('commentaire'),
+                'confirm'=>0
+                
+        ]);
+  //    if ($avis)
+  //      $message='lieu ajouté avec succes ';
+  //    else 
+ //       $message='lieu non ajouté';
+      
+    }
   public function ajoutertrajet (Request $request){
     //dd($request);
     $depart=$request->get('start');

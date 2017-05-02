@@ -39,9 +39,9 @@ public function voyage()
     {
         return $this->hasMany('App\voyage');
     }
-   public function aviTrajet()
+   public function avis()
     {
-        return $this->hasMany('App\aviTrajet');
+        return $this->hasMany('App\avis');
     }
    public function Trajet()
     {

@@ -156,6 +156,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					 <th>user_id</th>
           <th>depart</th>
           <th>Arrive</th>
+					 <th>moyentransport</th>
           <th>created_at</th>
           <th>update_at</th>
 					          <th>Actions</th>
@@ -173,6 +174,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<td>{{ $u ->user_id}}</td>
                   <td>{{ $u -> depart}}</td>
                   <td>{{ $u -> arrive}}</td>
+									 <td>{{ $u ->moyentransport}}</td>
                    <td>{{ $u -> created_at}}</td>
                   <td>{{ $u -> updated_at}}</td>
 									<td>

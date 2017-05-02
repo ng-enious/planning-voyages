@@ -156,8 +156,7 @@
 		<button type="button" onclick="myFunction1()">Insert option</button>
 <input  type="text" id="option1" >option</input>
 <br>
-<b>Waypoints:</b> <br>
-<i>(Ctrl+Click or Cmd+Click for multiple selection)</i> <br>
+<b>Waypoints:</b> <br> <br>
 <select multiple id="waypoints" name='points[]'>
   
   @if(session()->has('trajet'))
@@ -195,13 +194,26 @@
 
 </div>
 <div id="directions-panel" style=" visibility: hidden"></div>
+ <button type="button"  href="donneavis">Avis</button>
 </div>
 
 <div id="map" style="float:left;width:70%; height:80%"></div>  
 <br/>
 	</div>
 
-
+			<div class="clearfix"></div>
+	
+	
+			
+<!-- 404 -->
+	  <div class="footer" style="margin-top:300px">
+		<div class="container">
+       <div class="clearfix"></div>
+			<div class="footer-bottom">
+				<p>Planning Voyages</p>
+			</div>
+		</div>
+				</div>
 
 <script type="text/javascript"> 
   var directionsService = new google.maps.DirectionsService();
