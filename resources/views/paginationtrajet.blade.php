@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -31,7 +30,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
      .pagination li a {
   background :#ddd;
-       padding-right: 10px;
+       padding-right: 100px;
        padding-left: 10px;
        text-decoration: none ;
       }

@@ -1,6 +1,6 @@
 <html> 
 <head> 
-	<title>Ajouter moyen</title>
+	<title>Suggerer trajet</title>
 <!-- <link href="{{ url('css/bootstrap.css') }}" rel="stylesheet" type="text/css" media="all">
 <link href="{{ url('css/style.css') }}" rel="stylesheet" type="text/css" media="all" /> -->
 <link href="{{ url('css/multiroutes.css') }}" rel="stylesheet" type="text/css" media="all" />
@@ -108,21 +108,21 @@
 		</div>
 <div id="right-panel">
 <div>
-	<form method="post" action="{{ url('/ajoutertrajet') }}" >
+	<form method="post" action="{{ url('/ajoutertrajetuser') }}" >
 
 		 {{ csrf_field() }}
 	
-<b>Start:</b>
-<select id="start" name='start'>
+<b>Depart:</b>
+			  	<select id="start" name='start' style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>
   <option value="Tunis">Tunis</option>
   <option value="gabes">gabes</option>
   <option value="Monastir">NMonastir</option>
   <option value="soussa">soussa</option>
 </select>
-		<button type="button" onclick="myFunction1()">Insert option</button>
-		<input  type="text" id="option1" >option</input>
-<br>
-<b>Waypoints:</b> <br> <br>
+		<input  type="text"  placeholder="ajouter ville" id="option1" ></input>
+		<button type="button" onclick="myFunction1()">ajouter ville</button>
+		
+	<b>Waypoints:</b> <br> <br>
 <select multiple id="waypoints" name='points[]'>
   <option value="sousse">Sousse</option>
   <option value="mahdia">mahdia</option>
@@ -132,20 +132,24 @@
   <option value="Monastir">Monastir</option>
   <option value="gafsa">gafsa</option>
 </select>
-	<button type="button" onclick="myFunction2()">Insert option</button>
-<input  type="text" id="option2" >option</input>
+	<input  type="text"  placeholder="ajouter ville" id="option2" ></input>
+	<button type="button" onclick="myFunction2()">ajouter ville</button>
+
 <br>
-<b>End:</b>
-<select id="end" name='end'>
+<br>
+<b>Arriver:</b>
+	<select id="end" name='end' style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>
   <option value="tataouine">tatouine</option>
   <option value="beja">beja</option>
   <option value="Hammamet">Hammamet</option>
   <option value="khniss">khniss</option>
 </select>
-		<button type="button" onclick="myFunction3()">Insert option</button>
-<input  type="text" id="option3" >option</input>
+	<input  type="text"  placeholder="ajouter ville"id="option3" ></input>
+		<button type="button" onclick="myFunction3()">ajouter ville</button>
+
 <br>
-	<select  id="moyen" name='moyen'>
+	<br>
+	<select id="moyen" name='moyen' style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>
   <option value="bus">bus</option>
   <option value="train">train</option>
   <option value="metro">metro</option>
@@ -160,6 +164,9 @@
 	</form>
 <div id="directions-panel"></div>
 </div>
+	@if(session()->has('message'))
+{{session('message')}}
+@endif
 <div id="map" style="float:left;width:70%; height:80%"></div>  
 <br/>
 	</div>

@@ -109,7 +109,7 @@
 									 <form class="form-horizontal" role="form" method="POST" action="{{ url('/enregistreavis') }}">
 				<b>donne note:</b>
          
-    	<select name="note" id="note">
+    	<select name="note" id="note" style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>
 			<option value="1">1</option>
 			<option value="2">2</option>
 			<option value="3">3</option>

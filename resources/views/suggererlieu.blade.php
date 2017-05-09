@@ -28,7 +28,7 @@
 	<div class="header">
 		<div class="container">
 		<div class="logo">
-		    <a href="{{ url('/admin') }}"><img src="{{ url('images/logo.png') }}" class="img-responsive" alt=""></a>
+		    <a href="{{ url('/') }}"><img src="{{ url('images/logo.png') }}" class="img-responsive" alt=""></a>
 			</div>
 							<div class="clearfix"></div>
 		</div>
@@ -118,23 +118,33 @@
                         <div class="col-md-2">
                         </div>
                         <div class="col-md-8">
-														<div class="booki1"><span>Nom: </span>
-					<input type="text" name="nom" placeholder="" required="">
+														<div class="booki1">
+															    <div class="form-group">
+																		
+   			<b>Nom:</b> 
+																					
+					<input type="text" name="nom" placeholder="" required="" style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>
+    </div>
+																											    <div class="form-group">
+      <b>Ville :</b>
+      <input type="text"  name="ville" placeholder="" style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>
+    </div>
+														
 					<div class="clearfix"> </div></div>
-						<div class="booki1"><span>Type: </span>
-							<select id="country" name="type" class="">
-											<option value="cafe">cafe</option>
-											<option value="restaurant">restaurant</option>         
-											<option value="mosque">mosque</option>
-											<option value="hotel">hotel</option>
-									  </select><div class="clearfix"> </div></div>
+													<div class="booki1"> <b> Type: </b> 
+								<select id="type" name='type' style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>		
+   <option value="cafe">cafe</option>
+  <option value="mosqué">mosque</option>
+  <option value="hotel">hotel</option>
+  <option value="restaurant">restaurant</option>
+</select><div class="clearfix"> </div></div>
 
                                     <div class="form-horizontal" style="width: 550px">
                                        <div class="form-group">
                                            <label class="col-sm-2 control-label">Adresse</label>
 
                                            <div class="col-sm-10">
-                                               <input type="text" name="addresse" class="form-control" id="us3-address" />
+                                               <input type="text" name="addresse" class="" id="us3-address" />
                                            </div>
                                        </div>
                                        <div class="form-group">

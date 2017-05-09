@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Lieu extends Model
 {
    protected $fillable = [
-         'nom','type','addresse','latitude','langitude','user_id','confirm'
+         'nom','type','addresse','latitude','langitude','user_id','confirm','ville'
     ];
      public function user()
     {

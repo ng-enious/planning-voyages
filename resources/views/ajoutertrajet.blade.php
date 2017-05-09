@@ -1,6 +1,6 @@
 <html> 
 <head> 
-	<title>Ajouter moyen</title>
+	<title>Ajouter trajet</title>
 <!-- <link href="{{ url('css/bootstrap.css') }}" rel="stylesheet" type="text/css" media="all">
 <link href="{{ url('css/style.css') }}" rel="stylesheet" type="text/css" media="all" /> -->
 <link href="{{ url('css/multiroutes.css') }}" rel="stylesheet" type="text/css" media="all" />
@@ -23,21 +23,63 @@
 
 </head> 
 <body onload="initMap();"> 
-	<div class="header">
+<div class="header">
 		<div class="container">
 		<div class="logo">
-		    <a href="{{ url('/') }}"><img src="{{ url('images/logo.png') }}" class="img-responsive" alt=""></a>
+		    <a href="{{ url('/admin') }}"><img src="{{ url('images/logo.png') }}" class="img-responsive" alt=""></a>
 			</div>
-			
-				<div class="clearfix"></div>
+							<div class="clearfix"></div>
 		</div>
 	</div>
-	<div class="header-bottom">
+<div class="header-bottom">
 		<div class="container">
 			<div class="top-nav">
 				<span class="menu"> </span>
 					<ul class="navig megamenu skyblue">
-		@if (Auth::check())
+						 @if (Auth::check())
+								<li><a  class="scroll"><img src="{{ url('images/usr (1).png') }}"class="img-responsive" alt="" >Suggérer des données</a>
+							<div class="megapanel">
+								<div class="na-left">
+									<ul class="grid-img-list">
+										<li><a href="suggererlieu">ajouter lieu  </a></li> |
+        					  <li><a href="suggerermoyendetransport">ajouter moyen </a></li>|
+       					    <li><a href="suggerertrajet">ajouter trajet </a></li>
+										<div class="clearfix"> </div>	
+									</ul>
+								</div>
+								<div class="na-right">
+									<ul class="grid-img-list">
+									<li class="reg"></li>
+										<div class="clearfix"> </div>	
+									</ul>
+								</div>
+								<div class="clearfix"> </div>	
+		    				</div>
+						</li>
+									<div class="megapanel">
+								<div class="na-left">
+									<ul class="grid-img-list">
+								
+										<div class="clearfix"> </div>	
+									</ul>
+								</div>
+								<div class="na-right">
+									<li class="reg"></li>
+			@endif
+						<div class="clearfix"></div>
+						</ul>
+					<script>
+					$("span.menu").click(function(){
+						$(".top-nav ul").slideToggle(300, function(){
+						});
+					});
+				</script>
+			</div>
+	
+
+	<div class="head-right">
+				<ul class="number">
+					@if (Auth::check())
 							<li><a  class="scroll"><img src="{{ url('images/adl.png') }}" class="img-responsive" alt="">Ajouter des données</a>
 							<div class="megapanel">
 								<div class="na-left">
@@ -71,7 +113,7 @@
 								<div class="na-right">
 									<li class="reg"></li>
 						<li><a href="shop.html" class="scroll"><img src="{{ url('images/av.png') }}">Avis des utilisateurs</a></li>
-									       @endif
+									 @endif
 						<div class="clearfix"></div>
 						</ul>
 					<script>
@@ -81,10 +123,11 @@
 					});
 				</script>
 			</div>
-							
+	
+
 	<div class="head-right">
 				<ul class="number">
-	 @if (Auth::check())
+				 @if (Auth::check())
                  <li><a><i class="roc"> </i>{{ Auth::user()->name }} {{ Auth::user()->lastname }}</a></li>
 				 <li>                        <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
@@ -101,8 +144,8 @@
 					<li><a href="{{ url('/register') }}"><i class="roc"> </i>Inscription</a></li>
 					<li><a href="{{ url('/login') }}"><i class="phone"> </i>Connexion</a></li>
 
-				 @endif
-  
+				
+					@endif
 				   <div class="clearfix"> 
 
 					</div>						
@@ -114,21 +157,21 @@
 		</div>
 <div id="right-panel">
 <div>
-	<form method="post" action="{{ url('/ajoutertrajet') }}" >
+	<form method="post" action="{{ url('/ajoutertrajetuser') }}" >
 
 		 {{ csrf_field() }}
 	
-<b>Start:</b>
-<select id="start" name='start'>
+<b>Depart:</b>
+			  	<select id="start" name='start' style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>
   <option value="Tunis">Tunis</option>
   <option value="gabes">gabes</option>
-  <option value="Monastir">Monastir</option>
-	<option value="soussa">soussa</option>
+  <option value="Monastir">NMonastir</option>
+  <option value="soussa">soussa</option>
 </select>
-		<button type="button" onclick="myFunction1()">Insert option</button>
-<input  type="text" id="option1" >option</input>
-<br>
-<b>Waypoints:</b> <br> <br>
+			<input  type="text" placeholder="ajouter ville" id="option1" ></input>
+		<button type="button" onclick="myFunction1()">ajouter ville</button>
+	
+	<b>Waypoints:</b> <br> <br>
 <select multiple id="waypoints" name='points[]'>
   <option value="sousse">Sousse</option>
   <option value="mahdia">mahdia</option>
@@ -138,20 +181,23 @@
   <option value="Monastir">Monastir</option>
   <option value="gafsa">gafsa</option>
 </select>
-	<button type="button" onclick="myFunction2()">Insert option</button>
-<input  type="text" id="option2" >option</input>
+	<input  type="text" placeholder="ajouter ville" id="option2" ></input>
+	<button type="button" onclick="myFunction2()">ajouter ville</button>
+
+<br>
 <br>
 <b>End:</b>
-<select id="end" name='end'>
+	<select id="end" name='end' style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>
   <option value="tataouine">tatouine</option>
   <option value="beja">beja</option>
   <option value="Hammamet">Hammamet</option>
   <option value="khniss">khniss</option>
 </select>
-		<button type="button" onclick="myFunction3()">Insert option</button>
-<input  type="text" id="option3" >option</input>
+	<input  type="text" placeholder="ajouter ville"id="option3" ></input>
+		<button type="button"  onclick="myFunction3()">ajouter ville</button>
+
 <br>
-	<select  id="moyen" name='moyen'>
+	<select id="moyen" name='moyen' style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>
   <option value="bus">bus</option>
   <option value="train">train</option>
   <option value="metro">metro</option>
@@ -166,10 +212,13 @@
 	</form>
 <div id="directions-panel"></div>
 </div>
+	@if(session()->has('message'))
+{{session('message')}}
+@endif
 <div id="map" style="float:left;width:70%; height:80%"></div>  
 <br/>
 	</div>
-			<div class="clearfix"></div>
+<div class="clearfix"></div>
 	
 	
 			

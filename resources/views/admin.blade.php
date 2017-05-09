@@ -117,29 +117,31 @@
   <div>
     <form method="post" action="{{ url('/get_trajetadmin') }}">
       	 {{ csrf_field() }}
-   <b>Start:</b>
-<select id="start" name='start'>
+   <b>depart:</b>
+ 	<select id="start" name='start' style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>
   <option value="Tunis">Tunis</option>
   <option value="gabes">gabes</option>
   <option value="Monastir">Monastir</option>
 	<option value="soussa">soussa</option>
 </select>
 				
-<input  type="text" id="option1" ></input>
-		<button type="button" onclick="myFunction1()">Insert option</button>
+<input  type="text"placeholder="ajouter ville" id="option1" ></input>
 		<br>
-      <b>End:</b>
-<select id="end" name='end'>
+		<button type="button" onclick="myFunction1()">ajouter ville</button>
+		<br>
+      <b>Arriver:</b>
+	<select id="end" name='end' style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>	
    <option value="tataouine">tatouine</option>
   <option value="beja">beja</option>
   <option value="Hammamet">Hammamet</option>
   <option value="khniss">khniss</option>
 </select>
-<input  type="text" id="option1" ></input>
-		<button type="button" onclick="myFunction1()">Insert option</button>
+<input  type="text" placeholder="ajouter ville"id="option1" ></input>
+	<br>
+		<button type="button" onclick="myFunction1()">ajouter ville</button>
       <br>
       <b>Moyen:</b>
-	<select  id="moyen" name='moyen'>
+	<select id="moyen" name='moyen' style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>
   <option value="bus">bus</option>
   <option value="train">train</option>
   <option value="metro">metro</option>
@@ -207,7 +209,6 @@
 </div>
 <div id="directions-panel" style=" visibility: hidden"></div>
 </div>
-
 <div id="map" style="float:left;width:70%; height:80%"></div>  
 <br/>
 	</div>

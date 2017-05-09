@@ -124,16 +124,19 @@
                         <div class="col-md-2">
                         </div>
                         <div class="col-md-8">
-																				<div class="booki1"><span>Nom: </span>
+													<div class="booki1">
+														<b>Nom:</b> 
+																					
 					<input type="text" name="nom" placeholder="" required="">
 					<div class="clearfix"> </div></div>
-						<div class="booki1"><span>Type: </span>
-							<select id="country" name="type" class="booki1">
-											<option value="cafe">cafe</option>
-											<option value="restaurant">restaurant</option>         
-											<option value="mosque">mosque</option>
-											<option value="hotel">hotel</option>
-									  </select><div class="clearfix"> </div></div>
+					      <b>type : </b>
+	<select id="type" name='type' style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>		
+   <option value="cafe">cafe</option>
+  <option value="mosqué">mosqué</option>
+  <option value="hotel">hotel</option>
+  <option value="restaurant">restaurant</option>
+</select>
+									  <div class="clearfix"> </div></div>
 
                                     <div class="form-horizontal" style="width: 550px">
                                        <div class="form-group">

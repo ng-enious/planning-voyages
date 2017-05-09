@@ -96,7 +96,8 @@ Route::get('/mailsupprimertrajet/{id}', 'MailController@mailsupprimertrajet');
 Route::get('/mailsupprimermoyen/{id}', 'MailController@mailsupprimermoyen');
 
 
-Route::post('/ajoutertrajet', 'UserController@ajoutertrajet');
+Route::post('/ajoutertrajetadmin', 'UserController@ajoutertrajetadmin');
+Route::post('/ajoutertrajetuser', 'UserController@ajoutertrajetuser');
 Route::get('/home', 'HomeController@index');
 Route::post('/suggerertrajet', 'UserController@suggertrajet');
 Route::post('/suggererlieu', 'UserController@suggerlieu');
@@ -104,7 +105,8 @@ Route::post('/suggerermoyendetransport', 'UserController@suggermoyen');
 
 Route::post('/ajouterlieu', 'UserController@ajouterlieu');
 Route::post('/test', 'UserController@test');
-Route::post('/ajoutermoyendetransport', 'UserController@ajoutermoyen');
+Route::post('/ajoutermoyenadmin', 'UserController@ajoutermoyenadmin');
+Route::post('/ajoutermoyenuser', 'UserController@ajoutermoyeuser');
 
 
 Route::get('/pagination', 'PaginationController@pagination');

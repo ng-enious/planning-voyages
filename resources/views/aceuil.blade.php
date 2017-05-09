@@ -105,30 +105,32 @@
   <div>
     <form method="post" action="{{ url('/get_trajet') }}">
       	 {{ csrf_field() }}
-      <b>Start:</b>
-<select id="start" name='start'>
+      <b>depart :</b>
+			  	<select id="start" name='start' style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>
   <option value="Tunis">Tunis</option>
   <option value="gabes">gabes</option>
   <option value="Monastir">Monastir</option>
 	<option value="soussa">soussa</option>
 </select>
 				
-<input  type="text" id="option1" ></input>
-		<button type="button" onclick="myFunction1()">Insert option</button>
+<input  type="text" placeholder="ajouter ville" id="option1" ></input>
 		<br>
-      <b>End:</b>
-<select id="end" name='end'>
+		<button type="button" onclick="myFunction1()">ajouter ville</button>
+		<br>
+      <b>arriver :</b>
+	<select id="end" name='end' style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>		
    <option value="tataouine">tatouine</option>
   <option value="beja">beja</option>
   <option value="Hammamet">Hammamet</option>
   <option value="khniss">khniss</option>
 </select>
-<input  type="text" id="option1" ></input>
-		<button type="button" onclick="myFunction1()">Insert option</button>
+<input  type="text"  placeholder="ajouter ville" id="option1" ></input>
+	<br>
+		<button type="button" onclick="myFunction1()">ajouter ville</button>
 		<br>
       <br>
       <b>Moyen:</b>
-	<select  id="moyen" name='moyen'>
+		<select id="moyen" name='moyen' style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>
   <option value="bus">bus</option>
   <option value="train">train</option>
   <option value="metro">metro</option>
@@ -194,7 +196,7 @@
 
 </div>
 <div id="directions-panel" style=" visibility: hidden"></div>
- <button type="button"  href="donneavis">Avis</button>
+
 </div>
 
 <div id="map" style="float:left;width:70%; height:80%"></div>  
@@ -210,7 +212,7 @@
 		<div class="container">
        <div class="clearfix"></div>
 			<div class="footer-bottom">
-				<p>Planning Voyages</p>
+				<p>Planning Voyages</p> 
 			</div>
 		</div>
 				</div>
@@ -219,9 +221,9 @@
   var directionsService = new google.maps.DirectionsService();
   var map,geocoder, marker;
   var depart,arrivee,ptCheck;
-  
+
   /*initialise google MAP V3*/
-  function initMap() {
+  	function initMap() {
 
   var directionsService = new google.maps.DirectionsService;
   var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -231,22 +233,77 @@
   });
   directionsDisplay.setMap(map);
   //document.getElementById('view').addEventListener('click', function() 
+			  
+			//*********************/
     @if(session()->has('status'))
           @if(session('status') == 'ok'){
             calculateAndDisplayRoute(directionsService, directionsDisplay);
+						    //var locations = {{session('lieux')}} ;
+						var latitude = [@foreach(session('lieux') as $k => $lieu)
+   '{{ $lieu['latitude'] }}',
+@endforeach ];
+						var langitude = [@foreach(session('lieux') as $k => $lieu)
+   '{{ $lieu['langitude'] }}',
+@endforeach ];
+						var names = [@foreach(session('lieux') as $k => $lieu)
+   '{{ $lieu['nom'] }}',
+@endforeach ];
+												 						var addresses = [@foreach(session('lieux') as $k => $lieu)
+   '{{ $lieu['addresse'] }}',
+@endforeach ];
+			
+						console.log('lat',latitude);
+						console.log('lan',langitude);
+						console.log('name',names);
+						
+						
+// 						var locations = [
+//   ['stade', 35.82, 10.61, 'sousse']
+//   ];
+      var marker, i
+
+for (i =0,j =0,k=0,l=0; i < latitude.length, j < langitude.length,k<names.length, l<addresses.length;l++,k++, i++,j++)
+ {  
+
+ var loan = names[k]
+ var lat = latitude[i]
+ var long = langitude[j]
+ var add =  addresses[l]
+
+ latlngset = new google.maps.LatLng(lat, long);
+
+  var marker = new google.maps.Marker({  
+          map: map, title: loan , position: latlngset  
+        });
+        map.setCenter(marker.getPosition())
+
+
+        var content = "Name: " + loan +  '</h3>' + "Address: " + add     
+
+  var infowindow = new google.maps.InfoWindow()
+
+google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){ 
+        return function() {
+           infowindow.setContent(content);
+           infowindow.open(map,marker);
+        };
+    })(marker,content,infowindow)); 
+
+  }
   }
     @else
       window.alert("not found");
   @endif
   @endif
 }
+
 		function myFunction1() {
     var x = document.getElementById("start");
     var option = document.createElement("option");
     option.text = document.getElementById("option1").value;
     x.add(option);
 }
-	function myFunction2() {
+		function myFunction2() {
     var x = document.getElementById("waypoints");
     var option = document.createElement("option");
     option.text = document.getElementById("option2").value;
@@ -258,8 +315,10 @@
     option.text = document.getElementById("option3").value;
     x.add(option);
 }
-
-function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+		function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+				/******markers****/
+				
+			/*************************/
   var waypts =[]
   var checkboxArray = document.getElementById('waypoints');
   for (var i = 0; i < checkboxArray.length; i++) {
@@ -299,7 +358,44 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
       window.alert('Directions request failed due to ' + status);
     }
   });
+
+
 }
+		function setMarkers(map){
+  var locations = [
+  ['stade', 35.82, 10.61, 'sousse']
+  ];
+      var marker, i
+
+for (i = 0; i < locations.length; i++)
+ {  
+
+ var loan = locations[i][0]
+ var lat = locations[i][1]
+ var long = locations[i][2]
+ var add =  locations[i][3]
+
+ latlngset = new google.maps.LatLng(lat, long);
+
+  var marker = new google.maps.Marker({  
+          map: map, title: loan , position: latlngset  
+        });
+        map.setCenter(marker.getPosition())
+
+
+        var content = "Loan Number: " + loan +  '</h3>' + "Address: " + add     
+
+  var infowindow = new google.maps.InfoWindow()
+
+google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){ 
+        return function() {
+           infowindow.setContent(content);
+           infowindow.open(map,marker);
+        };
+    })(marker,content,infowindow)); 
+
+  }
+  }
 
 </script> 
 </body> 
