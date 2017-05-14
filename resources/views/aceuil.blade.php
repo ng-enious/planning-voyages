@@ -300,7 +300,7 @@ google.maps.event.addListener(marker,'click', (function(marker,content,infowindo
   }
   }
     @else
-      window.alert("not found");
+      window.alert(" trajet non trouvé");
   @endif
   @endif
 }

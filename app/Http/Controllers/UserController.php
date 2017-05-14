@@ -144,21 +144,32 @@ class UserController extends Controller
     ->with('wayPoints')->first();
     //dd($trajet);
     // dd($trajet->wayPoints);
-    if($trajet->wayPoints)
-    {
-          foreach($trajet->wayPoints as $waypoint)
-      $wapointsArray[]= $waypoint->name;
-   $lieux=Lieu::whereIn('ville',$wapointsArray)->get();
-    }
-    else
-      $lieux= null;
-    
    // dd($lieux);
     if($trajet)
-      $status='ok';
-    
+    {
+                if($trajet->wayPoints)
+                 {
+                  foreach($trajet->wayPoints as $waypoint)
+                          $wapointsArray[]= $waypoint->name;
+                  $lieux=Lieu::whereIn('ville',$wapointsArray)->get();
+                    $status='ok';
+      
+                 }
+                else
+                {
+                         $status='ok';
+                         $lieux= null;
+                }
+                
+      
+    }
+   
     else
-      $status='not found';
+    {
+      $lieux= null;
+      $status='trajet non trouvé';
+    }
+      
        //dd($trajet);
     if($user)
     {
