@@ -106,7 +106,7 @@
     <form method="post" action="{{ url('/get_trajet') }}">
       	 {{ csrf_field() }}
       <b>depart :</b>
-			  	<select id="start" name='start' style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>
+			  	<select id="start1" name='start' style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>
   <option value="Tunis">Tunis</option>
   <option value="gabes">gabes</option>
   <option value="Monastir">Monastir</option>
@@ -118,15 +118,16 @@
 		<button type="button" onclick="myFunction1()">ajouter ville</button>
 		<br>
       <b>arriver :</b>
-	<select id="end" name='end' style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>		
+	<select id="end1" name='end' style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>		
    <option value="tataouine">tatouine</option>
   <option value="beja">beja</option>
   <option value="Hammamet">Hammamet</option>
-  <option value="khniss">khniss</option>
+  <option value="kasserine">kasserine</option>
+		<option value="ben geurdane">ben geurdane</option>
 </select>
-<input  type="text"  placeholder="ajouter ville" id="option1" ></input>
+<input  type="text"  placeholder="ajouter ville" id="option3" ></input>
 	<br>
-		<button type="button" onclick="myFunction1()">ajouter ville</button>
+		<button type="button" onclick="myFunction3()">ajouter ville</button>
 		<br>
       <br>
       <b>Moyen:</b>
@@ -139,6 +140,16 @@
 		<option value="voiture">voiture</option>
 
 </select>
+	@if (Auth::check())
+	<br>
+	<br>
+		<label>
+  <input type="checkbox" id="cbox1" value="1" name="save"> 
+  Enregistrer
+
+</label>
+				<br> 
+				 @endif
       <input type="submit" value="recherche">
       
     </form>
@@ -150,10 +161,11 @@
 	
 <b>Start:</b>
 <select id="start" name='start'>
-  <option value="Tunis">Tunis</option>
-  <option value="Boston, MA">Boston, MA</option>
-  <option value="New York, NY">New York, NY</option>
-  <option value="Miami, FL">Miami, FL</option>
+  @if(session()->has('trajet'))
+ 
+  <option value="{{session('trajet')->depart}}" selected>{{session('trajet')->depart}}</option>
+
+	@endif
 </select>
 		<button type="button" onclick="myFunction1()">Insert option</button>
 <input  type="text" id="option1" >option</input>
@@ -171,12 +183,12 @@
 <input  type="text" id="option2" >option</input>
 <br>
 <b>End:</b>
-<input id="end" name='end' type="text">
-  <option value="tataouine">tatouine</option>
-  <option value="Seattle, WA">Seattle, WA</option>
-  <option value="San Francisco, CA">San Francisco, CA</option>
-  <option value="Los Angeles, CA">Los Angeles, CA</option>
-   <option value="gabes">gabes</option>
+<select id="end" name='end' >
+  @if(session()->has('trajet'))
+ 
+  <option value="{{session('trajet')->arrive}}" selected>{{session('trajet')->arrive}}</option>
+
+	@endif
 </select>
 		<button type="button" onclick="myFunction3()">Insert option</button>
 <input  type="text" id="option3" >option</input>
@@ -197,6 +209,12 @@
 </div>
 <div id="directions-panel" style=" visibility: hidden"></div>
 
+				 @if (Auth::check())
+<a href="{{ url('/donneavis') }}">
+	<button type="button" >Donner Avis</button> <br>
+</a>
+
+				 @endif
 </div>
 
 <div id="map" style="float:left;width:70%; height:80%"></div>  
@@ -204,11 +222,12 @@
 	</div>
 
 			<div class="clearfix"></div>
+
 	
 	
 			
 <!-- 404 -->
-	  <div class="footer" style="margin-top:300px">
+	  <div class="footer" style="margin-top:500px">
 		<div class="container">
        <div class="clearfix"></div>
 			<div class="footer-bottom">
@@ -221,10 +240,8 @@
   var directionsService = new google.maps.DirectionsService();
   var map,geocoder, marker;
   var depart,arrivee,ptCheck;
-
   /*initialise google MAP V3*/
   	function initMap() {
-
   var directionsService = new google.maps.DirectionsService;
   var directionsDisplay = new google.maps.DirectionsRenderer;
   var map = new google.maps.Map(document.getElementById('map'), {
@@ -261,34 +278,25 @@
 //   ['stade', 35.82, 10.61, 'sousse']
 //   ];
       var marker, i
-
 for (i =0,j =0,k=0,l=0; i < latitude.length, j < langitude.length,k<names.length, l<addresses.length;l++,k++, i++,j++)
  {  
-
  var loan = names[k]
  var lat = latitude[i]
  var long = langitude[j]
  var add =  addresses[l]
-
  latlngset = new google.maps.LatLng(lat, long);
-
   var marker = new google.maps.Marker({  
           map: map, title: loan , position: latlngset  
         });
         map.setCenter(marker.getPosition())
-
-
         var content = "Name: " + loan +  '</h3>' + "Address: " + add     
-
   var infowindow = new google.maps.InfoWindow()
-
 google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){ 
         return function() {
            infowindow.setContent(content);
            infowindow.open(map,marker);
         };
     })(marker,content,infowindow)); 
-
   }
   }
     @else
@@ -296,9 +304,8 @@ google.maps.event.addListener(marker,'click', (function(marker,content,infowindo
   @endif
   @endif
 }
-
 		function myFunction1() {
-    var x = document.getElementById("start");
+    var x = document.getElementById("start1");
     var option = document.createElement("option");
     option.text = document.getElementById("option1").value;
     x.add(option);
@@ -310,7 +317,7 @@ google.maps.event.addListener(marker,'click', (function(marker,content,infowindo
     x.add(option);
 }
 		function myFunction3() {
-    var x = document.getElementById("end");
+    var x = document.getElementById("end1");
     var option = document.createElement("option");
     option.text = document.getElementById("option3").value;
     x.add(option);
@@ -329,7 +336,6 @@ google.maps.event.addListener(marker,'click', (function(marker,content,infowindo
       });
     }
   }
-
   directionsService.route({
     origin: document.getElementById('start').value,
     destination: document.getElementById('end').value,
@@ -358,45 +364,33 @@ google.maps.event.addListener(marker,'click', (function(marker,content,infowindo
       window.alert('Directions request failed due to ' + status);
     }
   });
-
-
 }
 		function setMarkers(map){
   var locations = [
   ['stade', 35.82, 10.61, 'sousse']
   ];
       var marker, i
-
 for (i = 0; i < locations.length; i++)
  {  
-
  var loan = locations[i][0]
  var lat = locations[i][1]
  var long = locations[i][2]
  var add =  locations[i][3]
-
  latlngset = new google.maps.LatLng(lat, long);
-
   var marker = new google.maps.Marker({  
           map: map, title: loan , position: latlngset  
         });
         map.setCenter(marker.getPosition())
-
-
         var content = "Loan Number: " + loan +  '</h3>' + "Address: " + add     
-
   var infowindow = new google.maps.InfoWindow()
-
 google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){ 
         return function() {
            infowindow.setContent(content);
            infowindow.open(map,marker);
         };
     })(marker,content,infowindow)); 
-
   }
   }
-
 </script> 
 </body> 
 </html> 

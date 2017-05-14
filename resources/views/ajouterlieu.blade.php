@@ -43,8 +43,8 @@
 							<div class="megapanel">
 								<div class="na-left">
 									<ul class="grid-img-list">
-										<li><a>ajouter lieu  </a></li> |
-        					  <li><a href="ajoutermoyendetransport">ajouter moyen </a></li>|
+										<li><a>ajouter lieu  </a></li> <br>
+        					  <li><a href="ajoutermoyendetransport">ajouter moyen </a></li><br>
        					    <li><a href="ajoutertrajet">ajouter trajet </a></li>
 										<div class="clearfix"> </div>	
 									</ul>
@@ -63,8 +63,8 @@
 									<div class="megapanel">
 								<div class="na-left">
 									<ul class="grid-img-list">
-									<li><a href="paginationlieu">Lieux suggérés</a></li> |
-										<li><a href="paginationmoyen">moyens suggérés </a></li> |
+									<li><a href="paginationlieu">Lieux suggérés</a></li> <br>
+										<li><a href="paginationmoyen">moyens suggérés </a></li> <br>
 										<li><a href="paginationtrajet">trajet suggérés </a></li>
 										<div class="clearfix"> </div>	
 									</ul>

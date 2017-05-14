@@ -14,6 +14,6 @@ class VerifyCsrfToken extends BaseVerifier
     protected $except = [
         '/register','/login','logout','/ajoutertrajet','/ajoutermoyendetransport','/ajouterlieu',
       '/suggerertrajet','/suggerermoyendetransport','/suggererlieu','/planifier','/test123','get_trajet','/donneavis','enregistreavis','/ajoutermoyen',
-      '/ajoutertrajetuser','/ajoutertrajetadmin'
+      '/ajoutertrajetuser','/ajoutertrajetadmin','/get_trajetadmin' ,'/ajoutermoyenuser'
     ];
 }

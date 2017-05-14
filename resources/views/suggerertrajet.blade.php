@@ -26,7 +26,7 @@
 <div class="header">
 		<div class="container">
 		<div class="logo">
-		    <a href="{{ url('/admin') }}"><img src="{{ url('images/logo.png') }}" class="img-responsive" alt=""></a>
+		    <a href="{{ url('/') }}"><img src="{{ url('images/logo.png') }}" class="img-responsive" alt=""></a>
 			</div>
 							<div class="clearfix"></div>
 		</div>
@@ -116,21 +116,58 @@
 			  	<select id="start" name='start' style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>
   <option value="Tunis">Tunis</option>
   <option value="gabes">gabes</option>
-  <option value="Monastir">NMonastir</option>
-  <option value="soussa">soussa</option>
+  <option value="bizerte">bizerte</option>
+	<option value="kairouan">kairouan</option>
+	<option value="Sidi Bouzid">Sidi Bouzid</option>
+  <option value="ben guerdan">ben guerdan</option>
+	<option value="zarzis">zarzis</option>
+	<option value="tataouine">tataouine</option>
+	<option value="medenine">medenine</option>
+	<option value="sfax">sfax</option>
+	<option value="kasserine">kasserine</option>
+	<option value="el kef">el kef</option>
+	<option value="gafsa">gafsa</option>
+	<option value="tozeur">tozeur</option>
+	<option value="Ariana">Ariana</option>
+	<option value="Nabeul">Nabeul</option>
+	<option value="Mahdia">Mahdia</option>
+	<option value="Manouba">Manouba</option>
+	<option value="Zaghouan">Zaghouan</option>
+	<option value="Siliana">Siliana</option>
+	<option value="Béja">Béja</option>
+	<option value="Ben Arous">Ben Arous</option>
+  <option value="Monastir">Monastir</option>
+	<option value="soussa">soussa</option>
 </select>
 		<input  type="text"  placeholder="ajouter ville" id="option1" ></input>
 		<button type="button" onclick="myFunction1()">ajouter ville</button>
 		
 	<b>Waypoints:</b> <br> <br>
 <select multiple id="waypoints" name='points[]'>
-  <option value="sousse">Sousse</option>
-  <option value="mahdia">mahdia</option>
+  <option value="Tunis">Tunis</option>
   <option value="gabes">gabes</option>
-  <option value="chebba">chebba</option>
-  <option value="Jendouba">Jendouba</option>
+  <option value="bizerte">bizerte</option>
+	<option value="kairouan">kairouan</option>
+	<option value="Sidi Bouzid">Sidi Bouzid</option>
+  <option value="ben guerdan">ben guerdan</option>
+	<option value="zarzis">zarzis</option>
+	<option value="tataouine">tataouine</option>
+	<option value="medenine">medenine</option>
+	<option value="sfax">sfax</option>
+	<option value="kasserine">kasserine</option>
+	<option value="el kef">el kef</option>
+	<option value="gafsa">gafsa</option>
+	<option value="tozeur">tozeur</option>
+	<option value="Ariana">Ariana</option>
+	<option value="Nabeul">Nabeul</option>
+	<option value="Mahdia">Mahdia</option>
+	<option value="Manouba">Manouba</option>
+	<option value="Zaghouan">Zaghouan</option>
+	<option value="Siliana">Siliana</option>
+	<option value="Béja">Béja</option>
+	<option value="Ben Arous">Ben Arous</option>
   <option value="Monastir">Monastir</option>
-  <option value="gafsa">gafsa</option>
+	<option value="soussa">soussa</option>
 </select>
 	<input  type="text"  placeholder="ajouter ville" id="option2" ></input>
 	<button type="button" onclick="myFunction2()">ajouter ville</button>
@@ -139,10 +176,30 @@
 <br>
 <b>Arriver:</b>
 	<select id="end" name='end' style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>
-  <option value="tataouine">tatouine</option>
-  <option value="beja">beja</option>
-  <option value="Hammamet">Hammamet</option>
-  <option value="khniss">khniss</option>
+  <option value="Tunis">Tunis</option>
+  <option value="gabes">gabes</option>
+  <option value="bizerte">bizerte</option>
+	<option value="kairouan">kairouan</option>
+	<option value="Sidi Bouzid">Sidi Bouzid</option>
+  <option value="ben guerdan">ben guerdan</option>
+	<option value="zarzis">zarzis</option>
+	<option value="tataouine">tataouine</option>
+	<option value="medenine">medenine</option>
+	<option value="sfax">sfax</option>
+	<option value="kasserine">kasserine</option>
+	<option value="el kef">el kef</option>
+	<option value="gafsa">gafsa</option>
+	<option value="tozeur">tozeur</option>
+	<option value="Ariana">Ariana</option>
+	<option value="Nabeul">Nabeul</option>
+	<option value="Mahdia">Mahdia</option>
+	<option value="Manouba">Manouba</option>
+	<option value="Zaghouan">Zaghouan</option>
+	<option value="Siliana">Siliana</option>
+	<option value="Béja">Béja</option>
+	<option value="Ben Arous">Ben Arous</option>
+  <option value="Monastir">Monastir</option>
+	<option value="soussa">soussa</option>
 </select>
 	<input  type="text"  placeholder="ajouter ville"id="option3" ></input>
 		<button type="button" onclick="myFunction3()">ajouter ville</button>
@@ -165,7 +222,7 @@
 <div id="directions-panel"></div>
 </div>
 	@if(session()->has('message'))
-{{session('message')}}
+<h3>  {{session('message')}} </h3>
 @endif
 <div id="map" style="float:left;width:70%; height:80%"></div>  
 <br/>

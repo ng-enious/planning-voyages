@@ -42,8 +42,8 @@
 							<div class="megapanel">
 								<div class="na-left">
 									<ul class="grid-img-list">
-										<li><a>ajouter lieu  </a></li> |
-        					  <li><a href="ajoutermoyendetransport">ajouter moyen </a></li>|
+										<li><a>ajouter lieu  </a></li> <br>
+        					  <li><a href="ajoutermoyendetransport">ajouter moyen </a></li> <br>
        					    <li><a href="ajoutertrajet">ajouter trajet </a></li>
 										<div class="clearfix"> </div>	
 									</ul>
@@ -62,8 +62,8 @@
 									<div class="megapanel">
 								<div class="na-left">
 									<ul class="grid-img-list">
-									<li><a href="paginationlieu">Lieux suggérés</a></li> |
-										<li><a href="paginationmoyen">moyens suggérés </a></li> |
+									<li><a href="paginationlieu">Lieux suggérés</a></li> <br>
+										<li><a href="paginationmoyen">moyens suggérés </a></li> <br>
 										<li><a href="paginationtrajet">trajet suggérés </a></li>
 										<div class="clearfix"> </div>	
 									</ul>
@@ -118,33 +118,20 @@
 
 		 {{ csrf_field() }}
 
-		<b>moyen de transport:</b>
-	<br>
-		<input id="type" name='type' style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>
+		<b>moyen:</b>
+			<input id="type" name='type' style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>
 
-<br>
-<b>Start:</b>
+	<br>
+		
+<b>De:</b>
 			  	<select id="de" name='de' style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>
   <option value="Tunis">Tunis</option>
   <option value="gabes">gabes</option>
-  <option value="Monastir">Monastir</option>
-	<option value="soussa">soussa</option>
+  <option value="Monastir">NMonastir</option>
+  <option value="soussa">soussa</option>
 </select>
-		<button type="button" onclick="myFunction1()">Insert option</button>
-<input  type="text" id="option1" >option</input>
-<br>
-<b>Waypoints:</b> <br> <br>
-<select multiple id="waypoints" name='points[]'>
-  <option value="sousse">Sousse</option>
-  <option value="mahdia">mahdia</option>
-  <option value="gabes">gabes</option>
-  <option value="chebba">chebba</option>
-  <option value="Jendouba">Jendouba</option>
-  <option value="Monastir">Monastir</option>
-  <option value="gafsa">gafsa</option>
-</select>
-	<button type="button" onclick="myFunction2()">Insert option</button>
-<input  type="text" id="option2" >option</input>
+		<button type="button" onclick="myFunction1()">ajouter ville</button>
+		<input  type="text" id="option1" ></input>
 <br>
 <b>End:</b>
 	<select id="vers" name='vers' style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>
@@ -153,23 +140,19 @@
   <option value="Hammamet">Hammamet</option>
   <option value="khniss">khniss</option>
 </select>
-		<button type="button" onclick="myFunction3()">Insert option</button>
-<input  type="text" id="option3" >option</input>
-
-  <input type="button" id="view" value='afficher'>
+		<button type="button" onclick="myFunction3()">ajouter ville</button>
+<input  type="text" id="option3" ></input>
+<br>
 	<input type="submit">
 </div>
 	</form>
 <div id="directions-panel"></div>
 </div>
-		<b>             Ajouter nouveau moyen de transport</b>
 <div id="map" style="float:left;width:70%; height:80%"></div>  
 <br/>
 	</div>
-			<div class="clearfix"></div>
-	
-	
-			
+<div class="clearfix"></div>
+	+
 <!-- 404 -->
 	   <div class="footer" style="margin-top:300px">
 		<div class="container">

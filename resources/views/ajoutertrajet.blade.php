@@ -36,57 +36,15 @@
 			<div class="top-nav">
 				<span class="menu"> </span>
 					<ul class="navig megamenu skyblue">
-						 @if (Auth::check())
-								<li><a  class="scroll"><img src="{{ url('images/usr (1).png') }}"class="img-responsive" alt="" >Suggérer des données</a>
-							<div class="megapanel">
-								<div class="na-left">
-									<ul class="grid-img-list">
-										<li><a href="suggererlieu">ajouter lieu  </a></li> |
-        					  <li><a href="suggerermoyendetransport">ajouter moyen </a></li>|
-       					    <li><a href="suggerertrajet">ajouter trajet </a></li>
-										<div class="clearfix"> </div>	
-									</ul>
-								</div>
-								<div class="na-right">
-									<ul class="grid-img-list">
-									<li class="reg"></li>
-										<div class="clearfix"> </div>	
-									</ul>
-								</div>
-								<div class="clearfix"> </div>	
-		    				</div>
-						</li>
-									<div class="megapanel">
-								<div class="na-left">
-									<ul class="grid-img-list">
-								
-										<div class="clearfix"> </div>	
-									</ul>
-								</div>
-								<div class="na-right">
-									<li class="reg"></li>
-			@endif
-						<div class="clearfix"></div>
-						</ul>
-					<script>
-					$("span.menu").click(function(){
-						$(".top-nav ul").slideToggle(300, function(){
-						});
-					});
-				</script>
-			</div>
-	
 
-	<div class="head-right">
-				<ul class="number">
 					@if (Auth::check())
-							<li><a  class="scroll"><img src="{{ url('images/adl.png') }}" class="img-responsive" alt="">Ajouter des données</a>
+							<li style="width:300px"><a  class="scroll"><img src="{{ url('images/adl.png') }}" class="img-responsive" alt="">Ajouter des données</a>
 							<div class="megapanel">
 								<div class="na-left">
 									<ul class="grid-img-list">
-										<li><a>ajouter lieu  </a></li> |
-        					  <li><a href="ajoutermoyendetransport">ajouter moyen </a></li>|
-       					    <li><a href="ajoutertrajet">ajouter trajet </a></li>
+									<li><a href="ajouterlieu">ajouter lieu </a></li> <br>
+        					  <li><a href="ajoutermoyendetransport">ajouter moyen </a></li> <br>
+       					    <li><a href="">ajouter trajet </a></li>
 										<div class="clearfix"> </div>	
 									</ul>
 								</div>
@@ -100,12 +58,12 @@
 		    				</div>
 						</li>
 						<li><a href="pagination" class="scroll"> <img src="{{ url('images/usr.png') }}" >Liste des utilisateurs</a></li>						
-						<li><a  class="scroll"><img src="{{ url('images/sugg.png') }}"  >Liste des suggestions</a>
+						<li style="width:300px"><a  class="scroll"><img src="{{ url('images/sugg.png') }}"  >Liste des suggestions</a>
 									<div class="megapanel">
 								<div class="na-left">
 									<ul class="grid-img-list">
-									<li><a href="paginationlieu">Lieux suggérés</a></li> |
-										<li><a href="paginationmoyen">moyens suggérés </a></li> |
+									<li><a href="paginationlieu">Lieux suggérés</a></li> <br>
+										<li><a href="paginationmoyen">moyens suggérés </a></li> <br>
 										<li><a href="paginationtrajet">trajet suggérés </a></li>
 										<div class="clearfix"> </div>	
 									</ul>
@@ -163,23 +121,60 @@
 	
 <b>Depart:</b>
 			  	<select id="start" name='start' style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>
-  <option value="Tunis">Tunis</option>
+   <option value="Tunis">Tunis</option>
   <option value="gabes">gabes</option>
-  <option value="Monastir">NMonastir</option>
-  <option value="soussa">soussa</option>
+  <option value="bizerte">bizerte</option>
+	<option value="kairouan">kairouan</option>
+	<option value="Sidi Bouzid">Sidi Bouzid</option>
+  <option value="ben guerdan">ben guerdan</option>
+	<option value="zarzis">zarzis</option>
+	<option value="tataouine">tataouine</option>
+	<option value="medenine">medenine</option>
+	<option value="sfax">sfax</option>
+	<option value="kasserine">kasserine</option>
+	<option value="el kef">el kef</option>
+	<option value="gafsa">gafsa</option>
+	<option value="tozeur">tozeur</option>
+	<option value="Ariana">Ariana</option>
+	<option value="Nabeul">Nabeul</option>
+	<option value="Mahdia">Mahdia</option>
+	<option value="Manouba">Manouba</option>
+	<option value="Zaghouan">Zaghouan</option>
+	<option value="Siliana">Siliana</option>
+	<option value="Béja">Béja</option>
+	<option value="Ben Arous">Ben Arous</option>
+  <option value="Monastir">Monastir</option>
+	<option value="soussa">soussa</option>
 </select>
 			<input  type="text" placeholder="ajouter ville" id="option1" ></input>
 		<button type="button" onclick="myFunction1()">ajouter ville</button>
 	
 	<b>Waypoints:</b> <br> <br>
 <select multiple id="waypoints" name='points[]'>
-  <option value="sousse">Sousse</option>
-  <option value="mahdia">mahdia</option>
+   <option value="Tunis">Tunis</option>
   <option value="gabes">gabes</option>
-  <option value="chebba">chebba</option>
-  <option value="Jendouba">Jendouba</option>
+  <option value="bizerte">bizerte</option>
+	<option value="kairouan">kairouan</option>
+	<option value="Sidi Bouzid">Sidi Bouzid</option>
+  <option value="ben guerdan">ben guerdan</option>
+	<option value="zarzis">zarzis</option>
+	<option value="tataouine">tataouine</option>
+	<option value="medenine">medenine</option>
+	<option value="sfax">sfax</option>
+	<option value="kasserine">kasserine</option>
+	<option value="el kef">el kef</option>
+	<option value="gafsa">gafsa</option>
+	<option value="tozeur">tozeur</option>
+	<option value="Ariana">Ariana</option>
+	<option value="Nabeul">Nabeul</option>
+	<option value="Mahdia">Mahdia</option>
+	<option value="Manouba">Manouba</option>
+	<option value="Zaghouan">Zaghouan</option>
+	<option value="Siliana">Siliana</option>
+	<option value="Béja">Béja</option>
+	<option value="Ben Arous">Ben Arous</option>
   <option value="Monastir">Monastir</option>
-  <option value="gafsa">gafsa</option>
+	<option value="soussa">soussa</option>
 </select>
 	<input  type="text" placeholder="ajouter ville" id="option2" ></input>
 	<button type="button" onclick="myFunction2()">ajouter ville</button>
@@ -188,10 +183,30 @@
 <br>
 <b>End:</b>
 	<select id="end" name='end' style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>
-  <option value="tataouine">tatouine</option>
-  <option value="beja">beja</option>
-  <option value="Hammamet">Hammamet</option>
-  <option value="khniss">khniss</option>
+  <option value="Tunis">Tunis</option>
+  <option value="gabes">gabes</option>
+  <option value="bizerte">bizerte</option>
+	<option value="kairouan">kairouan</option>
+	<option value="Sidi Bouzid">Sidi Bouzid</option>
+  <option value="ben guerdan">ben guerdan</option>
+	<option value="zarzis">zarzis</option>
+	<option value="tataouine">tataouine</option>
+	<option value="medenine">medenine</option>
+	<option value="sfax">sfax</option>
+	<option value="kasserine">kasserine</option>
+	<option value="el kef">el kef</option>
+	<option value="gafsa">gafsa</option>
+	<option value="tozeur">tozeur</option>
+	<option value="Ariana">Ariana</option>
+	<option value="Nabeul">Nabeul</option>
+	<option value="Mahdia">Mahdia</option>
+	<option value="Manouba">Manouba</option>
+	<option value="Zaghouan">Zaghouan</option>
+	<option value="Siliana">Siliana</option>
+	<option value="Béja">Béja</option>
+	<option value="Ben Arous">Ben Arous</option>
+  <option value="Monastir">Monastir</option>
+	<option value="soussa">soussa</option>
 </select>
 	<input  type="text" placeholder="ajouter ville"id="option3" ></input>
 		<button type="button"  onclick="myFunction3()">ajouter ville</button>

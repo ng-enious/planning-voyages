@@ -112,6 +112,13 @@
 	<div class="addlocation">
 		<div class="container">
       <h3>Ajouter un nouveau lieu</h3>
+	
+			
+		
+			@if(session()->has('message'))
+	<h3>  {{session('message')}} 	</h3>
+
+	@endif
 			<div class="col-md-6">
 				  <form class="form-horizontal" role="form" method="POST" action="{{ url('/suggererlieu') }}">
 			<div class="row">
@@ -141,10 +148,10 @@
 
                                     <div class="form-horizontal" style="width: 550px">
                                        <div class="form-group">
-                                           <label class="col-sm-2 control-label">Adresse</label>
+                                           <label class="col-sm-2 control-label"  >Adresse</label>
 
                                            <div class="col-sm-10">
-                                               <input type="text" name="addresse" class="" id="us3-address" />
+                                               <input type="text" name="addresse" class="" style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:50px;width: 250px;"id="us3-address" />
                                            </div>
                                        </div>
                                        <div class="form-group">

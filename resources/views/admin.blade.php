@@ -39,7 +39,7 @@
 				<span class="menu"> </span>
 					<ul class="navig megamenu skyblue">
 						 @if (Auth::check())
-							<li><a  class="scroll"><img src="{{ url('images/adl.png') }}" class="img-responsive" alt="">Ajouter des données</a>
+							<li style="width:300px"><a  class="scroll"><img src="{{ url('images/adl.png') }}" class="img-responsive" alt="" >Ajouter des données</a>
 							<div class="megapanel">
 								<div class="na-left">
 									<ul class="grid-img-list">
@@ -59,12 +59,12 @@
 		    				</div>
 						</li>
 						<li><a href="pagination" class="scroll"> <img src="{{ url('images/usr.png') }}" >Liste des utilisateurs</a></li>						
-						<li><a  class="scroll"><img src="{{ url('images/sugg.png') }}"  >Liste des suggestions</a>
+						<li style="width:300px"><a  class="scroll"><img src="{{ url('images/sugg.png') }}"  >Liste des suggestions</a>
 									<div class="megapanel">
 								<div class="na-left">
 									<ul class="grid-img-list">
-									<li><a href="paginationlieu">Lieux suggérés</a></li> |
-										<li><a href="paginationmoyen">moyens suggérés </a></li> |
+									<li><a href="paginationlieu">Lieux suggérés</a></li> <br>
+										<li><a href="paginationmoyen">moyens suggérés </a></li> <br>
 										<li><a href="paginationtrajet">trajet suggérés </a></li>
 										<div class="clearfix"> </div>	
 									</ul>
@@ -121,6 +121,26 @@
  	<select id="start" name='start' style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>
   <option value="Tunis">Tunis</option>
   <option value="gabes">gabes</option>
+  <option value="bizerte">bizerte</option>
+	<option value="kairouan">kairouan</option>
+	<option value="Sidi Bouzid">Sidi Bouzid</option>
+  <option value="ben guerdan">ben guerdan</option>
+	<option value="zarzis">zarzis</option>
+	<option value="tataouine">tataouine</option>
+	<option value="medenine">medenine</option>
+	<option value="sfax">sfax</option>
+	<option value="kasserine">kasserine</option>
+	<option value="el kef">el kef</option>
+	<option value="gafsa">gafsa</option>
+	<option value="tozeur">tozeur</option>
+	<option value="Ariana">Ariana</option>
+	<option value="Nabeul">Nabeul</option>
+	<option value="Mahdia">Mahdia</option>
+	<option value="Manouba">Manouba</option>
+	<option value="Zaghouan">Zaghouan</option>
+	<option value="Siliana">Siliana</option>
+	<option value="Béja">Béja</option>
+	<option value="Ben Arous">Ben Arous</option>
   <option value="Monastir">Monastir</option>
 	<option value="soussa">soussa</option>
 </select>
@@ -131,10 +151,30 @@
 		<br>
       <b>Arriver:</b>
 	<select id="end" name='end' style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>	
-   <option value="tataouine">tatouine</option>
-  <option value="beja">beja</option>
-  <option value="Hammamet">Hammamet</option>
-  <option value="khniss">khniss</option>
+  <option value="Tunis">Tunis</option>
+  <option value="gabes">gabes</option>
+  <option value="bizerte">bizerte</option>
+	<option value="kairouan">kairouan</option>
+	<option value="Sidi Bouzid">Sidi Bouzid</option>
+  <option value="ben guerdan">ben guerdan</option>
+	<option value="zarzis">zarzis</option>
+	<option value="tataouine">tataouine</option>
+	<option value="medenine">medenine</option>
+	<option value="sfax">sfax</option>
+	<option value="kasserine">kasserine</option>
+	<option value="el kef">el kef</option>
+	<option value="gafsa">gafsa</option>
+	<option value="tozeur">tozeur</option>
+	<option value="Ariana">Ariana</option>
+	<option value="Nabeul">Nabeul</option>
+	<option value="Mahdia">Mahdia</option>
+	<option value="Manouba">Manouba</option>
+	<option value="Zaghouan">Zaghouan</option>
+	<option value="Siliana">Siliana</option>
+	<option value="Béja">Béja</option>
+	<option value="Ben Arous">Ben Arous</option>
+  <option value="Monastir">Monastir</option>
+	<option value="soussa">soussa</option>
 </select>
 <input  type="text" placeholder="ajouter ville"id="option1" ></input>
 	<br>

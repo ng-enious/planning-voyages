@@ -39,31 +39,6 @@ class MailController extends Controller
       }    
       
   
-
- public function mailsupprimertrajet($id){
-         $trajet=trajet::where('id',$id)->with('user')->first();
-      //dd($lieu);
-      $email=$trajet->user->email;
-      
-      $trajet_name=$trajet->nom;
-      $title='trajet Supprimé';
-      if(trajet::where('id',$id)->delete()){
-        
-            Mail::send('mailtrajet', ['title' => $title, 'trajet_name' => $trajet_name]
-                , function ($message) use ($email)
-                {
-                    $message->to($email)->subject('trajet Supprimé');
-
-                });
-            return back();
-        }
-        else
-            return back();
-
-      
- 
-    
-  }
       public function mailsupprimermoyen($id){
       $Moyen_transport=moyen_transport::where('id',$id)->with('user')->first();
       //dd($lieu);
@@ -85,57 +60,29 @@ class MailController extends Controller
             return back();
 
       }    
-    public function lieuaccepter($id){
-      $lieu=Lieu::where('id',$id)->with('user')->first();
-      //dd($lieu);
-      $email=$lieu->user->email;
-      
-      $lieu_name=$lieu->nom;
-      $title='Lieu Accepter';
+    public function lieuaccepter($id)
+    {
        $lieu=Lieu::find($id);
-      $lieu->confirm='1';
-      if( $lieu->confirm='1'){
-        
-            Mail::send('mailaccepter', ['title' => $title, 'lieu_name' => $lieu_name]
-                , function ($message) use ($email)
-                {
-                    $message->to($email)->subject('Lieu Accepter');
-
-                });
-            return back();
-        }
-        else
-            return back();
-
-      }    
+    $lieu->confirm='1';
+     
+             if($lieu->save())
+             {
       
- 
-     public function mailaccaptertrajet($id){
-         $trajet=trajet::where('id',$id)->with('user')->first();
-      //dd($lieu);
-      $email=$trajet->user->email;
-      
-      $trajet_name=$trajet->depart;
-      $title='trajet ajouter';
-         $trajet=Trajet::find($id);
+      return redirect('/paginationlieu');}
+
+    }
+
+     public function mailaccaptertrajet($id)
+           {
+       $trajet=trajet::find($id);
     $trajet->confirm='1';
-      if($trajet->confirm='1'){
-        
-            Mail::send('mailacceptertrajet', ['title' => $title, 'trajet_name' => $trajet_name]
-                , function ($message) use ($email)
-                {
-                    $message->to($email)->subject('trajet Accepter');
-
-                });
-            return back();
-        }
-        else
-            return back();
-
+     
+             if($trajet->save())
+             {
       
- 
-    
-  }
+      return redirect('/paginationtrajet');}
+
+    }
      public function mailaccaptermoyen($id){
       $Moyen_transport=moyen_transport::where('id',$id)->with('user')->first();
       //dd($lieu);

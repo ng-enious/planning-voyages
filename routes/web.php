@@ -106,7 +106,7 @@ Route::post('/suggerermoyendetransport', 'UserController@suggermoyen');
 Route::post('/ajouterlieu', 'UserController@ajouterlieu');
 Route::post('/test', 'UserController@test');
 Route::post('/ajoutermoyenadmin', 'UserController@ajoutermoyenadmin');
-Route::post('/ajoutermoyenuser', 'UserController@ajoutermoyeuser');
+Route::post('/ajoutermoyenuser', 'UserController@ajoutermoyenuser');
 
 
 Route::get('/pagination', 'PaginationController@pagination');

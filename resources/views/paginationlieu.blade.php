@@ -154,8 +154,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     
           <th>ID</th>
 					<th>user_id</th>
-					<th>email</th>
-          <th>Nom</th>
+					<th>Nom</th>
+          <th>ville</th>
           <th>addresse</th>
           <th>latitude</th>
           <th>langitude</th>
@@ -172,6 +172,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								 <td>{{ $u ->user_id}}</td>
 									
                   <td>{{ $u -> nom}}</td>
+									 <td>{{ $u ->ville}}</td>
                   <td>{{ $u ->addresse}}</td>
                   <td>{{ $u ->latitude}}</td>
                   <td>{{ $u ->langitude}}</td>
@@ -198,7 +199,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			       <div class="clearfix"></div>
 					</div>
-          <div class="footer">
+          <div class="footer" style="margin-top:500px">
 		<div class="container">
        <div class="clearfix"></div>
 			<div class="footer-bottom">

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Lieu;
 use App\Trajet;
 use App\User;
+use App\Voyage;
 use App\Moyen_transport;
 use App\Waypoints;
 use App\avis;
@@ -136,18 +137,38 @@ class UserController extends Controller
    $depart=$request->get('start');
     $arrive=$request->get('end');
     $moyen_transport=$request->get('moyen');
-  $trajet=Trajet::where('depart',$depart)->where('arrive',$arrive)->where('moyentransport',$moyen_transport)
+    $save=$request->get('save');
+    $user=Auth::user();
+    //dd($save);
+    $trajet=Trajet::where('depart',$depart)->where('arrive',$arrive)->where('moyentransport',$moyen_transport)
     ->with('wayPoints')->first();
-     //dd($trajet->wayPoints);
-    foreach($trajet->wayPoints as $waypoint)
+    //dd($trajet);
+    // dd($trajet->wayPoints);
+    if($trajet->wayPoints)
+    {
+          foreach($trajet->wayPoints as $waypoint)
       $wapointsArray[]= $waypoint->name;
    $lieux=Lieu::whereIn('ville',$wapointsArray)->get();
+    }
+    else
+      $lieux= null;
+    
    // dd($lieux);
     if($trajet)
       $status='ok';
+    
     else
       $status='not found';
        //dd($trajet);
+    if($user)
+    {
+      if($save)
+      $v=Voyage::create([
+           
+      'user_id'=>$user->id
+                
+        ]);
+    }
     return redirect('/')->with('trajet',$trajet)->with('status',$status)->with('lieux',$lieux);
  
     
@@ -164,6 +185,7 @@ class UserController extends Controller
     else
       $status='not found';
        //dd($trajet);
+      
     return redirect('/admin')->with('trajet',$trajet)->with('status',$status);
  
     
@@ -180,7 +202,6 @@ class UserController extends Controller
               $lieu= Lieu::create([
             'nom' => $request->get('nom'),
             'type' => $request->get('type'),
-                'ville' =>$request->get('ville'),
             'addresse' =>$request->get('addresse'),
             'latitude'=>$request->get('latitude'),
              'langitude'=>$request->get('langtitude'),
@@ -204,7 +225,7 @@ class UserController extends Controller
     {
           
       $user=Auth::user();
-      //dd($user->id);
+    //  dd($user->id);
   
     
               $lieu= Lieu::create([
@@ -281,70 +302,30 @@ class UserController extends Controller
     }
   
   ////suggerer user simple  
-  public function ajoutermoyenadmin (Request $request){
-    //dd($request);
-    $de=$request->get('de');
-    $vers=$request->get('vers');
-    $waypoints=$request->get('points');
-    $moyen_transports=$request->get('type');
-    $moyen_transport=moyen_transport::create([
-            'de' => $de,
-            'vers' => $vers,
-            'type'=>$moyen_transports,
-            'confirm'=>1
-                
-        ]);
-    $i=1;
-    if($waypoints)
-    {
-          foreach($waypoints as $waypoint)
+    public function ajoutermoyenuser (Request $r){
+    $message='';
+    if (Auth::check())
     {
       
-      Waypoints::create([
-            'name' => $waypoint,
-            'order' => $i,
-            'trajet_id' => $trajet->id,
-            'confirm'=>1
-                
+              $user=Auth::user();
+   
+              $moyen_transports= moyen_transport::create([
+                  'type' => $r->get('type'),
+            'de' => $r->get('de'),
+            'vers' => $r->get('vers'),
+                  'user_id'=>$user->id,
+                 'confirm'=>0
         ]);
-      $i++;
-    }
+             if ($moyen_transports)
+        //dd($trajet);
+        $message='moyen transport suggéré avec suggès, l administrateur va le confirmer ';
+      else
+        $message='moyen transport  non suggeré';
+   
     }
 
-    return redirect('/ajoutermoyendetransport');
-  }
-    public function ajoutermoyenuser (Request $request){
-    //dd($request);
-    $de=$request->get('de');
-    $vers=$request->get('vers');
-    $waypoints=$request->get('points');
-    $moyen_transports=$request->get('type');
-    $moyen_transport=moyen_transport::create([
-            'de' => $de,
-            'vers' => $vers,
-            'type'=>$moyen_transports,
-            'confirm'=>1
-                
-        ]);
-    $i=1;
-    if($waypoints)
-    {
-          foreach($waypoints as $waypoint)
-    {
-      
-      Waypoints::create([
-            'name' => $waypoint,
-            'order' => $i,
-            'trajet_id' => $trajet->id,
-            'confirm'=>0
-                
-        ]);
-      $i++;
-    }
-    }
-
-    return redirect('/suggerermoyendetransport');
-  }
+     return redirect('/suggerermoyendetransport')->with('message', $message);
+ }  
  public function suggerlieu(Request $request){
        $message='';
     if (Auth::check())
@@ -365,9 +346,9 @@ class UserController extends Controller
                 
         ]);
       if ($lieu)
-        $message=' lieu suggéré avec suggès, l administrateur va le confirmer ';
+        $message=' lieu ajouter avec succès, l administrateur va le confirmer ';
       else 
-        $message='lieu non suggeré';
+        $message='désolé le lieu n est pas ajouter';
       
     }
 
