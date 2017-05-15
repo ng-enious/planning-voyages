@@ -58,8 +58,8 @@
 								<div class="clearfix"> </div>	
 		    				</div>
 						</li>
-						<li><a href="pagination" class="scroll"> <img src="{{ url('images/usr.png') }}" >Liste des utilisateurs</a></li>						
-						<li style="width:300px"><a  class="scroll"><img src="{{ url('images/sugg.png') }}"  >Liste des suggestions</a>
+						<li><a href="pagination" class="scroll"> <img src="{{ url('images/usr.png') }}" >Utilisateurs</a></li>						
+						<li style="width:170px"><a  class="scroll"><img src="{{ url('images/sugg.png') }}"  >Suggestions</a>
 									<div class="megapanel">
 								<div class="na-left">
 									<ul class="grid-img-list">
@@ -71,7 +71,7 @@
 								</div>
 								<div class="na-right">
 									<li class="reg"></li>
-						<li><a href="shop.html" class="scroll"><img src="{{ url('images/av.png') }}">Avis des utilisateurs</a></li>
+						<li><a href="shop.html" class="scroll"><img src="{{ url('images/av.png') }}">Avis</a></li>
 									@endif
 						<div class="clearfix"></div>
 						</ul>
@@ -113,75 +113,38 @@
 			
 		</div>
 	</div>
+	
 <div id="right-panel" >
   <div>
-    <form method="post" action="{{ url('/get_trajetadmin') }}">
+    <form method="post" action="{{ url('/get_trajet') }}">
       	 {{ csrf_field() }}
-   <b>depart:</b>
- 	<select id="start" name='start' style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>
+      <b>depart :</b>
+			  	<select id="start1" name='start' style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>
   <option value="Tunis">Tunis</option>
   <option value="gabes">gabes</option>
-  <option value="bizerte">bizerte</option>
-	<option value="kairouan">kairouan</option>
-	<option value="Sidi Bouzid">Sidi Bouzid</option>
-  <option value="ben guerdan">ben guerdan</option>
-	<option value="zarzis">zarzis</option>
-	<option value="tataouine">tataouine</option>
-	<option value="medenine">medenine</option>
-	<option value="sfax">sfax</option>
-	<option value="kasserine">kasserine</option>
-	<option value="el kef">el kef</option>
-	<option value="gafsa">gafsa</option>
-	<option value="tozeur">tozeur</option>
-	<option value="Ariana">Ariana</option>
-	<option value="Nabeul">Nabeul</option>
-	<option value="Mahdia">Mahdia</option>
-	<option value="Manouba">Manouba</option>
-	<option value="Zaghouan">Zaghouan</option>
-	<option value="Siliana">Siliana</option>
-	<option value="Béja">Béja</option>
-	<option value="Ben Arous">Ben Arous</option>
   <option value="Monastir">Monastir</option>
 	<option value="soussa">soussa</option>
 </select>
 				
-<input  type="text"placeholder="ajouter ville" id="option1" ></input>
+<input  type="text" placeholder="ajouter ville" id="option1" ></input>
 		<br>
 		<button type="button" onclick="myFunction1()">ajouter ville</button>
 		<br>
-      <b>Arriver:</b>
-	<select id="end" name='end' style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>	
-  <option value="Tunis">Tunis</option>
-  <option value="gabes">gabes</option>
-  <option value="bizerte">bizerte</option>
-	<option value="kairouan">kairouan</option>
-	<option value="Sidi Bouzid">Sidi Bouzid</option>
-  <option value="ben guerdan">ben guerdan</option>
-	<option value="zarzis">zarzis</option>
-	<option value="tataouine">tataouine</option>
-	<option value="medenine">medenine</option>
-	<option value="sfax">sfax</option>
-	<option value="kasserine">kasserine</option>
-	<option value="el kef">el kef</option>
-	<option value="gafsa">gafsa</option>
-	<option value="tozeur">tozeur</option>
-	<option value="Ariana">Ariana</option>
-	<option value="Nabeul">Nabeul</option>
-	<option value="Mahdia">Mahdia</option>
-	<option value="Manouba">Manouba</option>
-	<option value="Zaghouan">Zaghouan</option>
-	<option value="Siliana">Siliana</option>
-	<option value="Béja">Béja</option>
-	<option value="Ben Arous">Ben Arous</option>
-  <option value="Monastir">Monastir</option>
-	<option value="soussa">soussa</option>
+      <b>arriver :</b>
+	<select id="end1" name='end' style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>		
+   <option value="tataouine">tatouine</option>
+  <option value="beja">beja</option>
+  <option value="Hammamet">Hammamet</option>
+  <option value="kasserine">kasserine</option>
+		<option value="ben geurdane">ben geurdane</option>
 </select>
-<input  type="text" placeholder="ajouter ville"id="option1" ></input>
+<input  type="text"  placeholder="ajouter ville" id="option3" ></input>
 	<br>
-		<button type="button" onclick="myFunction1()">ajouter ville</button>
+		<button type="button" onclick="myFunction3()">ajouter ville</button>
+		<br>
       <br>
       <b>Moyen:</b>
-	<select id="moyen" name='moyen' style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>
+		<select id="moyen" name='moyen' style="background-color:#FFFFFF;border-color:#5e8af9;border-radius:5px;" onclick='style="background-color:#FFFFFF;border-color:#5e8af9;"'>
   <option value="bus">bus</option>
   <option value="train">train</option>
   <option value="metro">metro</option>
@@ -190,6 +153,16 @@
 		<option value="voiture">voiture</option>
 
 </select>
+	@if (Auth::check())
+	<br>
+	<br>
+		<label>
+  <input type="checkbox" id="cbox1" value="1" name="save"> 
+  Enregistrer
+
+</label>
+				<br> 
+				 @endif
       <input type="submit" value="recherche">
       
     </form>
@@ -201,16 +174,16 @@
 	
 <b>Start:</b>
 <select id="start" name='start'>
-  <option value="Tunis">Tunis</option>
-  <option value="Boston, MA">Boston, MA</option>
-  <option value="New York, NY">New York, NY</option>
-  <option value="Miami, FL">Miami, FL</option>
+  @if(session()->has('trajet'))
+ 
+  <option value="{{session('trajet')->depart}}" selected>{{session('trajet')->depart}}</option>
+
+	@endif
 </select>
 		<button type="button" onclick="myFunction1()">Insert option</button>
 <input  type="text" id="option1" >option</input>
 <br>
-<b>Waypoints:</b> <br>
-
+<b>Waypoints:</b> <br> <br>
 <select multiple id="waypoints" name='points[]'>
   
   @if(session()->has('trajet'))
@@ -223,12 +196,12 @@
 <input  type="text" id="option2" >option</input>
 <br>
 <b>End:</b>
-<input id="end" name='end' type="text">
-  <option value="tataouine">tatouine</option>
-  <option value="Seattle, WA">Seattle, WA</option>
-  <option value="San Francisco, CA">San Francisco, CA</option>
-  <option value="Los Angeles, CA">Los Angeles, CA</option>
-   <option value="gabes">gabes</option>
+<select id="end" name='end' >
+  @if(session()->has('trajet'))
+ 
+  <option value="{{session('trajet')->arrive}}" selected>{{session('trajet')->arrive}}</option>
+
+	@endif
 </select>
 		<button type="button" onclick="myFunction3()">Insert option</button>
 <input  type="text" id="option3" >option</input>
@@ -248,21 +221,30 @@
 
 </div>
 <div id="directions-panel" style=" visibility: hidden"></div>
+
+				 @if (Auth::check())
+<a href="{{ url('/donneavis') }}">
+	<button type="button" >Donner Avis</button> <br>
+</a>
+
+				 @endif
 </div>
+
 <div id="map" style="float:left;width:70%; height:80%"></div>  
 <br/>
 	</div>
 
-<div class="clearfix"></div>
+			<div class="clearfix"></div>
+
 	
 	
 			
 <!-- 404 -->
-	   <div class="footer" style="margin-top:300px">
+	  <div class="footer" style="margin-top:500px">
 		<div class="container">
        <div class="clearfix"></div>
 			<div class="footer-bottom">
-				<p>Planning Voyages</p>
+				<p>Planning Voyages</p> 
 			</div>
 		</div>
 				</div>
@@ -271,10 +253,8 @@
   var directionsService = new google.maps.DirectionsService();
   var map,geocoder, marker;
   var depart,arrivee,ptCheck;
-  
   /*initialise google MAP V3*/
-  function initMap() {
-
+  	function initMap() {
   var directionsService = new google.maps.DirectionsService;
   var directionsDisplay = new google.maps.DirectionsRenderer;
   var map = new google.maps.Map(document.getElementById('map'), {
@@ -283,35 +263,82 @@
   });
   directionsDisplay.setMap(map);
   //document.getElementById('view').addEventListener('click', function() 
+			  
+			//*********************/
     @if(session()->has('status'))
           @if(session('status') == 'ok'){
             calculateAndDisplayRoute(directionsService, directionsDisplay);
+						    //var locations = {{session('lieux')}} ;
+						var latitude = [@foreach(session('lieux') as $k => $lieu)
+   '{{ $lieu['latitude'] }}',
+@endforeach ];
+						var langitude = [@foreach(session('lieux') as $k => $lieu)
+   '{{ $lieu['langitude'] }}',
+@endforeach ];
+						var names = [@foreach(session('lieux') as $k => $lieu)
+   '{{ $lieu['nom'] }}',
+@endforeach ];
+												 						var addresses = [@foreach(session('lieux') as $k => $lieu)
+   '{{ $lieu['addresse'] }}',
+@endforeach ];
+			
+						console.log('lat',latitude);
+						console.log('lan',langitude);
+						console.log('name',names);
+						
+						
+// 						var locations = [
+//   ['stade', 35.82, 10.61, 'sousse']
+//   ];
+      var marker, i
+for (i =0,j =0,k=0,l=0; i < latitude.length, j < langitude.length,k<names.length, l<addresses.length;l++,k++, i++,j++)
+ {  
+ var loan = names[k]
+ var lat = latitude[i]
+ var long = langitude[j]
+ var add =  addresses[l]
+ latlngset = new google.maps.LatLng(lat, long);
+  var marker = new google.maps.Marker({  
+          map: map, title: loan , position: latlngset  
+        });
+        map.setCenter(marker.getPosition())
+        var content = "Name: " + loan +  '</h3>' + "Address: " + add     
+  var infowindow = new google.maps.InfoWindow()
+google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){ 
+        return function() {
+           infowindow.setContent(content);
+           infowindow.open(map,marker);
+        };
+    })(marker,content,infowindow)); 
+  }
   }
     @else
-      window.alert("not found");
+      window.alert(" trajet non trouvé");
   @endif
   @endif
 }
 		function myFunction1() {
-    var x = document.getElementById("start");
+    var x = document.getElementById("start1");
     var option = document.createElement("option");
     option.text = document.getElementById("option1").value;
     x.add(option);
 }
-	function myFunction2() {
+		function myFunction2() {
     var x = document.getElementById("waypoints");
     var option = document.createElement("option");
     option.text = document.getElementById("option2").value;
     x.add(option);
 }
 		function myFunction3() {
-    var x = document.getElementById("end");
+    var x = document.getElementById("end1");
     var option = document.createElement("option");
     option.text = document.getElementById("option3").value;
     x.add(option);
 }
-
-function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+		function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+				/******markers****/
+				
+			/*************************/
   var waypts =[]
   var checkboxArray = document.getElementById('waypoints');
   for (var i = 0; i < checkboxArray.length; i++) {
@@ -322,7 +349,6 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
       });
     }
   }
-
   directionsService.route({
     origin: document.getElementById('start').value,
     destination: document.getElementById('end').value,
@@ -352,7 +378,32 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     }
   });
 }
-
+		function setMarkers(map){
+  var locations = [
+  ['stade', 35.82, 10.61, 'sousse']
+  ];
+      var marker, i
+for (i = 0; i < locations.length; i++)
+ {  
+ var loan = locations[i][0]
+ var lat = locations[i][1]
+ var long = locations[i][2]
+ var add =  locations[i][3]
+ latlngset = new google.maps.LatLng(lat, long);
+  var marker = new google.maps.Marker({  
+          map: map, title: loan , position: latlngset  
+        });
+        map.setCenter(marker.getPosition())
+        var content = "Loan Number: " + loan +  '</h3>' + "Address: " + add     
+  var infowindow = new google.maps.InfoWindow()
+google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){ 
+        return function() {
+           infowindow.setContent(content);
+           infowindow.open(map,marker);
+        };
+    })(marker,content,infowindow)); 
+  }
+  }
 </script> 
 </body> 
 </html> 

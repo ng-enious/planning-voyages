@@ -115,7 +115,7 @@
 		</div>
 <div id="right-panel">
 <div>
-	<form method="post" action="{{ url('/ajoutertrajetuser') }}" >
+	<form method="post" action="{{ url('/ajoutertrajetadmin') }}" >
 
 		 {{ csrf_field() }}
 	
